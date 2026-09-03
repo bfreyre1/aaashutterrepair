@@ -73,16 +73,12 @@ export default function MotorizedShadeRepairPage() {
 
       <figure className="content-figure">
         <Image
-          src="/images/wood-shutters-detail.webp"
-          alt="Close-up of wooden louvered shutters and metal hinges on a sunlit wall"
-          width={1400}
-          height={1298}
-          sizes="(max-width: 800px) 100vw, 720px"
+          src="/images/house-shutters.jpg"
+          alt="Wood shutter panels ready for repair — the same on-site hardware work AAA does for motorized shades"
+          width={1067}
+          height={800}
+          sizes="(max-width: 800px) 100vw, 760px"
         />
-        <figcaption>
-          Royalty-free Unsplash photo of window hardware — not a client motor
-          install.
-        </figcaption>
       </figure>
 
       <section>

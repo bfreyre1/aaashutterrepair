@@ -73,15 +73,12 @@ export default function PlantationShutterRepairPage() {
 
       <figure className="content-figure">
         <Image
-          src="/images/white-window-shutters.webp"
-          alt="Tan louvered shutters on a cream stucco wall, showing hinges and slats"
-          width={1400}
-          height={2100}
-          sizes="(max-width: 800px) 100vw, 640px"
+          src="/images/hero-bedroom-shutters.jpg"
+          alt="White plantation shutters on a bedroom window — the on-site wood shutter work AAA Shutter Repair does in Los Angeles"
+          width={1000}
+          height={750}
+          sizes="(max-width: 800px) 100vw, 760px"
         />
-        <figcaption>
-          Royalty-free Unsplash photo of louvered shutters — not a client job.
-        </figcaption>
       </figure>
 
       <section>

@@ -59,6 +59,16 @@ export default function HomePage() {
 
       <div className="wrap">
         <section className="hero">
+          <figure className="hero__media">
+            <Image
+              src="/images/hero-bedroom-shutters.jpg"
+              alt="White plantation shutters on a bedroom window in a Los Angeles home"
+              width={1000}
+              height={750}
+              priority
+              sizes="(max-width: 860px) 100vw, 50vw"
+            />
+          </figure>
           <div className="hero__copy">
             <p className="eyebrow">San Fernando Valley · Greater Los Angeles</p>
             <h1>Plantation shutter repair in Los Angeles</h1>
@@ -73,19 +83,6 @@ export default function HomePage() {
               time.
             </p>
           </div>
-          <figure className="hero__media">
-            <Image
-              src="/images/plantation-shutters-window.webp"
-              alt="Close-up of a home window with exterior louvered shutters and interior wood blinds"
-              width={1600}
-              height={1067}
-              priority
-              sizes="(max-width: 860px) 100vw, 50vw"
-            />
-            <figcaption>
-              Royalty-free Unsplash photo — not a client project.
-            </figcaption>
-          </figure>
         </section>
 
         <section className="trust" aria-label="Why callers book AAA">

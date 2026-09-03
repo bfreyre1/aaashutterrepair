@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { PhoneLink } from "@/components/PhoneLink";
 import {
   CITY_LINKS,
@@ -13,7 +14,9 @@ export function Footer() {
     <footer className="site-footer">
       <div className="site-footer__grid">
         <div>
-          <p className="site-footer__name">{SITE_NAME}</p>
+          <Link href="/" className="site-footer__brand">
+            <Logo />
+          </Link>
           <p>
             On-site plantation wood shutter repair across the San Fernando
             Valley and greater Los Angeles. Blinds, shades, and Somfy /
@@ -69,8 +72,7 @@ export function Footer() {
       </div>
       <p className="site-footer__legal">
         © {new Date().getFullYear()} {SITE_NAME}. Sample marketing site — not
-        yet pointed at the live domain. Photos are royalty-free Unsplash window
-        and shutter images, not client projects or photos of real customers.
+        yet pointed at the live domain.
       </p>
     </footer>
   );

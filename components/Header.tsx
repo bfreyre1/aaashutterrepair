@@ -47,14 +47,16 @@ export function Header() {
           </div>
           <Link href="/about">About</Link>
           <Link href="/reviews">Reviews</Link>
-          <Link href="/get-a-quote" className="nav-desktop__quote">
-            Get a quote
-          </Link>
         </nav>
 
-        <PhoneLink placement="header-desktop" className="header-phone">
-          {PHONE_DISPLAY}
-        </PhoneLink>
+        <div className="header-actions">
+          <PhoneLink placement="header-desktop" className="header-phone">
+            {PHONE_DISPLAY}
+          </PhoneLink>
+          <Link href="/get-a-quote" className="btn btn-primary header-quote">
+            Get a Free Quote
+          </Link>
+        </div>
 
         <button
           type="button"
@@ -92,7 +94,7 @@ export function Header() {
           Reviews
         </Link>
         <Link href="/get-a-quote" onClick={close}>
-          Get a free estimate
+          Get a Free Quote
         </Link>
         <PhoneLink placement="header-mobile" className="btn btn-primary">
           Call {PHONE_DISPLAY}
