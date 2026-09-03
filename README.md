@@ -31,7 +31,7 @@ Node 20+ is expected (the Cloud Agent image used Node 22).
 | --- | --- |
 | Local SEO | Unique indexable routes, one H1 per page, unique title + meta description, `https` canonicals, `sitemap.xml`, `robots.txt`, internal links home → services → cities → quote, breadcrumbs |
 | Paid search | Real paths as final URLs (no hashes). Sticky mobile call bar. Call now / Get a free estimate CTAs. `generate_lead` on quote submit. `tel:` clicks tracked |
-| Trust | High-contrast local-trades layout, large tap targets, labeled royalty-free photos (not client or people photos) |
+| Trust | High-contrast local-trades layout, large tap targets, labeled royalty-free Unsplash photos plus a gallery of generated illustrative stills (not client or people photos of real customers) |
 
 ## Pages, keywords, and recommended Ads final URLs
 
@@ -51,7 +51,7 @@ Use these **https** paths as Google Ads final URLs. Do not point campaigns at ha
 | Santa Clarita / Valencia geo | `/shutter-repair-santa-clarita` | Shutter repair in Santa Clarita |
 | Lead form / sitelink | `/get-a-quote` | Get a free estimate |
 
-Supporting URLs (usually sitelinks or organic only): `/about`, `/reviews`, `/privacy`. Unknown paths render the branded 404. `/404` exists as a real route for leftover inbound links.
+Supporting URLs (usually sitelinks or organic only): `/about`, `/reviews`, `/gallery`, `/privacy`. Unknown paths render the branded 404. `/404` exists as a real route for leftover inbound links.
 
 Sitelink ideas: Get a free estimate, Plantation shutter repair, Blind and shade repair, Motorized / Somfy repair, plus the city that matches the campaign geo.
 
@@ -85,13 +85,21 @@ There is **no GA4 `G-` ID** in this repo on purpose. Do not invent one.
 - `Service` JSON-LD on home, service, and city pages. `FAQPage` where there is a FAQ. `BreadcrumbList` on inner pages.
 - Canonicals are absolute `https` URLs from `NEXT_PUBLIC_SITE_URL`.
 - `app/sitemap.ts` → `/sitemap.xml`. `app/robots.ts` → `/robots.txt`.
-- One H1 per page. Images use `next/image` and descriptive alts. Photos are Unsplash, captioned as not client work.
+- One H1 per page. Images use `next/image` and descriptive alts. Hero/service photos are Unsplash, captioned as not client work. `/gallery` and the homepage gallery section use generated illustrative photos — **not client photos**. Every generated frame is captioned: “Generated illustrative photo — not a specific customer or job.” Faces are not named, not labeled as Alex, and not placed next to review quotes.
+
+## Generated gallery images
+
+`/public/images/gallery/` holds **generated illustrative photos**, not client photos and not copies of the live Duda / Shutterstock / Pexels frames. They are production-style stills of plantation shutter, blind, and shade repair in Los Angeles–looking interiors. Some frames include people. Every gallery caption on `/gallery` and the homepage section is:
+
+> Generated illustrative photo — not a specific customer or job.
+
+Do not present those faces as real customers, as Alex, or next to review quotes.
 
 ## Design and accessibility
 
 - Mobile-first, sticky **Call 818-392-8584** bar under the `md` breakpoint.
 - Primary CTAs: **Call now** / **Get a free estimate**.
-- Contrast-first navy / cream / copper palette, 44–48px tap targets, visible `:focus-visible` rings, labeled form fields, skip link.
+- Contrast-first palette mapped from the live Duda site (`#414345` body text, `#bb2029` / `#e51723` brand red, `#f2f2f2` cream, Raleway + Montserrat). Official AAA logo from the live CDN is saved at `/public/aaa-shutter-repair-logo.svg` (fill `#bb2029`). 44–48px tap targets, visible `:focus-visible` rings, labeled form fields, skip link.
 
 ## Deploy on Vercel
 

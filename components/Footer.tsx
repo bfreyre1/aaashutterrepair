@@ -62,6 +62,9 @@ export function Footer() {
               <Link href="/reviews">Reviews</Link>
             </li>
             <li>
+              <Link href="/gallery">Gallery</Link>
+            </li>
+            <li>
               <Link href="/privacy">Privacy</Link>
             </li>
           </ul>
@@ -69,8 +72,9 @@ export function Footer() {
       </div>
       <p className="site-footer__legal">
         © {new Date().getFullYear()} {SITE_NAME}. Sample marketing site — not
-        yet pointed at the live domain. Photos are royalty-free Unsplash window
-        and shutter images, not client projects or photos of real customers.
+        yet pointed at the live domain. Hero and service photos are royalty-free
+        Unsplash window images. The gallery uses generated illustrative photos
+        — not client projects or photos of real customers.
       </p>
     </footer>
   );
