@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { Montserrat, Raleway } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -9,15 +9,15 @@ import { businessJsonLd } from "@/lib/schema";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const sans = Source_Sans_3({
+const sans = Raleway({
   subsets: ["latin"],
   variable: "--font-sans-loaded",
   display: "swap",
 });
 
-const serif = Source_Serif_4({
+const heading = Montserrat({
   subsets: ["latin"],
-  variable: "--font-serif-loaded",
+  variable: "--font-heading-loaded",
   display: "swap",
 });
 
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="en" className={`${sans.variable} ${heading.variable}`}>
       <body>
         <Analytics />
         <JsonLd data={businessJsonLd()} />

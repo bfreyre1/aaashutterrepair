@@ -1,25 +1,31 @@
 @import "tailwindcss";
 
+/* Live Duda tokens from https://www.aaashutterrepair.com/ :root
+   --color_1 #000000, --color_2 #bb2029, --color_3 #d0636a,
+   --color_4 #f2f2f2, --color_5 #414345, --color_6 #ffffff,
+   --color_7 #939393, --color_8 #939394, --color_9 #d5bcbc,
+   --color_10 #e51723. Also seen: #68ccd1 (teal), #f5f5f5.
+   --navy maps to body text #414345. Brand red replaces copper. */
 :root {
-  --navy: #1a3040;
-  --navy-dark: #12232f;
-  --cream: #f4efe6;
-  --cream-dark: #e8e0d2;
-  --paper: #fffdf8;
-  --ink: #1c1917;
-  --muted: #4b433b;
-  --line: #d4cbbd;
-  --copper: #b4532a;
-  --copper-dark: #8b3c1c;
-  --focus: #0f5c56;
-  --error: #9f1239;
-  --header-h: 4.25rem;
+  --navy: #414345;
+  --navy-dark: #000000;
+  --cream: #f2f2f2;
+  --cream-dark: #d5bcbc;
+  --paper: #ffffff;
+  --ink: #000000;
+  --muted: #414345;
+  --line: #d5bcbc;
+  --copper: #bb2029;
+  --copper-dark: #e51723;
+  --focus: #e51723;
+  --error: #e51723;
+  --header-h: 7.25rem;
   --sticky-h: 3.75rem;
 }
 
 @theme inline {
   --font-sans: var(--font-sans-loaded);
-  --font-serif: var(--font-serif-loaded);
+  --font-serif: var(--font-heading-loaded);
   --color-navy: var(--navy);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
@@ -38,7 +44,7 @@ html,
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-sans-loaded), "Source Sans 3", sans-serif;
+  font-family: var(--font-sans-loaded), Raleway, sans-serif;
   line-height: 1.6;
 }
 
@@ -98,7 +104,7 @@ h1,
 h2,
 h3,
 .logo__name {
-  font-family: var(--font-serif-loaded), "Source Serif 4", Georgia, serif;
+  font-family: var(--font-heading-loaded), Montserrat, sans-serif;
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--navy-dark);
@@ -131,6 +137,18 @@ li {
   color: var(--navy);
 }
 
+.logo__img {
+  width: 148px;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 960px) {
+  .logo__img {
+    width: 180px;
+  }
+}
+
 .logo__text {
   display: flex;
   flex-direction: column;
@@ -151,7 +169,7 @@ li {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(255, 253, 248, 0.96);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(8px);
 }
@@ -214,7 +232,7 @@ li {
   border: 1px solid var(--line);
   border-radius: 0.5rem;
   padding: 0.45rem;
-  box-shadow: 0 10px 30px rgba(18, 35, 47, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   list-style: none;
   margin: 0;
   z-index: 20;
@@ -317,7 +335,7 @@ li {
   justify-content: center;
   min-height: 48px;
   width: 100%;
-  background: var(--copper);
+  background: var(--copper-dark);
   color: white;
   font-weight: 800;
   font-size: 1.1rem;
@@ -326,7 +344,7 @@ li {
 }
 
 .sticky-call__btn:hover {
-  background: var(--copper-dark);
+  background: var(--copper);
   color: white;
 }
 
@@ -349,12 +367,12 @@ li {
 }
 
 .btn-primary {
-  background: var(--copper);
+  background: var(--copper-dark);
   color: white;
 }
 
 .btn-primary:hover {
-  background: var(--copper-dark);
+  background: var(--copper);
   color: white;
 }
 
@@ -437,23 +455,23 @@ li {
 
 .hero__copy {
   background: var(--navy);
-  color: #f8f4ec;
+  color: #ffffff;
   padding: 1.5rem 1.25rem;
   border-radius: 0.75rem;
 }
 
 .hero__copy h1,
 .hero__copy .logo__name {
-  color: #fff8ee;
+  color: #ffffff;
 }
 
 .hero__copy .lede,
 .hero__copy p {
-  color: #e7dfd2;
+  color: #f2f2f2;
 }
 
 .hero__copy .eyebrow {
-  color: #f3c6a8;
+  color: #d0636a;
 }
 
 .hero__media {
@@ -541,7 +559,7 @@ li {
 .card:hover,
 .city-card:hover {
   border-color: var(--navy);
-  box-shadow: 0 8px 20px rgba(18, 35, 47, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .card h2,
@@ -605,19 +623,19 @@ li {
 
 .split-cta {
   background: var(--navy);
-  color: #f6efe4;
+  color: #ffffff;
   border-radius: 0.75rem;
   padding: 1.5rem 1.25rem;
   margin: 2rem 0;
 }
 
 .split-cta h2 {
-  color: #fff8ee;
+  color: #ffffff;
   margin-top: 0;
 }
 
 .split-cta p {
-  color: #e7dfd2;
+  color: #f2f2f2;
 }
 
 .quote-layout {
@@ -634,19 +652,19 @@ li {
 
 .phone-panel {
   background: var(--navy);
-  color: #f6efe4;
+  color: #ffffff;
   border-radius: 0.75rem;
   padding: 1.4rem 1.2rem;
 }
 
 .phone-panel h2 {
-  color: #fff8ee;
+  color: #ffffff;
   margin-top: 0;
 }
 
 .phone-panel p,
 .phone-panel li {
-  color: #e7dfd2;
+  color: #f2f2f2;
 }
 
 .phone-panel .btn-primary {
@@ -677,7 +695,7 @@ li {
 .field textarea {
   width: 100%;
   min-height: 48px;
-  border: 1.5px solid #8a8176;
+  border: 1.5px solid #414345;
   border-radius: 0.4rem;
   padding: 0.55rem 0.7rem;
   font: inherit;
@@ -730,7 +748,7 @@ li {
 
 .site-footer {
   background: var(--navy-dark);
-  color: #e8dfd2;
+  color: #f2f2f2;
   padding: 2.25rem 1rem 5.5rem;
 }
 
@@ -741,7 +759,7 @@ li {
 }
 
 .site-footer a {
-  color: #f3d2b8;
+  color: #d0636a;
 }
 
 .site-footer a:hover {
@@ -781,7 +799,7 @@ li {
 .site-footer__nap,
 .site-footer__legal {
   font-size: 0.88rem;
-  color: #c9beaf;
+  color: #d5bcbc;
 }
 
 .site-footer__legal {
@@ -802,4 +820,53 @@ li {
   background: var(--cream);
   border-radius: 0.5rem;
   padding: 0.9rem 1rem;
+}
+
+.gallery-grid {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.15rem;
+}
+
+@media (min-width: 700px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .gallery-grid--full,
+  .gallery-grid--tease {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery-card {
+  margin: 0;
+}
+
+.gallery-card figure {
+  margin: 0;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  overflow: hidden;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-card figcaption {
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding: 0.55rem 0.75rem 0.7rem;
+}
+
+.gallery-tease {
+  margin: 2rem 0;
 }

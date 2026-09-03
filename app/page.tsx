@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
+import { GalleryGrid } from "@/components/GalleryGrid";
 import { JsonLd } from "@/components/JsonLd";
+import { HOME_GALLERY_IMAGES } from "@/lib/gallery";
 import { serviceJsonLd } from "@/lib/schema";
 import { absoluteUrl, CITY_LINKS, PHONE_DISPLAY } from "@/lib/site";
 
@@ -154,6 +156,19 @@ export default function HomePage() {
               not the opening pitch.
             </li>
           </ol>
+        </section>
+
+        <section className="gallery-tease">
+          <h2>On-site work, illustrated</h2>
+          <p>
+            Generated production stills of typical shutter, blind, and shade
+            repair in Los Angeles interiors. They are not photos of a specific
+            customer or job, and they are not paired with reviews.
+          </p>
+          <GalleryGrid images={HOME_GALLERY_IMAGES} columns="tease" />
+          <p>
+            <Link href="/gallery">See the full illustrative gallery</Link>
+          </p>
         </section>
 
         <section>

@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/get-a-quote", changeFrequency: "monthly", priority: 0.8 },
     { path: "/about", changeFrequency: "yearly", priority: 0.5 },
     { path: "/reviews", changeFrequency: "monthly", priority: 0.5 },
+    { path: "/gallery", changeFrequency: "monthly", priority: 0.5 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
   ];
 
