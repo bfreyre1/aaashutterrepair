@@ -12,7 +12,7 @@ const description =
   "On-site plantation shutter repair in Los Angeles and the San Fernando Valley. Staples, louvers, tilt rods, hinges, magnets, plus blinds and Somfy shades. Call 818-392-8584.";
 
 export const metadata: Metadata = {
-  title,
+  title: { absolute: `${title} | AAA Shutter Repair` },
   description,
   alternates: { canonical: absoluteUrl("/") },
   openGraph: {
