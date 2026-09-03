@@ -256,9 +256,9 @@ li {
 .header-phone {
   display: none;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--copper-dark);
   text-decoration: none;
-  border: 2px solid var(--navy);
+  border: 2px solid var(--copper);
   border-radius: 999px;
   padding: 0.45rem 0.85rem;
   min-height: 44px;
@@ -266,7 +266,7 @@ li {
 }
 
 .header-phone:hover {
-  background: var(--navy);
+  background: var(--copper);
   color: white;
 }
 
@@ -454,24 +454,29 @@ li {
 }
 
 .hero__copy {
-  background: var(--navy);
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--ink);
   padding: 1.5rem 1.25rem;
+  border: 1px solid var(--line);
   border-radius: 0.75rem;
 }
 
 .hero__copy h1,
 .hero__copy .logo__name {
-  color: #ffffff;
+  color: var(--ink);
 }
 
 .hero__copy .lede,
 .hero__copy p {
-  color: #f2f2f2;
+  color: var(--muted);
 }
 
 .hero__copy .eyebrow {
-  color: #d0636a;
+  color: var(--copper-dark);
+}
+
+.hero__copy strong {
+  color: var(--ink);
 }
 
 .hero__media {
@@ -515,15 +520,16 @@ li {
 }
 
 .trust div {
-  background: var(--cream);
+  background: #ffffff;
   border: 1px solid var(--line);
+  border-top: 4px solid var(--copper);
   border-radius: 0.55rem;
   padding: 0.9rem 1rem;
 }
 
 .trust strong {
   display: block;
-  color: var(--navy);
+  color: var(--copper-dark);
 }
 
 @media (min-width: 700px) {
