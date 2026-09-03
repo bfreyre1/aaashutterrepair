@@ -52,15 +52,12 @@ export function CityPage({ city }: { city: CityContent }) {
 
       <figure className="content-figure">
         <Image
-          src="/images/plantation-shutters-window.webp"
-          alt={`Window with shutters and interior blinds — typical of the ${city.name} jobs AAA Shutter Repair handles on site`}
-          width={1600}
-          height={1067}
+          src="/images/house-window.jpg"
+          alt={`House window with plantation-style shutters — the kind of on-site job AAA Shutter Repair handles in ${city.name}`}
+          width={1920}
+          height={2560}
           sizes="(max-width: 800px) 100vw, 760px"
         />
-        <figcaption>
-          Royalty-free photo of a shuttered window — not a client project.
-        </figcaption>
       </figure>
 
       {city.sections.map((section) => (

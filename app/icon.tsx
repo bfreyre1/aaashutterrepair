@@ -10,13 +10,14 @@ export default function Icon() {
         style={{
           width: 32,
           height: 32,
-          background: "#1a3040",
-          color: "#f4efe6",
+          background: "#8B1E1E",
+          color: "#FAF7F2",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 14,
+          fontSize: 11,
           fontWeight: 800,
+          letterSpacing: "-0.04em",
         }}
       >
         AAA

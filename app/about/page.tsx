@@ -36,15 +36,12 @@ export default function AboutPage() {
 
       <figure className="content-figure">
         <Image
-          src="/images/wood-shutters-detail.webp"
-          alt="Weathered wooden louvered shutters and metal hinges in sunlight"
-          width={1400}
-          height={1298}
-          sizes="(max-width: 800px) 100vw, 720px"
+          src="/images/house-shutters.jpg"
+          alt="Wood plantation shutter panels from AAA Shutter Repair's on-site work"
+          width={1067}
+          height={800}
+          sizes="(max-width: 800px) 100vw, 760px"
         />
-        <figcaption>
-          Royalty-free Unsplash photo — not a staff or customer portrait.
-        </figcaption>
       </figure>
 
       <section>

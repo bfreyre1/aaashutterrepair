@@ -31,7 +31,7 @@ Node 20+ is expected (the Cloud Agent image used Node 22).
 | --- | --- |
 | Local SEO | Unique indexable routes, one H1 per page, unique title + meta description, `https` canonicals, `sitemap.xml`, `robots.txt`, internal links home → services → cities → quote, breadcrumbs |
 | Paid search | Real paths as final URLs (no hashes). Sticky mobile call bar. Call now / Get a free estimate CTAs. `generate_lead` on quote submit. `tel:` clicks tracked |
-| Trust | High-contrast local-trades layout, large tap targets, labeled royalty-free photos (not client or people photos) |
+| Trust | Original red chevron logo, burgundy on cream, real house / shutter photos, large tap targets |
 
 ## Pages, keywords, and recommended Ads final URLs
 
@@ -85,13 +85,13 @@ There is **no GA4 `G-` ID** in this repo on purpose. Do not invent one.
 - `Service` JSON-LD on home, service, and city pages. `FAQPage` where there is a FAQ. `BreadcrumbList` on inner pages.
 - Canonicals are absolute `https` URLs from `NEXT_PUBLIC_SITE_URL`.
 - `app/sitemap.ts` → `/sitemap.xml`. `app/robots.ts` → `/robots.txt`.
-- One H1 per page. Images use `next/image` and descriptive alts. Photos are Unsplash, captioned as not client work.
+- One H1 per page. Images use `next/image` and descriptive alts. Photos are the company’s own house / shutter shots — no stock-photo disclaimers.
 
 ## Design and accessibility
 
 - Mobile-first, sticky **Call 818-392-8584** bar under the `md` breakpoint.
 - Primary CTAs: **Call now** / **Get a free estimate**.
-- Contrast-first navy / cream / copper palette, 44–48px tap targets, visible `:focus-visible` rings, labeled form fields, skip link.
+- Brand palette: burgundy `#8B1E1E` on cream `#FAF7F2`, navy only for small eyebrows. 44–48px tap targets, visible `:focus-visible` rings, labeled form fields, skip link.
 
 ## Deploy on Vercel
 

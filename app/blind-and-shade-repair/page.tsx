@@ -72,15 +72,12 @@ export default function BlindAndShadeRepairPage() {
 
       <figure className="content-figure">
         <Image
-          src="/images/plantation-shutters-window.webp"
-          alt="Interior wood blinds visible through a multi-pane window next to exterior shutters"
-          width={1600}
-          height={1067}
+          src="/images/house-window.jpg"
+          alt="Interior window with plantation-style shutters — typical of the Valley rooms AAA also repairs blinds and shades in"
+          width={1920}
+          height={2560}
           sizes="(max-width: 800px) 100vw, 760px"
         />
-        <figcaption>
-          Royalty-free photo showing interior blinds — not a customer home.
-        </figcaption>
       </figure>
 
       <section>
