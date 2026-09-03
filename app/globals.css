@@ -451,6 +451,7 @@ li {
   display: grid;
   gap: 1.5rem;
   padding: 1.5rem 0 2rem;
+  align-items: center;
 }
 
 .hero__copy {
@@ -483,7 +484,8 @@ li {
   margin: 0;
   border-radius: 0.75rem;
   overflow: hidden;
-  background: var(--cream-dark);
+  background: #ffffff;
+  line-height: 0;
 }
 
 .hero__media img,
@@ -504,7 +506,7 @@ li {
 @media (min-width: 860px) {
   .hero {
     grid-template-columns: 1.1fr 0.9fr;
-    align-items: stretch;
+    align-items: center;
     padding: 2rem 0 2.5rem;
   }
 
