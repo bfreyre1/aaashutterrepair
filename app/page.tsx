@@ -64,10 +64,10 @@ export default function HomePage() {
           <Image
             src="/images/hero-on-site-repair.jpg"
             alt="On-site plantation shutter repair in a Los Angeles home"
-            width={1168}
-            height={784}
+            fill
             priority
             sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "18% 50%" }}
           />
         </figure>
         <div className="hero__copy">
