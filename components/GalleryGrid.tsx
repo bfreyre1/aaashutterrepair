@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { GALLERY_CAPTION, type GalleryImage } from "@/lib/gallery";
+import type { GalleryImage } from "@/lib/gallery";
 
 type GalleryGridProps = {
   images: GalleryImage[];
@@ -17,13 +17,8 @@ export function GalleryGrid({ images, columns = "full" }: GalleryGridProps) {
               alt={image.alt}
               width={image.width}
               height={image.height}
-              sizes={
-                columns === "tease"
-                  ? "(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                  : "(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
-              }
+              sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
             />
-            <figcaption>{GALLERY_CAPTION}</figcaption>
           </figure>
         </li>
       ))}

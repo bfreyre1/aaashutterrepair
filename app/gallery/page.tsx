@@ -5,9 +5,9 @@ import { GalleryGrid } from "@/components/GalleryGrid";
 import { GALLERY_IMAGES } from "@/lib/gallery";
 import { absoluteUrl } from "@/lib/site";
 
-const title = "Illustrative Repair Gallery";
+const title = "Repair Gallery";
 const description =
-  "Generated illustrative photos of on-site plantation shutter, blind, and shade repair in Los Angeles interiors. Not photos of specific customers or jobs.";
+  "Shop photos of plantation shutters and windows from AAA Shutter Repair — on-site work in the San Fernando Valley and greater Los Angeles.";
 
 export const metadata: Metadata = {
   title,
@@ -25,21 +25,14 @@ export default function GalleryPage() {
     <article className="page page--wide">
       <Breadcrumbs items={[{ name: "Gallery", path: "/gallery" }]} />
       <header className="page-hero">
-        <p className="eyebrow">Illustrative stills · Not client photos</p>
-        <h1>Illustrative repair gallery</h1>
+        <p className="eyebrow">San Fernando Valley · Greater Los Angeles</p>
+        <h1>Repair gallery</h1>
         <p className="lede">
-          Generated production stills of typical plantation shutter, blind, and
-          shade work in Los Angeles–looking interiors. They are not photos of a
-          specific customer, technician, or job.
+          Shop photos of plantation shutters and windows — the on-site work we
+          do in Los Angeles rooms.
         </p>
         <CtaButtons placement="gallery-hero" />
       </header>
-
-      <p className="prose-note">
-        Every frame is a generated illustrative photo. Faces are not real
-        customers. These images are not paired with reviews, names, or star
-        ratings.
-      </p>
 
       <GalleryGrid images={GALLERY_IMAGES} columns="full" />
     </article>

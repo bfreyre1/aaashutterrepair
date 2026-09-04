@@ -31,7 +31,7 @@ Node 20+ is expected (the Cloud Agent image used Node 22).
 | --- | --- |
 | Local SEO | Unique indexable routes, one H1 per page, unique title + meta description, `https` canonicals, `sitemap.xml`, `robots.txt`, internal links home → services → cities → quote, breadcrumbs |
 | Paid search | Real paths as final URLs (no hashes). Sticky mobile call bar. Call now / Get a free estimate CTAs. `generate_lead` on quote submit. `tel:` clicks tracked |
-| Trust | High-contrast local-trades layout, large tap targets, labeled royalty-free Unsplash photos plus a gallery of generated illustrative stills (not client or people photos of real customers) |
+| Trust | Live red chevron logo, real shop photos in the hero and gallery, large tap targets, sticky mobile call bar |
 
 ## Pages, keywords, and recommended Ads final URLs
 
@@ -85,15 +85,11 @@ There is **no GA4 `G-` ID** in this repo on purpose. Do not invent one.
 - `Service` JSON-LD on home, service, and city pages. `FAQPage` where there is a FAQ. `BreadcrumbList` on inner pages.
 - Canonicals are absolute `https` URLs from `NEXT_PUBLIC_SITE_URL`.
 - `app/sitemap.ts` → `/sitemap.xml`. `app/robots.ts` → `/robots.txt`.
-- One H1 per page. Images use `next/image` and descriptive alts. Hero/service photos are Unsplash, captioned as not client work. `/gallery` and the homepage gallery section use generated illustrative photos — **not client photos**. Every generated frame is captioned: “Generated illustrative photo — not a specific customer or job.” Faces are not named, not labeled as Alex, and not placed next to review quotes.
+- One H1 per page. Images use `next/image` and descriptive alts. The homepage hero and `/gallery` use the shop’s own bedroom / shutter / window photos. No stock-photo disclaimers.
 
-## Generated gallery images
+## Shop photos
 
-`/public/images/gallery/` holds **generated illustrative photos**, not client photos and not copies of the live Duda / Shutterstock / Pexels frames. They are production-style stills of plantation shutter, blind, and shade repair in Los Angeles–looking interiors. Some frames include people. Every gallery caption on `/gallery` and the homepage section is:
-
-> Generated illustrative photo — not a specific customer or job.
-
-Do not present those faces as real customers, as Alex, or next to review quotes.
+`/public/images/gallery/` holds the live-site shop photos (bedroom shutters, wood panels, house window). Do not add generated people frames or “not a client project” captions.
 
 ## Design and accessibility
 
