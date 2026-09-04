@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element --
+   Homepage hero and job strip must use the same static JPEG src on
+   desktop and mobile. next/image srcset was leaving the beige box. */
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
@@ -48,6 +50,7 @@ const homeFaq = [
 export default function HomePage() {
   return (
     <>
+      <link rel="preload" as="image" href="/images/hero-on-site-repair.jpg" />
       <JsonLd
         data={serviceJsonLd({
           name: "Plantation shutter repair in Los Angeles",
@@ -59,13 +62,14 @@ export default function HomePage() {
 
       <section className="hero">
         <figure className="hero__media">
-          <Image
+          <img
+            className="hero__photo"
             src="/images/hero-on-site-repair.jpg"
             alt="On-site plantation shutter repair in a Los Angeles home"
             width={1168}
             height={784}
-            priority
-            sizes="(min-width: 860px) 60vw, 100vw"
+            fetchPriority="high"
+            decoding="async"
           />
         </figure>
         <div className="hero__copy">
@@ -110,32 +114,29 @@ export default function HomePage() {
           <h2>Recent on-site work</h2>
           <div className="job-strip__grid">
             <figure className="job-card">
-              <Image
+              <img
                 src="/images/gallery/bedroom-shutters.jpg"
                 alt="White plantation shutters on a bedroom window"
                 width={1000}
                 height={750}
-                sizes="(max-width: 700px) 100vw, 33vw"
               />
               <figcaption>Panel saved on site.</figcaption>
             </figure>
             <figure className="job-card">
-              <Image
+              <img
                 src="/images/gallery/house-shutters.jpg"
                 alt="Stacked white shutter panels"
                 width={1067}
                 height={800}
-                sizes="(max-width: 700px) 100vw, 33vw"
               />
               <figcaption>Matched slat.</figcaption>
             </figure>
             <figure className="job-card">
-              <Image
+              <img
                 src="/images/gallery/house-window.jpg"
                 alt="Finished interior shutters on a house window"
                 width={1920}
                 height={2560}
-                sizes="(max-width: 700px) 100vw, 33vw"
               />
               <figcaption>Finished room.</figcaption>
             </figure>
