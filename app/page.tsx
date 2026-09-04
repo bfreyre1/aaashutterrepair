@@ -59,34 +59,38 @@ export default function HomePage() {
         })}
       />
 
-      <div className="wrap">
-        <section className="hero">
-          <figure className="hero__media">
-            <Image
-              src="/images/hero-bedroom-shutters.jpg"
-              alt="White plantation shutters on a bedroom window in a Los Angeles home"
-              width={1000}
-              height={750}
-              priority
-              sizes="(max-width: 860px) 100vw, 50vw"
-            />
-          </figure>
-          <div className="hero__copy">
-            <p className="eyebrow">San Fernando Valley · Greater Los Angeles</p>
-            <h1>Plantation shutter repair in Los Angeles</h1>
-            <p className="lede">
-              On-site wood shutter repair — the job other companies try to turn
-              into a full replacement. Staples, louvers, tilt rods, hinges,
-              magnets, and side pins. Blinds, shades, and Somfy motors too.
-            </p>
-            <CtaButtons placement="home-hero" />
-            <p>
-              Or call <strong>{PHONE_DISPLAY}</strong> — we text back to set a
-              time.
-            </p>
-          </div>
-        </section>
+      <section className="hero">
+        <figure className="hero__media">
+          <Image
+            src="/images/hero-on-site-repair.jpg"
+            alt="On-site plantation shutter repair in a Los Angeles home"
+            width={1168}
+            height={784}
+            priority
+            sizes="100vw"
+          />
+        </figure>
+        <div className="hero__copy">
+          <p className="eyebrow">San Fernando Valley · Greater Los Angeles</p>
+          <h1>Plantation shutter repair in Los Angeles</h1>
+          <p className="hero__human">
+            Your local experts in restoring the beauty, security, and function
+            of the shutters you already own.
+          </p>
+          <p className="lede">
+            On-site wood shutter repair — the job other companies try to turn
+            into a full replacement. Staples, louvers, tilt rods, hinges,
+            magnets, and side pins. Blinds, shades, and Somfy motors too.
+          </p>
+          <CtaButtons placement="home-hero" />
+          <p>
+            Or call <strong>{PHONE_DISPLAY}</strong> — we text back to set a
+            time.
+          </p>
+        </div>
+      </section>
 
+      <div className="wrap">
         <section className="trust" aria-label="Why callers book AAA">
           <div>
             <strong>On-site about 90% of the time</strong>
