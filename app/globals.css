@@ -518,7 +518,6 @@ li {
   aspect-ratio: 1168 / 784;
 }
 
-.hero__media img,
 .content-figure img,
 .card-media img {
   width: 100%;
@@ -526,11 +525,18 @@ li {
   display: block;
 }
 
+.hero__media > span {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .hero__media img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: left center;
+  object-position: 20% 50%;
 }
 
 .hero__media figcaption,
@@ -543,30 +549,75 @@ li {
 @media (min-width: 860px) {
   .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.45fr) minmax(22rem, 0.9fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(22rem, 1fr);
     align-items: stretch;
     padding: 0;
-    min-height: clamp(30rem, 46vw, 38rem);
   }
 
   .hero__media {
-    position: relative;
     border-radius: 0;
-    aspect-ratio: auto;
     height: 100%;
-    min-height: 30rem;
+    min-height: 100%;
   }
 
   .hero__media img {
-    object-position: 12% 50%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-position: 18% 50%;
   }
 
   .hero__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: auto;
-    max-width: 28rem;
-    margin: auto 2.25rem auto 1.25rem;
-    padding: 1.75rem 1.5rem;
+    max-width: none;
+    margin: 0;
+    padding: 2rem 2.25rem;
+    border-radius: 0;
+    border: 0;
   }
+}
+
+.job-strip {
+  margin: 0 0 2.25rem;
+}
+
+.job-strip h2 {
+  margin-top: 0;
+}
+
+.job-strip__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .job-strip__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.job-card {
+  margin: 0;
+}
+
+.job-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.65rem;
+  display: block;
+  background: #e8e0d8;
+}
+
+.job-card figcaption {
+  margin: 0.55rem 0 0;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .trust {

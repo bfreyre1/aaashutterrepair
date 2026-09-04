@@ -3,9 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
-import { GalleryGrid } from "@/components/GalleryGrid";
 import { JsonLd } from "@/components/JsonLd";
-import { HOME_GALLERY_IMAGES } from "@/lib/gallery";
 import { serviceJsonLd } from "@/lib/schema";
 import { absoluteUrl, CITY_LINKS, PHONE_DISPLAY } from "@/lib/site";
 
@@ -64,10 +62,10 @@ export default function HomePage() {
           <Image
             src="/images/hero-on-site-repair.jpg"
             alt="On-site plantation shutter repair in a Los Angeles home"
-            fill
+            width={1168}
+            height={784}
             priority
-            sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "18% 50%" }}
+            sizes="(min-width: 860px) 60vw, 100vw"
           />
         </figure>
         <div className="hero__copy">
@@ -106,6 +104,45 @@ export default function HomePage() {
             Derived from a family business founded in 2005. Valley-based,
             greater Los Angeles service area.
           </div>
+        </section>
+
+        <section className="job-strip" aria-label="Recent on-site work">
+          <h2>Recent on-site work</h2>
+          <div className="job-strip__grid">
+            <figure className="job-card">
+              <Image
+                src="/images/gallery/bedroom-shutters.jpg"
+                alt="White plantation shutters on a bedroom window"
+                width={1000}
+                height={750}
+                sizes="(max-width: 700px) 100vw, 33vw"
+              />
+              <figcaption>Panel saved on site.</figcaption>
+            </figure>
+            <figure className="job-card">
+              <Image
+                src="/images/gallery/house-shutters.jpg"
+                alt="Stacked white shutter panels"
+                width={1067}
+                height={800}
+                sizes="(max-width: 700px) 100vw, 33vw"
+              />
+              <figcaption>Matched slat.</figcaption>
+            </figure>
+            <figure className="job-card">
+              <Image
+                src="/images/gallery/house-window.jpg"
+                alt="Finished interior shutters on a house window"
+                width={1920}
+                height={2560}
+                sizes="(max-width: 700px) 100vw, 33vw"
+              />
+              <figcaption>Finished room.</figcaption>
+            </figure>
+          </div>
+          <p>
+            <Link href="/gallery">See the gallery →</Link>
+          </p>
         </section>
 
         <section>
@@ -157,18 +194,6 @@ export default function HomePage() {
               not the opening pitch.
             </li>
           </ol>
-        </section>
-
-        <section className="gallery-tease">
-          <h2>On-site work</h2>
-          <p>
-            Shop photos of plantation shutters and windows — the rooms we
-            repair in the Valley.
-          </p>
-          <GalleryGrid images={HOME_GALLERY_IMAGES} columns="tease" />
-          <p>
-            <Link href="/gallery">See the gallery</Link>
-          </p>
         </section>
 
         <section>
