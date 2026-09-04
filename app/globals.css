@@ -527,8 +527,10 @@ li {
 }
 
 .hero__media img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: 18% 50%;
+  object-position: left center;
 }
 
 .hero__media figcaption,
@@ -540,31 +542,30 @@ li {
 
 @media (min-width: 860px) {
   .hero {
-    position: relative;
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(22rem, 0.9fr);
+    align-items: stretch;
     padding: 0;
-    min-height: clamp(32rem, 54vw, 40rem);
-    aspect-ratio: 1168 / 784;
-    max-height: 42rem;
+    min-height: clamp(30rem, 46vw, 38rem);
   }
 
   .hero__media {
-    position: absolute;
-    inset: 0;
+    position: relative;
     border-radius: 0;
     aspect-ratio: auto;
     height: 100%;
+    min-height: 30rem;
+  }
+
+  .hero__media img {
+    object-position: 12% 50%;
   }
 
   .hero__copy {
-    position: relative;
-    z-index: 1;
-    width: min(34%, 28rem);
-    margin: 0 4% 0 auto;
-    top: 50%;
-    transform: translateY(-50%);
+    width: auto;
+    max-width: 28rem;
+    margin: auto 2.25rem auto 1.25rem;
     padding: 1.75rem 1.5rem;
-    box-shadow: 0 12px 32px rgba(26, 26, 26, 0.12);
   }
 }
 
