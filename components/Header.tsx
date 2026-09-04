@@ -48,7 +48,7 @@ export function Header() {
           <Link href="/about">About</Link>
           <Link href="/reviews">Reviews</Link>
           <Link href="/gallery">Gallery</Link>
-          <Link href="/get-a-quote" className="nav-desktop__quote">
+          <Link href="/get-a-quote" className="btn btn-primary header-quote">
             Get a quote
           </Link>
         </nav>
@@ -95,8 +95,8 @@ export function Header() {
         <Link href="/gallery" onClick={close}>
           Gallery
         </Link>
-        <Link href="/get-a-quote" onClick={close}>
-          Get a free estimate
+        <Link href="/get-a-quote" className="btn btn-primary" onClick={close}>
+          Get a quote
         </Link>
         <PhoneLink placement="header-mobile" className="btn btn-primary">
           Call {PHONE_DISPLAY}

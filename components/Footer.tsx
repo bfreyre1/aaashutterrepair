@@ -72,9 +72,7 @@ export function Footer() {
       </div>
       <p className="site-footer__legal">
         © {new Date().getFullYear()} {SITE_NAME}. Sample marketing site — not
-        yet pointed at the live domain. Hero and service photos are royalty-free
-        Unsplash window images. The gallery uses generated illustrative photos
-        — not client projects or photos of real customers.
+        yet pointed at the live domain.
       </p>
     </footer>
   );

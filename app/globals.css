@@ -214,8 +214,12 @@ li {
   color: var(--copper);
 }
 
-.nav-desktop__quote {
-  color: var(--copper-dark) !important;
+.header-quote {
+  min-height: 44px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .nav-flyout {
@@ -496,6 +500,17 @@ li {
   display: block;
 }
 
+@media (min-width: 860px) {
+  .hero__media {
+    height: 100%;
+  }
+
+  .hero__media img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .hero__media figcaption,
 .content-figure figcaption {
   font-size: 0.82rem;
@@ -506,7 +521,7 @@ li {
 @media (min-width: 860px) {
   .hero {
     grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
+    align-items: stretch;
     padding: 2rem 0 2.5rem;
   }
 

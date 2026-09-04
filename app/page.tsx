@@ -156,15 +156,14 @@ export default function HomePage() {
         </section>
 
         <section className="gallery-tease">
-          <h2>On-site work, illustrated</h2>
+          <h2>On-site work</h2>
           <p>
-            Generated production stills of typical shutter, blind, and shade
-            repair in Los Angeles interiors. They are not photos of a specific
-            customer or job, and they are not paired with reviews.
+            Shop photos of plantation shutters and windows — the rooms we
+            repair in the Valley.
           </p>
           <GalleryGrid images={HOME_GALLERY_IMAGES} columns="tease" />
           <p>
-            <Link href="/gallery">See the full illustrative gallery</Link>
+            <Link href="/gallery">See the gallery</Link>
           </p>
         </section>
 
