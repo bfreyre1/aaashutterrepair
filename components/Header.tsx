@@ -48,14 +48,16 @@ export function Header() {
           <Link href="/about">About</Link>
           <Link href="/reviews">Reviews</Link>
           <Link href="/gallery">Gallery</Link>
+        </nav>
+
+        <div className="header-actions">
+          <PhoneLink placement="header-desktop" className="header-phone">
+            {PHONE_DISPLAY}
+          </PhoneLink>
           <Link href="/get-a-quote" className="btn btn-primary header-quote">
             Get a quote
           </Link>
-        </nav>
-
-        <PhoneLink placement="header-desktop" className="header-phone">
-          {PHONE_DISPLAY}
-        </PhoneLink>
+        </div>
 
         <button
           type="button"
