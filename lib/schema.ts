@@ -20,7 +20,7 @@ export function businessJsonLd() {
     url: SITE_URL,
     telephone: PHONE_TEL,
     email: EMAIL,
-    image: absoluteUrl("/images/hero-bedroom-shutters.jpg"),
+    image: absoluteUrl("/images/hero-on-site-repair.jpg"),
     description:
       "On-site plantation wood shutter repair across the San Fernando Valley and greater Los Angeles, plus blind, shade, and Somfy motorized shade repair.",
     areaServed: AREA_SERVED.map((name) => ({
