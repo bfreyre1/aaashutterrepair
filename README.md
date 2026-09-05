@@ -77,6 +77,7 @@ The quote form does **not** post to a CRM. After validation it shows a success s
 Search Console ownership on the Next site (leave Duda alone):
 
 - HTML meta: `google-site-verification=BXqZURwP605mm2TKu4z7y5BMi8rVgYvKq5RB9cJywV8` (same token as the live DNS TXT)
+- HTML meta: `google-site-verification=tBt86v_ONfyMJKCFZ1kPPC5UVPk99LSHJOI34NZAPPs` (info@ Search Console URL-prefix property)
 - HTML file: `/google53928a8ada018672.html`
 - DNS TXT on Tailor Brands / GoDaddy — do not delete it. That is the Domain-property path and survives the host change.
 

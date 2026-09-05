@@ -17,6 +17,10 @@ export const GA_MEASUREMENT_ID =
 export const GOOGLE_SITE_VERIFICATION =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ??
   "BXqZURwP605mm2TKu4z7y5BMi8rVgYvKq5RB9cJywV8";
+/** HTML-tag token for the info@ Search Console URL-prefix property. */
+export const GOOGLE_SITE_VERIFICATION_INFO =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION_INFO ??
+  "tBt86v_ONfyMJKCFZ1kPPC5UVPk99LSHJOI34NZAPPs";
 
 export const SERVICE_TYPES = [
   "Plantation shutter repair",
