@@ -70,14 +70,15 @@ Until those labels exist, the events still fire and can be used as custom conver
 
 The quote form does **not** post to a CRM. After validation it shows a success state (and offers a `mailto:` copy to `info@aaashutterrepair.com`). Copy on the page says follow-up is by **text** to schedule.
 
-## How to add GA4
+## Analytics and ownership
 
-There is **no GA4 `G-` ID** in this repo on purpose. Do not invent one.
+`components/Analytics.tsx` loads Google Ads **`AW-11547263826`** and GA4 **`G-Z405VVNDE8`** (property `AAA Shutter Repair`, stream on `https://www.aaashutterrepair.com`). Override with `NEXT_PUBLIC_AW_ID` / `NEXT_PUBLIC_GA_MEASUREMENT_ID` if those IDs change.
 
-1. Create a GA4 property in Google Analytics.
-2. Copy the measurement ID (`G-XXXXXXXXXX`).
-3. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in `.env.local` and in Vercel.
-4. Redeploy. `components/Analytics.tsx` will call `gtag('config', thatId)` only when the variable is non-empty.
+The root layout also emits the Search Console HTML backup tag:
+
+`google-site-verification=BXqZURwP605mm2TKu4z7y5BMi8rVgYvKq5RB9cJywV8`
+
+That is the same token as the live DNS TXT. Leave the TXT in place when pointing the domain at Vercel. Do not invent conversion labels — `NEXT_PUBLIC_AW_PHONE_LABEL` and `NEXT_PUBLIC_AW_LEAD_LABEL` stay empty until Ads provides them.
 
 ## SEO implementation notes
 
@@ -104,7 +105,8 @@ There is **no GA4 `G-` ID** in this repo on purpose. Do not invent one.
 3. Environment variables (Production):
    - `NEXT_PUBLIC_SITE_URL=https://www.aaashutterrepair.com` (or the Vercel URL until DNS is ready)
    - `NEXT_PUBLIC_AW_ID=AW-11547263826`
-   - Optional: `NEXT_PUBLIC_AW_PHONE_LABEL`, `NEXT_PUBLIC_AW_LEAD_LABEL`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`
+   - `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-Z405VVNDE8` (defaults in code if unset)
+   - Optional: `NEXT_PUBLIC_AW_PHONE_LABEL`, `NEXT_PUBLIC_AW_LEAD_LABEL`
 4. Deploy. Confirm `/sitemap.xml` and `/robots.txt`.
 5. When you are ready to replace the live Duda site, point the `aaashutterrepair.com` DNS to Vercel and keep the https canonicals. Until then, this remains a sample.
 
