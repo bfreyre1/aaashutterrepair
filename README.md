@@ -74,11 +74,13 @@ The quote form does **not** post to a CRM. After validation it shows a success s
 
 `components/Analytics.tsx` loads Google Ads **`AW-11547263826`** and GA4 **`G-Z405VVNDE8`** (property `AAA Shutter Repair`, stream on `https://www.aaashutterrepair.com`). Override with `NEXT_PUBLIC_AW_ID` / `NEXT_PUBLIC_GA_MEASUREMENT_ID` if those IDs change.
 
-The root layout also emits the Search Console HTML backup tag:
+Search Console ownership on the Next site (leave Duda alone):
 
-`google-site-verification=BXqZURwP605mm2TKu4z7y5BMi8rVgYvKq5RB9cJywV8`
+- HTML meta: `google-site-verification=BXqZURwP605mm2TKu4z7y5BMi8rVgYvKq5RB9cJywV8` (same token as the live DNS TXT)
+- HTML file: `/google53928a8ada018672.html`
+- DNS TXT on Tailor Brands / GoDaddy — do not delete it. That is the Domain-property path and survives the host change.
 
-That is the same token as the live DNS TXT. Leave the TXT in place when pointing the domain at Vercel. Do not invent conversion labels — `NEXT_PUBLIC_AW_PHONE_LABEL` and `NEXT_PUBLIC_AW_LEAD_LABEL` stay empty until Ads provides them.
+After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ryze GSC picker. Do not invent conversion labels — `NEXT_PUBLIC_AW_PHONE_LABEL` and `NEXT_PUBLIC_AW_LEAD_LABEL` stay empty until Ads provides them.
 
 ## SEO implementation notes
 
