@@ -49,12 +49,12 @@ export default function PrivacyPage() {
         <h2>Advertising and analytics cookies</h2>
         <p>
           Google Ads gtag (account {`AW-11547263826`} by default, overridable
-          with <code>NEXT_PUBLIC_AW_ID</code>) loads on every page so call
-          clicks and quote submits can be measured. A GA4 measurement ID is
-          not set on this sample. If you later add{" "}
-          <code>NEXT_PUBLIC_GA_MEASUREMENT_ID</code>, that tag will also load.
-          Google may set cookies for conversion measurement. See Google&apos;s
-          own policies for how those tags process data.
+          with <code>NEXT_PUBLIC_AW_ID</code>) and Google Analytics 4 (
+          {`G-Z405VVNDE8`}, overridable with{" "}
+          <code>NEXT_PUBLIC_GA_MEASUREMENT_ID</code>) load on every page so
+          call clicks, quote submits, and site traffic can be measured. Google
+          may set cookies for conversion and analytics measurement. See
+          Google&apos;s own policies for how those tags process data.
         </p>
       </section>
 

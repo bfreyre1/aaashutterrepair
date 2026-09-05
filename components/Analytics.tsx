@@ -4,7 +4,7 @@ import { AW_ID, GA_MEASUREMENT_ID } from "@/lib/site";
 export function Analytics() {
   const ga4Line = GA_MEASUREMENT_ID
     ? `gtag('config', '${GA_MEASUREMENT_ID}');`
-    : "/* GA4: set NEXT_PUBLIC_GA_MEASUREMENT_ID to a real G- ID when you have one. Do not invent one. */";
+    : "/* GA4 measurement ID missing */";
 
   return (
     <>

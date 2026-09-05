@@ -6,12 +6,17 @@ export const PHONE_DISPLAY = "818-392-8584";
 export const PHONE_TEL = "+18183928584";
 export const EMAIL = "info@aaashutterrepair.com";
 
-/** Google Ads account. Do not invent a GA4 G- ID. */
+/** Google Ads account. */
 export const AW_ID = process.env.NEXT_PUBLIC_AW_ID ?? "AW-11547263826";
 export const AW_PHONE_LABEL = process.env.NEXT_PUBLIC_AW_PHONE_LABEL ?? "";
 export const AW_LEAD_LABEL = process.env.NEXT_PUBLIC_AW_LEAD_LABEL ?? "";
-/** Optional. Leave unset — there is no GA4 property on this sample. */
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
+/** GA4 web stream on property AAA Shutter Repair (properties/544939257). */
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-Z405VVNDE8";
+/** Same token as the live DNS TXT. Backup if GSC ever checks HTML. */
+export const GOOGLE_SITE_VERIFICATION =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ??
+  "BXqZURwP605mm2TKu4z7y5BMi8rVgYvKq5RB9cJywV8";
 
 export const SERVICE_TYPES = [
   "Plantation shutter repair",

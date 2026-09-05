@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { StickyCallBar } from "@/components/StickyCallBar";
 import { businessJsonLd } from "@/lib/schema";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { GOOGLE_SITE_VERIFICATION, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const sans = Raleway({
@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  verification: {
+    google: GOOGLE_SITE_VERIFICATION,
   },
 };
 
