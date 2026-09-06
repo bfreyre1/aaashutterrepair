@@ -1,4 +1,6 @@
 import {
+  ADDRESS,
+  ADDRESS_STREET,
   absoluteUrl,
   AREA_SERVED,
   EMAIL,
@@ -7,6 +9,17 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/lib/site";
+
+function postalAddress() {
+  return {
+    "@type": "PostalAddress",
+    streetAddress: ADDRESS_STREET,
+    addressLocality: ADDRESS.city,
+    addressRegion: ADDRESS.region,
+    postalCode: ADDRESS.postal,
+    addressCountry: ADDRESS.country,
+  };
+}
 
 export type FaqItem = { question: string; answer: string };
 
@@ -20,6 +33,7 @@ export function businessJsonLd() {
     url: SITE_URL,
     telephone: PHONE_TEL,
     email: EMAIL,
+    address: postalAddress(),
     image: absoluteUrl("/images/hero-on-site-repair.jpg"),
     description:
       "On-site plantation wood shutter repair across the San Fernando Valley and greater Los Angeles, plus blind, shade, and Somfy motorized shade repair.",
@@ -61,6 +75,7 @@ export function serviceJsonLd(input: {
       name: SITE_NAME,
       telephone: PHONE_TEL,
       url: SITE_URL,
+      address: postalAddress(),
     },
     areaServed: AREA_SERVED.map((name) => ({
       "@type": name === "San Fernando Valley" ? "AdministrativeArea" : "City",

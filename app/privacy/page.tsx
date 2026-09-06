@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { EMAIL, PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
+import { ADDRESS_DISPLAY, EMAIL, PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
 
 const title = "Privacy Policy";
 const description =
@@ -28,8 +28,8 @@ export default function PrivacyPage() {
       <section>
         <h2>Who we are</h2>
         <p>
-          AAA Shutter Repair can be reached at {PHONE_DISPLAY} or {EMAIL}. This
-          website does not publish a street address.
+          AAA Shutter Repair can be reached at {PHONE_DISPLAY} or {EMAIL}. The
+          office is {ADDRESS_DISPLAY}.
         </p>
       </section>
 

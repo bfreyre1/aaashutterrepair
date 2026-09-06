@@ -1,4 +1,5 @@
 import type { FaqItem } from "@/lib/schema";
+import { ADDRESS_DISPLAY, EMAIL, PHONE_DISPLAY } from "@/lib/site";
 
 export type CityId =
   | "van-nuys"
@@ -122,7 +123,7 @@ export const cities: CityContent[] = [
       },
       {
         heading: "Scheduling a Sherman Oaks visit",
-        body: "Call 818-392-8584 or use the estimate form. Follow-up is by text so you can confirm a window without sitting on hold. We serve Sherman Oaks as part of the San Fernando Valley and greater Los Angeles area. We do not publish a street address on this site because public listings disagree on the office location; the phone and email are the reliable way to reach us. There is no showroom appointment — the technician comes to the window that is broken.",
+        body: `Call ${PHONE_DISPLAY} or use the estimate form. Follow-up is by text so you can confirm a window without sitting on hold. We serve Sherman Oaks as part of the San Fernando Valley and greater Los Angeles area. The office is ${ADDRESS_DISPLAY}. There is no showroom appointment — the technician comes to the window that is broken.`,
       },
       {
         heading: "From Sherman Oaks to the rest of the Valley",
@@ -180,7 +181,7 @@ export const cities: CityContent[] = [
       },
       {
         heading: "How we work across the city",
-        body: "There is no public street address on this site. Listings disagree on Van Nuys versus Sherman Oaks office pins, and we will not publish a fake storefront or embed a map that does not match. Reach us at 818-392-8584 or info@aaashutterrepair.com. After you call or send the form, we text to schedule. The technician comes to the property — house, condo, or small commercial space — and works at the window. If you are in Van Nuys, Sherman Oaks, Pasadena, Santa Monica, or Santa Clarita, those cities have their own pages with more local detail. The city of Los Angeles is the wider net for everyone else in the basin.",
+        body: `Reach us at ${PHONE_DISPLAY} or ${EMAIL}. The office is ${ADDRESS_DISPLAY}. After you call or send the form, we text to schedule. The technician comes to the property — house, condo, or small commercial space — and works at the window. If you are in Van Nuys, Sherman Oaks, Pasadena, Santa Monica, or Santa Clarita, those cities have their own pages with more local detail. The city of Los Angeles is the wider net for everyone else in the basin.`,
       },
       {
         heading: "Repair, then product — not the other way around",
@@ -238,7 +239,7 @@ export const cities: CityContent[] = [
       },
       {
         heading: "Coming from the Valley to Pasadena",
-        body: "The company is based in the San Fernando Valley and serves greater Los Angeles, including Pasadena. Call 818-392-8584 or request an estimate; we follow up by text to schedule. We do not list a street address here because public listings conflict. Phone and email are the contact of record. Public reviews repeatedly mention Alex — on time, able to repair what others wanted to replace, and careful in the house. That last point matters in older Pasadena interiors.",
+        body: `The company is based in the San Fernando Valley and serves greater Los Angeles, including Pasadena. Call ${PHONE_DISPLAY} or request an estimate; we follow up by text to schedule. The office is ${ADDRESS_DISPLAY} — there is no drop-off shop; the technician comes to the house. Public reviews repeatedly mention Alex — on time, able to repair what others wanted to replace, and careful in the house. That last point matters in older Pasadena interiors.`,
       },
       {
         heading: "Pasadena, then the rest of the map",
@@ -296,7 +297,7 @@ export const cities: CityContent[] = [
       },
       {
         heading: "How to get a Santa Monica visit on the calendar",
-        body: "Call 818-392-8584 or send the quote form with Santa Monica as the city and the job type — shutter, blind, shade, or motorized. We follow up by text to schedule. We do not publish a street address or a Google embed; listings disagree, and this site will not invent a pin. Email is info@aaashutterrepair.com. If your building requires a certificate of insurance for a vendor, say so in the description so we can talk through it before anyone is on the way.",
+        body: `Call ${PHONE_DISPLAY} or send the quote form with Santa Monica as the city and the job type — shutter, blind, shade, or motorized. We follow up by text to schedule. The office is ${ADDRESS_DISPLAY}; repair is still on site at your window. Email is ${EMAIL}. If your building requires a certificate of insurance for a vendor, say so in the description so we can talk through it before anyone is on the way.`,
       },
       {
         heading: "Santa Monica and the rest of the service area",
@@ -354,7 +355,7 @@ export const cities: CityContent[] = [
       },
       {
         heading: "Scheduling from Santa Clarita",
-        body: "Call 818-392-8584 or submit the quote form with your Santa Clarita neighborhood in the city field. We text to confirm the visit. We do not list a street address on this website; listings conflict, and the reliable NAP here is phone, email, and service area. If you are in an HOA and need the existing white shutters to stay, say so — that is exactly the kind of job we prefer to repair rather than redesign.",
+        body: `Call ${PHONE_DISPLAY} or submit the quote form with your Santa Clarita neighborhood in the city field. We text to confirm the visit. The office is ${ADDRESS_DISPLAY}; phone and email stay the fastest way to reach us. If you are in an HOA and need the existing white shutters to stay, say so — that is exactly the kind of job we prefer to repair rather than redesign.`,
       },
       {
         heading: "Santa Clarita and the greater Los Angeles area",

@@ -6,6 +6,22 @@ export const PHONE_DISPLAY = "818-392-8584";
 export const PHONE_TEL = "+18183928584";
 export const EMAIL = "info@aaashutterrepair.com";
 
+/** Official business NAP — Sherman Oaks mailing / office unit only. */
+export const ADDRESS = {
+  street: "14120 Ventura Blvd",
+  unit: "C502",
+  city: "Sherman Oaks",
+  region: "CA",
+  postal: "91423",
+  country: "US",
+} as const;
+
+/** Schema.org streetAddress: street + unit, no city. */
+export const ADDRESS_STREET = `${ADDRESS.street} ${ADDRESS.unit}`;
+
+/** Exact public NAP line: 14120 Ventura Blvd C502, Sherman Oaks, CA 91423 */
+export const ADDRESS_DISPLAY = `${ADDRESS_STREET}, ${ADDRESS.city}, ${ADDRESS.region} ${ADDRESS.postal}`;
+
 /** Google Ads account. */
 export const AW_ID = process.env.NEXT_PUBLIC_AW_ID ?? "AW-11547263826";
 export const AW_PHONE_LABEL = process.env.NEXT_PUBLIC_AW_PHONE_LABEL ?? "";

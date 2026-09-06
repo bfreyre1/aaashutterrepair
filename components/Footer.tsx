@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { PhoneLink } from "@/components/PhoneLink";
 import {
+  ADDRESS,
+  ADDRESS_STREET,
   CITY_LINKS,
   EMAIL,
   PHONE_DISPLAY,
@@ -24,10 +26,11 @@ export function Footer() {
             <br />
             <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
           </p>
-          <p className="site-footer__nap">
-            Phone and email only. We do not publish a street address here —
-            public listings disagree, and this site will not invent one.
-          </p>
+          <address className="site-footer__nap">
+            {ADDRESS_STREET}
+            <br />
+            {ADDRESS.city}, {ADDRESS.region} {ADDRESS.postal}
+          </address>
         </div>
         <div>
           <p className="site-footer__heading">Services</p>
