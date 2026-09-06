@@ -59,20 +59,21 @@ Callout extensions and the sticky bar should all use `tel:+18183928584` (display
 
 ## Conversions (Google Ads)
 
-The site loads gtag for **`AW-11547263826`** unless you override `NEXT_PUBLIC_AW_ID`.
+The site loads gtag for **`AW-11547263826`** (remarketing / config; do not remove) unless you override `NEXT_PUBLIC_AW_ID`. After that config it also runs `gtag('config', 'AW-16874362178')` so the quote-form conversion ID is ready.
 
-| Event | When it fires | How to finish setup in Google Ads |
+| Event | When it fires | Ads / GA4 mapping |
 | --- | --- | --- |
-| `generate_lead` | Valid quote form submit | Create a conversion action that imports the `generate_lead` event, or set `NEXT_PUBLIC_AW_LEAD_LABEL` to the label Google gives you (`AW-11547263826/XXXX`) |
+| `generate_lead` | Valid quote form submit | GA4-friendly event with `{ currency: 'USD' }` only. Do **not** put `send_to` on this event. |
+| `conversion` | Same successful quote submit, fired separately | Google Ads PRIMARY **Quote form submit** (`send_to: AW-16874362178/mjU2CM-2qu8cEMKqqe4-`, count One, value $0). Override with `NEXT_PUBLIC_AW_LEAD_SEND_TO`, or split `NEXT_PUBLIC_AW_LEAD_ID` + `NEXT_PUBLIC_AW_LEAD_LABEL`. |
 | `phone_call_click` | Any `tel:` link (header, sticky bar, quote sidebar, CTAs) | In Google Ads, either import that custom event or create a call conversion and put the label in `NEXT_PUBLIC_AW_PHONE_LABEL`. You can also use Google’s official website-call conversion against the same number |
 
-Until those labels exist, the events still fire and can be used as custom conversions. Do not invent conversion labels.
+Do not invent other conversion labels. Phone conversion stays unset until Ads provides a label.
 
 The quote form does **not** post to a CRM. After validation it shows a success state (and offers a `mailto:` copy to `info@aaashutterrepair.com`). Copy on the page says follow-up is by **text** to schedule.
 
 ## Analytics and ownership
 
-`components/Analytics.tsx` loads Google Ads **`AW-11547263826`** and GA4 **`G-Z405VVNDE8`** (property `AAA Shutter Repair`, stream on `https://www.aaashutterrepair.com`). Override with `NEXT_PUBLIC_AW_ID` / `NEXT_PUBLIC_GA_MEASUREMENT_ID` if those IDs change.
+`components/Analytics.tsx` loads Google Ads **`AW-11547263826`**, configs quote-form conversion account **`AW-16874362178`**, and GA4 **`G-Z405VVNDE8`** (property `AAA Shutter Repair`, stream on `https://www.aaashutterrepair.com`). Override with `NEXT_PUBLIC_AW_ID` / `NEXT_PUBLIC_AW_LEAD_ID` / `NEXT_PUBLIC_GA_MEASUREMENT_ID` if those IDs change.
 
 Search Console ownership on the Next site (leave Duda alone):
 
@@ -81,7 +82,7 @@ Search Console ownership on the Next site (leave Duda alone):
 - HTML file: `/google53928a8ada018672.html`
 - DNS TXT on Tailor Brands / GoDaddy — do not delete it. That is the Domain-property path and survives the host change.
 
-After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ryze GSC picker. Do not invent conversion labels — `NEXT_PUBLIC_AW_PHONE_LABEL` and `NEXT_PUBLIC_AW_LEAD_LABEL` stay empty until Ads provides them.
+After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ryze GSC picker. The quote-form Ads conversion label is already wired (`NEXT_PUBLIC_AW_LEAD_SEND_TO`). Leave `NEXT_PUBLIC_AW_PHONE_LABEL` empty until Ads provides a phone conversion.
 
 ## SEO implementation notes
 
@@ -108,8 +109,9 @@ After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ry
 3. Environment variables (Production):
    - `NEXT_PUBLIC_SITE_URL=https://www.aaashutterrepair.com` (or the Vercel URL until DNS is ready)
    - `NEXT_PUBLIC_AW_ID=AW-11547263826`
+   - `NEXT_PUBLIC_AW_LEAD_SEND_TO=AW-16874362178/mjU2CM-2qu8cEMKqqe4-`
    - `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-Z405VVNDE8` (defaults in code if unset)
-   - Optional: `NEXT_PUBLIC_AW_PHONE_LABEL`, `NEXT_PUBLIC_AW_LEAD_LABEL`
+   - Optional: `NEXT_PUBLIC_AW_PHONE_LABEL`
 4. Deploy. Confirm `/sitemap.xml` and `/robots.txt`.
 5. When you are ready to replace the live Duda site, point the `aaashutterrepair.com` DNS to Vercel and keep the https canonicals. Until then, this remains a sample.
 

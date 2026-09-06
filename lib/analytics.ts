@@ -1,4 +1,4 @@
-import { AW_ID, AW_LEAD_LABEL, AW_PHONE_LABEL } from "@/lib/site";
+import { AW_ID, AW_LEAD_SEND_TO, AW_PHONE_LABEL } from "@/lib/site";
 
 export function trackPhoneClick(placement: string): void {
   if (typeof window === "undefined" || typeof window.gtag !== "function") {
@@ -22,13 +22,13 @@ export function trackGenerateLead(): void {
     return;
   }
 
-  const payload: Record<string, string | number> = {
+  window.gtag("event", "generate_lead", {
     currency: "USD",
-  };
+  });
 
-  if (AW_LEAD_LABEL) {
-    payload.send_to = `${AW_ID}/${AW_LEAD_LABEL}`;
+  if (AW_LEAD_SEND_TO) {
+    window.gtag("event", "conversion", {
+      send_to: AW_LEAD_SEND_TO,
+    });
   }
-
-  window.gtag("event", "generate_lead", payload);
 }
