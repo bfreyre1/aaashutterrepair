@@ -6,10 +6,36 @@ export const PHONE_DISPLAY = "818-392-8584";
 export const PHONE_TEL = "+18183928584";
 export const EMAIL = "info@aaashutterrepair.com";
 
-/** Google Ads account. */
+/** Existing Google Ads remarketing / config tag. Do not remove. */
 export const AW_ID = process.env.NEXT_PUBLIC_AW_ID ?? "AW-11547263826";
 export const AW_PHONE_LABEL = process.env.NEXT_PUBLIC_AW_PHONE_LABEL ?? "";
-export const AW_LEAD_LABEL = process.env.NEXT_PUBLIC_AW_LEAD_LABEL ?? "";
+
+const DEFAULT_AW_LEAD_ID = "AW-16874362178";
+const DEFAULT_AW_LEAD_SEND_TO = `${DEFAULT_AW_LEAD_ID}/mjU2CM-2qu8cEMKqqe4-`;
+
+/**
+ * Quote form conversion send_to from Google Ads
+ * (action: "Quote form submit", PRIMARY, count One, value $0).
+ * Prefer NEXT_PUBLIC_AW_LEAD_SEND_TO, or split ID + label.
+ */
+export const AW_LEAD_SEND_TO =
+  process.env.NEXT_PUBLIC_AW_LEAD_SEND_TO ||
+  (process.env.NEXT_PUBLIC_AW_LEAD_ID && process.env.NEXT_PUBLIC_AW_LEAD_LABEL
+    ? `${process.env.NEXT_PUBLIC_AW_LEAD_ID}/${process.env.NEXT_PUBLIC_AW_LEAD_LABEL}`
+    : DEFAULT_AW_LEAD_SEND_TO);
+
+/** Conversion account configured alongside the remarketing tag. */
+export const AW_LEAD_ID =
+  process.env.NEXT_PUBLIC_AW_LEAD_ID ||
+  AW_LEAD_SEND_TO.split("/")[0] ||
+  DEFAULT_AW_LEAD_ID;
+
+/** Optional split form of the quote conversion (suffix after AW-xxxxx/). */
+export const AW_LEAD_LABEL =
+  process.env.NEXT_PUBLIC_AW_LEAD_LABEL ||
+  AW_LEAD_SEND_TO.split("/")[1] ||
+  "";
+
 /** GA4 web stream on property AAA Shutter Repair (properties/544939257). */
 export const GA_MEASUREMENT_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-Z405VVNDE8";
