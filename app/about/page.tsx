@@ -3,7 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
-import { absoluteUrl } from "@/lib/site";
+import {
+  ADDRESS_DISPLAY,
+  EMAIL,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  absoluteUrl,
+} from "@/lib/site";
 
 const title = "About the company";
 const description =
@@ -53,10 +59,8 @@ export default function AboutPage() {
           The current company is derived from a family business founded in
           2005. The public site and listings describe a small, multicultural
           team based in the San Fernando Valley, working across the diverse
-          neighborhoods of greater Los Angeles. We are not publishing a street
-          address here. Listings disagree — Van Nuys, Sherman Oaks, and a map
-          pin that matches neither — so this sample uses phone, email, and
-          service area only.
+          neighborhoods of greater Los Angeles. The office is {ADDRESS_DISPLAY}.
+          Repair still happens at your window — there is no showroom drop-off.
         </p>
         <p>
           The specialty is on-site plantation wood shutter repair. About 90%
@@ -94,13 +98,11 @@ export default function AboutPage() {
       <section>
         <h2>How to reach us</h2>
         <p>
-          Call <a href="tel:+18183928584">818-392-8584</a> or email{" "}
-          <a href="mailto:info@aaashutterrepair.com">
-            info@aaashutterrepair.com
-          </a>
-          . The <Link href="/get-a-quote">estimate form</Link> is built so we
-          can text you back to schedule. There is no fake CRM on this sample
-          site.
+          Call <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> or email{" "}
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. The office is{" "}
+          {ADDRESS_DISPLAY}. The <Link href="/get-a-quote">estimate form</Link>{" "}
+          is built so we can text you back to schedule. There is no fake CRM on
+          this sample site.
         </p>
       </section>
     </article>

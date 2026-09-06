@@ -4,7 +4,7 @@ Next.js (App Router) sample site for **AAA Shutter Repair**. It is built to rank
 
 This is a **sample**. It is **not yet pointed at the live domain**. The live Duda site remains at [https://www.aaashutterrepair.com/](https://www.aaashutterrepair.com/) until someone deploys this project and updates DNS. Canonical tags already use the `https://www.aaashutterrepair.com` origin so they are ready when the domain is switched.
 
-Do not treat this as a clone of the current Duda layout. Copy is repair-first. There is **no street address** on the site (listings disagree on Van Nuys vs Sherman Oaks vs a third map pin). Contact is phone + email + service area only. There is no fake Google Business Profile embed and no fabricated review stars.
+Do not treat this as a clone of the current Duda layout. Copy is repair-first. Official NAP is **14120 Ventura Blvd C502, Sherman Oaks, CA 91423**, phone **818-392-8584**, email **info@aaashutterrepair.com**. Do not use older listing pins (Wyandotte, other Ventura Blvd variants). There is no fake Google Business Profile embed and no fabricated review stars.
 
 ## Local run
 
@@ -86,7 +86,7 @@ After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ry
 
 ## SEO implementation notes
 
-- `HomeAndConstructionBusiness` JSON-LD on every page (`telephone`, `url`, `areaServed`, `serviceType`). **No `streetAddress`.** No `aggregateRating`.
+- `HomeAndConstructionBusiness` JSON-LD on every page (`telephone`, `url`, `address` with `streetAddress` / `addressLocality` / `addressRegion` / `postalCode` / `addressCountry`, `areaServed`, `serviceType`). No `aggregateRating`.
 - `Service` JSON-LD on home, service, and city pages. `FAQPage` where there is a FAQ. `BreadcrumbList` on inner pages.
 - Canonicals are absolute `https` URLs from `NEXT_PUBLIC_SITE_URL`.
 - `app/sitemap.ts` → `/sitemap.xml`. `app/robots.ts` → `/robots.txt`.
@@ -128,4 +128,5 @@ If you deploy to a Vercel preview URL first, set `NEXT_PUBLIC_SITE_URL` to that 
 - Name: AAA Shutter Repair
 - Phone: 818-392-8584
 - Email: info@aaashutterrepair.com
+- Address: 14120 Ventura Blvd C502, Sherman Oaks, CA 91423
 - Area: San Fernando Valley / greater Los Angeles
