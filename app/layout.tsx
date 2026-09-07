@@ -34,15 +34,10 @@ export const metadata: Metadata = {
   },
   description:
     "On-site plantation shutter repair in the San Fernando Valley and greater Los Angeles. Staples, louvers, tilt rods, hinges, magnets, plus blinds and Somfy shades. Call 818-392-8584.",
-  alternates: { canonical: SITE_URL },
   openGraph: {
     siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
   verification: {
     google: [GOOGLE_SITE_VERIFICATION, GOOGLE_SITE_VERIFICATION_INFO],

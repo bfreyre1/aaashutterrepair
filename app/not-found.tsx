@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description:
+    "This AAA Shutter Repair URL does not exist. Call 818-392-8584 or open a service, city, or quote page.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: null,
+  },
+};
 
 export default function NotFound() {
   return (
