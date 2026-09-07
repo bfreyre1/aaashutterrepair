@@ -63,13 +63,13 @@ The site loads gtag for **`AW-11547263826`** (remarketing / config; do not remov
 
 | Event | When it fires | Ads / GA4 mapping |
 | --- | --- | --- |
-| `generate_lead` | Valid quote form submit | GA4-friendly event with `{ currency: 'USD' }` only. Do **not** put `send_to` on this event. |
+| `generate_lead` | After Kickserv accepts the quote (customer + estimate job) | GA4-friendly event with `{ currency: 'USD' }` only. Do **not** put `send_to` on this event. |
 | `conversion` | Same successful quote submit, fired separately | Google Ads PRIMARY **Quote form submit** (`send_to: AW-16874362178/mjU2CM-2qu8cEMKqqe4-`, count One, value $0). Override with `NEXT_PUBLIC_AW_LEAD_SEND_TO`, or split `NEXT_PUBLIC_AW_LEAD_ID` + `NEXT_PUBLIC_AW_LEAD_LABEL`. |
 | `phone_call_click` | Any `tel:` link (header, sticky bar, quote sidebar, CTAs) | In Google Ads, either import that custom event or create a call conversion and put the label in `NEXT_PUBLIC_AW_PHONE_LABEL`. You can also use Google’s official website-call conversion against the same number |
 
 Do not invent other conversion labels. Phone conversion stays unset until Ads provides a label.
 
-The quote form does **not** post to a CRM. After validation it shows a success state (and offers a `mailto:` copy to `info@aaashutterrepair.com`). Copy on the page says follow-up is by **text** to schedule.
+The quote form `POST`s to `/api/quote`. The route find-or-creates a Kickserv customer (website source `641638`) on account `c56cad`, then creates a SERVICE ESTIMATE job (`job_type_id` `745511`, `estimate=true`). Ads conversion events fire only after that succeeds. If Kickserv fails, the form shows an error (with optional mailto backup) and does **not** claim success. Copy on the page says follow-up is by **text** to schedule.
 
 ## Analytics and ownership
 
@@ -112,6 +112,8 @@ After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ry
    - `NEXT_PUBLIC_AW_LEAD_SEND_TO=AW-16874362178/mjU2CM-2qu8cEMKqqe4-`
    - `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-Z405VVNDE8` (defaults in code if unset)
    - Optional: `NEXT_PUBLIC_AW_PHONE_LABEL`
+   - `KICKSERV_API_TOKEN` (server-only; required for `/api/quote`. Basic auth uses the token as both username and password)
+   - Optional: `KICKSERV_ACCOUNT=c56cad` (defaults to `c56cad` if unset)
 4. Deploy. Confirm `/sitemap.xml` and `/robots.txt`.
 5. When you are ready to replace the live Duda site, point the `aaashutterrepair.com` DNS to Vercel and keep the https canonicals. Until then, this remains a sample.
 

@@ -101,8 +101,8 @@ export default function AboutPage() {
           Call <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> or email{" "}
           <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. The office is{" "}
           {ADDRESS_DISPLAY}. The <Link href="/get-a-quote">estimate form</Link>{" "}
-          is built so we can text you back to schedule. There is no fake CRM on
-          this sample site.
+          is built so we can text you back to schedule. Submissions create an
+          estimate request in our shop system.
         </p>
       </section>
     </article>
