@@ -395,6 +395,11 @@ li {
   color: white;
 }
 
+.btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
 .btn-secondary {
   background: white;
   color: var(--navy);
@@ -825,6 +830,23 @@ li {
   color: var(--error);
   font-weight: 700;
   margin: 0.35rem 0 0;
+}
+
+.form-submit-error {
+  background: #fdecee;
+  border: 1px solid var(--error);
+  border-radius: 0.45rem;
+  color: var(--navy);
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.85rem;
+}
+
+.form-submit-error p {
+  margin: 0;
+}
+
+.form-submit-error p + p {
+  margin-top: 0.45rem;
 }
 
 .field-hint,

@@ -4,7 +4,7 @@ import { ADDRESS_DISPLAY, EMAIL, PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
 
 const title = "Privacy Policy";
 const description =
-  "Privacy practices for the AAA Shutter Repair sample website, including quote-form fields and Google Ads conversion tagging.";
+  "Privacy practices for the AAA Shutter Repair website, including quote-form fields, shop estimate requests, and Google Ads conversion tagging.";
 
 export const metadata: Metadata = {
   title,
@@ -20,8 +20,8 @@ export default function PrivacyPage() {
       <header className="page-hero">
         <h1>Privacy policy</h1>
         <p className="lede">
-          This is a sample marketing site. It collects only what you type into
-          the estimate form in your browser and what advertising tags measure.
+          This site collects what you type into the estimate form and what
+          advertising tags measure so we can schedule repair work.
         </p>
       </header>
 
@@ -37,11 +37,12 @@ export default function PrivacyPage() {
         <h2>Information you provide</h2>
         <p>
           The quote form asks for name, phone, email, city, job type, and a
-          description. On this sample, those values stay in your browser after
-          you submit. A <code>generate_lead</code> event is sent to Google Ads
-          if the tag is loaded. You may also choose to email the same details
-          to {EMAIL} via a mailto link. There is no CRM, account system, or
-          payment form on this site.
+          description. We send those details to our shop system (Kickserv) so
+          we can find or create your customer record and open a service
+          estimate, then text you back. A <code>generate_lead</code> event is
+          sent to Google Ads if the tag is loaded and the request succeeds.
+          There is no account login or payment form on this site. If the shop
+          connection fails, you can email the same details to {EMAIL} or call.
         </p>
       </section>
 
@@ -71,7 +72,7 @@ export default function PrivacyPage() {
         <h2>Contact about privacy</h2>
         <p>
           Email {EMAIL} or call {PHONE_DISPLAY} if you have a question about
-          this sample site&apos;s data practices.
+          this site&apos;s data practices.
         </p>
       </section>
     </article>

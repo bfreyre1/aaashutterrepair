@@ -2,110 +2,104 @@
 
 import { useState } from "react";
 import { trackGenerateLead } from "@/lib/analytics";
-import { CITY_LINKS, EMAIL, JOB_TYPES } from "@/lib/site";
-
-type FormState = {
-  name: string;
-  phone: string;
-  email: string;
-  city: string;
-  jobType: string;
-  description: string;
-};
-
-type FormErrors = Partial<Record<keyof FormState, string>>;
-
-const empty: FormState = {
-  name: "",
-  phone: "",
-  email: "",
-  city: "",
-  jobType: "",
-  description: "",
-};
-
-function validate(values: FormState): FormErrors {
-  const errors: FormErrors = {};
-  if (values.name.trim().length < 2) {
-    errors.name = "Enter your name.";
-  }
-  const digits = values.phone.replace(/\D/g, "");
-  if (digits.length < 10) {
-    errors.phone = "Enter a 10-digit phone number so we can text you.";
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-    errors.email = "Enter a valid email address.";
-  }
-  if (!values.city) {
-    errors.city = "Choose your city.";
-  }
-  if (!values.jobType) {
-    errors.jobType = "Choose the type of job.";
-  }
-  if (values.description.trim().length < 10) {
-    errors.description = "Describe what is broken (at least a sentence).";
-  }
-  return errors;
-}
+import {
+  emptyQuoteForm,
+  quoteMailtoHref,
+  validateQuoteForm,
+  type QuoteFormErrors,
+  type QuoteFormValues,
+} from "@/lib/quote";
+import { CITY_LINKS, EMAIL, JOB_TYPES, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 
 export function QuoteForm() {
-  const [values, setValues] = useState<FormState>(empty);
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [values, setValues] = useState<QuoteFormValues>(emptyQuoteForm);
+  const [errors, setErrors] = useState<QuoteFormErrors>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  function update<K extends keyof FormState>(key: K, value: FormState[K]) {
+  function update<K extends keyof QuoteFormValues>(
+    key: K,
+    value: QuoteFormValues[K],
+  ) {
     setValues((current) => ({ ...current, [key]: value }));
   }
 
-  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const nextErrors = validate(values);
+    const nextErrors = validateQuoteForm(values);
     setErrors(nextErrors);
+    setSubmitError(null);
     if (Object.keys(nextErrors).length > 0) {
       return;
     }
-    trackGenerateLead();
-    setSubmitted(true);
+
+    setSubmitting(true);
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data: { error?: string; errors?: QuoteFormErrors } = await response
+        .json()
+        .catch(() => ({}));
+
+      if (!response.ok) {
+        if (data.errors) {
+          setErrors(data.errors);
+        }
+        setSubmitError(
+          data.error ??
+            `We could not create your estimate request. Please call ${PHONE_DISPLAY}.`,
+        );
+        return;
+      }
+
+      trackGenerateLead();
+      setSubmitted(true);
+    } catch {
+      setSubmitError(
+        `We could not reach the shop. Please call ${PHONE_DISPLAY} or try again.`,
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
-    const subject = encodeURIComponent(
-      `Estimate request: ${values.jobType} in ${values.city}`,
-    );
-    const body = encodeURIComponent(
-      [
-        `Name: ${values.name}`,
-        `Phone: ${values.phone}`,
-        `Email: ${values.email}`,
-        `City: ${values.city}`,
-        `Job type: ${values.jobType}`,
-        "",
-        values.description,
-      ].join("\n"),
-    );
-
     return (
       <div className="form-success" role="status">
         <h2>Request received</h2>
         <p>
           We follow up by text to confirm your request and schedule the visit.
           Prefer to talk now? Call{" "}
-          <a href="tel:+18183928584">818-392-8584</a>.
-        </p>
-        <p>
-          This sample site does not connect to a CRM. If you want a copy in
-          your own inbox,{" "}
-          <a href={`mailto:${EMAIL}?subject=${subject}&body=${body}`}>
-            send the same details to {EMAIL}
-          </a>
-          .
+          <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>.
         </p>
       </div>
     );
   }
 
+  const mailto = quoteMailtoHref(values);
+
   return (
-    <form className="quote-form" onSubmit={onSubmit} noValidate>
+    <form
+      className="quote-form"
+      onSubmit={onSubmit}
+      noValidate
+      aria-busy={submitting}
+    >
+      {submitError ? (
+        <div className="form-submit-error" role="alert">
+          <p>{submitError}</p>
+          <p>
+            You can also{" "}
+            <a href={mailto}>email the same details to {EMAIL}</a> or call{" "}
+            <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>.
+          </p>
+        </div>
+      ) : null}
+
       <div className="field">
         <label htmlFor="name">Name</label>
         <input
@@ -237,13 +231,13 @@ export function QuoteForm() {
         ) : null}
       </div>
 
-      <button type="submit" className="btn btn-primary">
-        Request a free estimate
+      <button type="submit" className="btn btn-primary" disabled={submitting}>
+        {submitting ? "Sending request…" : "Request a free estimate"}
       </button>
       <p className="form-fineprint">
-        No fake booking system on this sample. After you submit, we show a
-        confirmation and fire a <code>generate_lead</code> conversion. Call if
-        you want to talk to a person now.
+        We text this number to schedule. After you submit, we create an
+        estimate request in our shop and fire a <code>generate_lead</code>{" "}
+        conversion. Call if you want to talk to a person now.
       </p>
     </form>
   );
