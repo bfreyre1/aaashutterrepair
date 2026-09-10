@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
+import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
 import { absoluteUrl } from "@/lib/site";
@@ -64,9 +65,11 @@ export default function BlindAndShadeRepairPage() {
         <p className="eyebrow">Blinds · Shades · On-site when possible</p>
         <h1>Blind and shade repair</h1>
         <p className="lede">
-          A wand that spins, a shade that will not come down, or a magnet that
-          no longer holds does not have to become a whole-room replacement.
+          We repair broken blinds and shades on site. Call or text now — a wand
+          that spins or a shade that will not come down does not have to become
+          a whole-room replacement.
         </p>
+        <TrustChips />
         <CtaButtons placement="blinds-hero" />
       </header>
 

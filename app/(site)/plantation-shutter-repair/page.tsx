@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
+import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
 import { absoluteUrl } from "@/lib/site";
@@ -64,10 +65,11 @@ export default function PlantationShutterRepairPage() {
         <p className="eyebrow">On-site wood shutter repair</p>
         <h1>Plantation shutter repair</h1>
         <p className="lede">
-          Wood plantation shutters are built to be serviced. A loose staple or
-          a louver on the floor is not a reason to replace every window in the
-          room.
+          We repair broken wood shutters on site. Call or text now — a loose
+          staple or a louver on the floor is not a reason to replace every
+          window in the room.
         </p>
+        <TrustChips />
         <CtaButtons placement="plantation-hero" />
       </header>
 

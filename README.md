@@ -30,7 +30,7 @@ Node 20+ is expected (the Cloud Agent image used Node 22).
 | Goal | How the site supports it |
 | --- | --- |
 | Local SEO | Unique indexable routes, one H1 per page, unique title + meta description, `https` canonicals, `sitemap.xml`, `robots.txt`, internal links home → services → cities → quote, breadcrumbs |
-| Paid search | Real paths as final URLs (no hashes). Sticky mobile call bar. Call now / Get a free estimate CTAs. `generate_lead` on quote submit. `tel:` clicks tracked |
+| Paid search | Real paths as final URLs (no hashes). Sticky mobile Call + Text bar. Call now / Text us / Get a free estimate CTAs. `generate_lead` on quote submit. `tel:` and `sms:` clicks tracked |
 | Trust | Live red chevron logo, real shop photos in the hero and gallery, large tap targets, sticky mobile call bar |
 
 ## Pages, keywords, and recommended Ads final URLs
@@ -55,7 +55,7 @@ Supporting URLs (usually sitelinks or organic only): `/about`, `/reviews`, `/gal
 
 Sitelink ideas: Get a free estimate, Plantation shutter repair, Blind and shade repair, Motorized / Somfy repair, plus the city that matches the campaign geo.
 
-Callout extensions and the sticky bar should all use `tel:+18183928584` (display **818-392-8584**).
+Callout extensions and the sticky Call button should use `tel:+18183928584` (display **818-392-8584**). Text buttons use `sms:+18183928584` (same number). Call and Text are the primary CTAs; the quote form is secondary.
 
 ## Conversions (Google Ads)
 
@@ -66,8 +66,9 @@ The site loads gtag for **`AW-11547263826`** (remarketing / config; do not remov
 | `generate_lead` | After Kickserv accepts the quote (customer + estimate job) | GA4-friendly event with `{ currency: 'USD' }` only. Do **not** put `send_to` on this event. |
 | `conversion` | Same successful quote submit, fired separately | Google Ads PRIMARY **Quote form submit** (`send_to: AW-16874362178/mjU2CM-2qu8cEMKqqe4-`, count One, value $0). Override with `NEXT_PUBLIC_AW_LEAD_SEND_TO`, or split `NEXT_PUBLIC_AW_LEAD_ID` + `NEXT_PUBLIC_AW_LEAD_LABEL`. |
 | `phone_call_click` | Any `tel:` link (header, sticky bar, quote sidebar, CTAs) | In Google Ads, either import that custom event or create a call conversion and put the label in `NEXT_PUBLIC_AW_PHONE_LABEL`. You can also use Google’s official website-call conversion against the same number |
+| `text_click` | Any `sms:` link (header, sticky bar, quote sidebar, CTAs) | Parallel to phone. Import the custom event, or add a label in `NEXT_PUBLIC_AW_TEXT_LABEL` if Ads creates a text conversion. |
 
-Do not invent other conversion labels. Phone conversion stays unset until Ads provides a label.
+Do not invent other conversion labels. Phone and text Ads conversion labels stay unset until Ads provides them.
 
 The quote form `POST`s to `/api/quote`. The route find-or-creates a Kickserv customer (website source `641638`) on account `c56cad`, then creates a SERVICE ESTIMATE job (`job_type_id` `745511`, `estimate=true`). Ads conversion events fire only after that succeeds. If Kickserv fails, the form shows an error (with optional mailto backup) and does **not** claim success. Copy on the page says follow-up is by **text** to schedule.
 
@@ -82,7 +83,7 @@ Search Console ownership on the Next site (leave Duda alone):
 - HTML file: `/google53928a8ada018672.html`
 - DNS TXT on Tailor Brands / GoDaddy — do not delete it. That is the Domain-property path and survives the host change.
 
-After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ryze GSC picker. The quote-form Ads conversion label is already wired (`NEXT_PUBLIC_AW_LEAD_SEND_TO`). Leave `NEXT_PUBLIC_AW_PHONE_LABEL` empty until Ads provides a phone conversion.
+After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ryze GSC picker. The quote-form Ads conversion label is already wired (`NEXT_PUBLIC_AW_LEAD_SEND_TO`). Leave `NEXT_PUBLIC_AW_PHONE_LABEL` and `NEXT_PUBLIC_AW_TEXT_LABEL` empty until Ads provides those conversions.
 
 ## SEO implementation notes
 
@@ -98,8 +99,8 @@ After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ry
 
 ## Design and accessibility
 
-- Mobile-first, sticky **Call 818-392-8584** bar under the `md` breakpoint.
-- Primary CTAs: **Call now** / **Get a free estimate**.
+- Mobile-first, sticky **Call now / Text us** bar under the `md` breakpoint.
+- Primary CTAs: **Call now** / **Text us**. Secondary: **Get a free estimate**.
 - Contrast-first palette mapped from the live Duda site (`#414345` body text, `#bb2029` / `#e51723` brand red, `#f2f2f2` cream, Raleway + Montserrat). Official AAA logo from the live CDN is saved at `/public/aaa-shutter-repair-logo.svg` (fill `#bb2029`). 44–48px tap targets, visible `:focus-visible` rings, labeled form fields, skip link.
 
 ## Deploy on Vercel
@@ -112,6 +113,7 @@ After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ry
    - `NEXT_PUBLIC_AW_LEAD_SEND_TO=AW-16874362178/mjU2CM-2qu8cEMKqqe4-`
    - `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-Z405VVNDE8` (defaults in code if unset)
    - Optional: `NEXT_PUBLIC_AW_PHONE_LABEL`
+   - Optional: `NEXT_PUBLIC_AW_TEXT_LABEL`
    - `KICKSERV_API_TOKEN` (server-only; required for `/api/quote`. Basic auth uses the token as both username and password)
    - Optional: `KICKSERV_ACCOUNT=c56cad` (defaults to `c56cad` if unset)
 4. Deploy. Confirm `/sitemap.xml` and `/robots.txt`.

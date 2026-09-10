@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
+import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
 import { absoluteUrl } from "@/lib/site";
@@ -64,10 +65,10 @@ export default function MotorizedShadeRepairPage() {
         <p className="eyebrow">Somfy · Motors · Remotes</p>
         <h1>Motorized shade repair</h1>
         <p className="lede">
-          When the remote does nothing and the fabric will not move, the shade
-          is usually still worth saving. We repair Somfy and other motorized
-          systems.
+          We fix Somfy and motorized shades on site. Call or text now — when
+          the remote does nothing, the shade is usually still worth saving.
         </p>
+        <TrustChips />
         <CtaButtons placement="motorized-hero" />
       </header>
 

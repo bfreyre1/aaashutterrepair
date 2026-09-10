@@ -50,7 +50,8 @@ export default function PrivacyPage() {
         <h2>Advertising and analytics cookies</h2>
         <p>
           Google advertising and analytics tags load on this site so we can
-          measure call clicks, estimate requests, and traffic. Those tools may
+          measure call clicks, text clicks, estimate requests, and traffic.
+          Those tools may
           set cookies. See Google&apos;s own policies for how they process
           data.
         </p>
@@ -62,6 +63,16 @@ export default function PrivacyPage() {
           Tapping a phone link opens your phone app. We record that the call
           button was used so we can see what helps people reach us. We do not
           receive the contents of the call through this website.
+        </p>
+      </section>
+
+      <section>
+        <h2>Text messages</h2>
+        <p>
+          Tapping a text link opens your messaging app to {PHONE_DISPLAY}. We
+          record that the text button was used so we can see what helps people
+          reach us. We do not receive the contents of the text through this
+          website.
         </p>
       </section>
 

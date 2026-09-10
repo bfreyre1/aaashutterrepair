@@ -4,6 +4,7 @@ export const SITE_URL =
 
 export const PHONE_DISPLAY = "818-392-8584";
 export const PHONE_TEL = "+18183928584";
+export const PHONE_SMS = `sms:${PHONE_TEL}`;
 export const EMAIL = "info@aaashutterrepair.com";
 
 /** Official business NAP — Sherman Oaks mailing / office unit only. */
@@ -25,6 +26,8 @@ export const ADDRESS_DISPLAY = `${ADDRESS_STREET}, ${ADDRESS.city}, ${ADDRESS.re
 /** Existing Google Ads remarketing / config tag. Do not remove. */
 export const AW_ID = process.env.NEXT_PUBLIC_AW_ID ?? "AW-11547263826";
 export const AW_PHONE_LABEL = process.env.NEXT_PUBLIC_AW_PHONE_LABEL ?? "";
+/** Optional Ads label for sms: clicks. Empty until Ads provides one. */
+export const AW_TEXT_LABEL = process.env.NEXT_PUBLIC_AW_TEXT_LABEL ?? "";
 
 const DEFAULT_AW_LEAD_ID = "AW-16874362178";
 const DEFAULT_AW_LEAD_SEND_TO = `${DEFAULT_AW_LEAD_ID}/mjU2CM-2qu8cEMKqqe4-`;
