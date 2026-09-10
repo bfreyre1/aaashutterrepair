@@ -74,8 +74,7 @@ export function Footer() {
         </div>
       </div>
       <p className="site-footer__legal">
-        © {new Date().getFullYear()} {SITE_NAME}. Sample marketing site — not
-        yet pointed at the live domain.
+        © {new Date().getFullYear()} {SITE_NAME}.
       </p>
     </footer>
   );

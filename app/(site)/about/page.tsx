@@ -13,7 +13,7 @@ import {
 
 const title = "About the company";
 const description =
-  "AAA Shutter Repair is a San Fernando Valley team — derived from a family business founded in 2005 — specializing in on-site plantation shutter repair across greater Los Angeles.";
+  "AAA Shutter Repair is a San Fernando Valley team with family-business roots since 2005, specializing in on-site plantation shutter repair across greater Los Angeles.";
 
 export const metadata: Metadata = {
   title,
@@ -31,7 +31,7 @@ export default function AboutPage() {
     <article className="page">
       <Breadcrumbs items={[{ name: "About", path: "/about" }]} />
       <header className="page-hero">
-        <p className="eyebrow">San Fernando Valley · Since family roots in 2005</p>
+        <p className="eyebrow">San Fernando Valley · Family roots since 2005</p>
         <h1>About AAA Shutter Repair</h1>
         <p className="lede">
           A close, niche team that repairs wood shutters, blinds, and
@@ -56,11 +56,11 @@ export default function AboutPage() {
       <section>
         <h2>Family-business roots, repair-first work</h2>
         <p>
-          The current company is derived from a family business founded in
-          2005. The public site and listings describe a small, multicultural
-          team based in the San Fernando Valley, working across the diverse
-          neighborhoods of greater Los Angeles. The office is {ADDRESS_DISPLAY}.
-          Repair still happens at your window — there is no showroom drop-off.
+          AAA Shutter Repair has family-business roots dating to 2005. We are
+          a small, multicultural team based in the San Fernando Valley,
+          working across the diverse neighborhoods of greater Los Angeles. The
+          office is {ADDRESS_DISPLAY}. Repair still happens at your window —
+          there is no showroom drop-off.
         </p>
         <p>
           The specialty is on-site plantation wood shutter repair. About 90%
@@ -89,9 +89,9 @@ export default function AboutPage() {
         <p>
           Van Nuys, Sherman Oaks, Los Angeles, Pasadena, Santa Monica, Santa
           Clarita, and the rest of the San Fernando Valley / greater Los
-          Angeles area we can reasonably reach. City landers and service pages
-          are linked from the home page so search and ads can use real URLs,
-          not hash links.
+          Angeles area we can reasonably reach. City and service pages are
+          linked from the home page so you can jump to your city or the type
+          of repair.
         </p>
       </section>
 

@@ -235,9 +235,8 @@ export function QuoteForm() {
         {submitting ? "Sending request…" : "Request a free estimate"}
       </button>
       <p className="form-fineprint">
-        We text this number to schedule. After you submit, we create an
-        estimate request in our shop and fire a <code>generate_lead</code>{" "}
-        conversion. Call if you want to talk to a person now.
+        We text this number to schedule. Prefer to talk now? Call{" "}
+        <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>.
       </p>
     </form>
   );

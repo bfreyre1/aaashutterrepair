@@ -61,7 +61,7 @@ export default function PlantationShutterRepairPage() {
         ]}
       />
       <header className="page-hero">
-        <p className="eyebrow">Primary service · Google Ads final URL</p>
+        <p className="eyebrow">On-site wood shutter repair</p>
         <h1>Plantation shutter repair</h1>
         <p className="lede">
           Wood plantation shutters are built to be serviced. A loose staple or
@@ -139,7 +139,7 @@ export default function PlantationShutterRepairPage() {
           shades and blinds are in the same category: available, not the lead.
         </p>
         <p>
-          Related work lives on its own URLs so they can be Ads final URLs:{" "}
+          Related work has its own pages:{" "}
           <Link href="/blind-and-shade-repair">blind and shade repair</Link>{" "}
           and{" "}
           <Link href="/motorized-shade-repair">motorized shade repair</Link>.
@@ -151,7 +151,8 @@ export default function PlantationShutterRepairPage() {
         <p>
           Van Nuys, Sherman Oaks, Los Angeles, Pasadena, Santa Monica, and
           Santa Clarita each have a city page with local copy. Start here if
-          your keyword has no city; start on a city lander if it does.
+          you are looking up the repair itself; use a city page if you
+          searched with a city name.
         </p>
         <ul className="link-columns">
           <li>

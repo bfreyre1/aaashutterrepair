@@ -105,8 +105,8 @@ export default function HomePage() {
           </div>
           <div>
             <strong>Family-business roots</strong>
-            Derived from a family business founded in 2005. Valley-based,
-            greater Los Angeles service area.
+            Family-business roots since 2005. Valley-based, serving greater
+            Los Angeles.
           </div>
         </section>
 
@@ -182,8 +182,9 @@ export default function HomePage() {
           <h2>How a repair visit works</h2>
           <ol className="steps">
             <li>
-              <strong>Call or send the form.</strong> Phone is fastest for paid
-              search. The form is for a free estimate — we follow up by text.
+              <strong>Call or send the form.</strong> Phone is fastest if you
+              want to talk now. The form is for a free estimate — we follow up
+              by text.
             </li>
             <li>
               <strong>We come to the window.</strong> No storefront appointment.
@@ -201,14 +202,15 @@ export default function HomePage() {
           <h2>Cities we cover</h2>
           <p>
             San Fernando Valley and greater Los Angeles. Use a city page if you
-            searched with a city name; use the service pages as Google Ads
-            final URLs.
+            searched with a city name. Use a service page if you know the type
+            of repair — plantation shutters, blinds and shades, or motorized /
+            Somfy.
           </p>
           <div className="city-grid">
             {CITY_LINKS.map((city) => (
               <Link key={city.href} href={city.href} className="city-card">
                 <h3>Shutter repair in {city.label}</h3>
-                <p>On-site plantation shutter repair and related fixes.</p>
+                <p>{city.blurb}</p>
               </Link>
             ))}
           </div>
@@ -255,7 +257,7 @@ export default function HomePage() {
           <h2>Need the panel working again?</h2>
           <p>
             Call now for the fastest path, or request a free estimate. We text
-            you to schedule — no fake online booking calendar.
+            you to schedule — no online booking calendar.
           </p>
           <CtaButtons placement="home-bottom" />
         </div>

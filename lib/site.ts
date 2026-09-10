@@ -83,6 +83,7 @@ export const JOB_TYPES = [
 ] as const;
 
 export type NavLink = { href: string; label: string };
+export type CityLink = NavLink & { blurb: string };
 
 export const SERVICE_LINKS: NavLink[] = [
   { href: "/plantation-shutter-repair", label: "Plantation shutter repair" },
@@ -90,13 +91,43 @@ export const SERVICE_LINKS: NavLink[] = [
   { href: "/motorized-shade-repair", label: "Motorized / Somfy repair" },
 ];
 
-export const CITY_LINKS: NavLink[] = [
-  { href: "/shutter-repair-van-nuys", label: "Van Nuys" },
-  { href: "/shutter-repair-sherman-oaks", label: "Sherman Oaks" },
-  { href: "/shutter-repair-los-angeles", label: "Los Angeles" },
-  { href: "/shutter-repair-pasadena", label: "Pasadena" },
-  { href: "/shutter-repair-santa-monica", label: "Santa Monica" },
-  { href: "/shutter-repair-santa-clarita", label: "Santa Clarita" },
+export const CITY_LINKS: CityLink[] = [
+  {
+    href: "/shutter-repair-van-nuys",
+    label: "Van Nuys",
+    blurb:
+      "Central Valley ranch homes — staples and louvers that let go in the heat.",
+  },
+  {
+    href: "/shutter-repair-sherman-oaks",
+    label: "Sherman Oaks",
+    blurb:
+      "Ventura Boulevard and the hills — custom openings and heavy door-wall panels.",
+  },
+  {
+    href: "/shutter-repair-los-angeles",
+    label: "Los Angeles",
+    blurb:
+      "Citywide on-site repair when one panel failed, not a whole-house replacement.",
+  },
+  {
+    href: "/shutter-repair-pasadena",
+    label: "Pasadena",
+    blurb:
+      "Craftsman and remodel-era wood shutters, repaired in older openings.",
+  },
+  {
+    href: "/shutter-repair-santa-monica",
+    label: "Santa Monica",
+    blurb:
+      "Coastal magnets, condo shades, and Somfy motors on the Westside.",
+  },
+  {
+    href: "/shutter-repair-santa-clarita",
+    label: "Santa Clarita",
+    blurb:
+      "Valencia and Canyon Country builder shutters that have lived in strong sun.",
+  },
 ];
 
 export const AREA_SERVED = [

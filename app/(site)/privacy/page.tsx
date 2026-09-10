@@ -4,7 +4,7 @@ import { ADDRESS_DISPLAY, EMAIL, PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
 
 const title = "Privacy Policy";
 const description =
-  "Privacy practices for the AAA Shutter Repair website, including quote-form fields, shop estimate requests, and Google Ads conversion tagging.";
+  "Privacy practices for the AAA Shutter Repair website, including the estimate form and how we measure calls and site visits.";
 
 export const metadata: Metadata = {
   title,
@@ -20,8 +20,9 @@ export default function PrivacyPage() {
       <header className="page-hero">
         <h1>Privacy policy</h1>
         <p className="lede">
-          This site collects what you type into the estimate form and what
-          advertising tags measure so we can schedule repair work.
+          This site collects what you type into the estimate form, and uses
+          standard advertising and analytics tools so we can schedule repair
+          work and see what helps people find us.
         </p>
       </header>
 
@@ -39,32 +40,28 @@ export default function PrivacyPage() {
           The quote form asks for name, phone, email, city, job type, and a
           description. We send those details to our shop system (Kickserv) so
           we can find or create your customer record and open a service
-          estimate, then text you back. A <code>generate_lead</code> event is
-          sent to Google Ads if the tag is loaded and the request succeeds.
-          There is no account login or payment form on this site. If the shop
-          connection fails, you can email the same details to {EMAIL} or call.
+          estimate, then text you back. There is no account login or payment form on this
+          site. If the shop connection fails, you can email the same details
+          to {EMAIL} or call.
         </p>
       </section>
 
       <section>
         <h2>Advertising and analytics cookies</h2>
         <p>
-          Google Ads gtag (account {`AW-11547263826`} by default, overridable
-          with <code>NEXT_PUBLIC_AW_ID</code>) and Google Analytics 4 (
-          {`G-Z405VVNDE8`}, overridable with{" "}
-          <code>NEXT_PUBLIC_GA_MEASUREMENT_ID</code>) load on every page so
-          call clicks, quote submits, and site traffic can be measured. Google
-          may set cookies for conversion and analytics measurement. See
-          Google&apos;s own policies for how those tags process data.
+          Google advertising and analytics tags load on this site so we can
+          measure call clicks, estimate requests, and traffic. Those tools may
+          set cookies. See Google&apos;s own policies for how they process
+          data.
         </p>
       </section>
 
       <section>
         <h2>Phone calls</h2>
         <p>
-          Tapping a tel: link opens your phone app. We record a{" "}
-          <code>phone_call_click</code> event in gtag when that happens. We do
-          not receive the contents of the call through this website.
+          Tapping a phone link opens your phone app. We record that the call
+          button was used so we can see what helps people reach us. We do not
+          receive the contents of the call through this website.
         </p>
       </section>
 
