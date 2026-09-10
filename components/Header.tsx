@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
 import { PhoneLink } from "@/components/PhoneLink";
+import { TextLink } from "@/components/TextLink";
 import { CITY_LINKS, PHONE_DISPLAY, SERVICE_LINKS } from "@/lib/site";
 
 export function Header() {
@@ -54,6 +55,13 @@ export function Header() {
           <PhoneLink placement="header-desktop" className="header-phone">
             {PHONE_DISPLAY}
           </PhoneLink>
+          <TextLink
+            placement="header-desktop"
+            className="header-text"
+            aria-label={`Text ${PHONE_DISPLAY}`}
+          >
+            Text us
+          </TextLink>
           <Link href="/get-a-quote" className="btn btn-primary header-quote">
             Get a quote
           </Link>
@@ -76,6 +84,22 @@ export function Header() {
         aria-label="Mobile"
         hidden={!open}
       >
+        <div className="nav-mobile__cta">
+          <PhoneLink
+            placement="header-mobile"
+            className="btn btn-primary"
+            aria-label={`Call ${PHONE_DISPLAY}`}
+          >
+            Call {PHONE_DISPLAY}
+          </PhoneLink>
+          <TextLink
+            placement="header-mobile"
+            className="btn btn-text"
+            aria-label={`Text ${PHONE_DISPLAY}`}
+          >
+            Text us
+          </TextLink>
+        </div>
         <p className="nav-mobile__label">Services</p>
         {SERVICE_LINKS.map((link) => (
           <Link key={link.href} href={link.href} onClick={close}>
@@ -97,12 +121,9 @@ export function Header() {
         <Link href="/gallery" onClick={close}>
           Gallery
         </Link>
-        <Link href="/get-a-quote" className="btn btn-primary" onClick={close}>
+        <Link href="/get-a-quote" className="btn btn-secondary" onClick={close}>
           Get a quote
         </Link>
-        <PhoneLink placement="header-mobile" className="btn btn-primary">
-          Call {PHONE_DISPLAY}
-        </PhoneLink>
       </nav>
     </header>
   );

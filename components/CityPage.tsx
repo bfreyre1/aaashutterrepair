@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
+import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import type { CityContent } from "@/lib/cities";
 import { cities } from "@/lib/cities";
@@ -46,8 +47,12 @@ export function CityPage({ city }: { city: CityContent }) {
       <header className="page-hero">
         <p className="eyebrow">On-site · {city.name}</p>
         <h1>{city.h1}</h1>
+        <p className="hero__human">
+          We fix broken shutters on site in {city.name}. Call or text now.
+        </p>
         <p className="lede">{city.lede}</p>
         <CtaButtons placement={`city-${city.id}`} />
+        <TrustChips />
       </header>
 
       <figure className="content-figure">

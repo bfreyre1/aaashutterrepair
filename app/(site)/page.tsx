@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
+import { TrustChips } from "@/components/TrustChips";
 import { serviceJsonLd } from "@/lib/schema";
 import { absoluteUrl, CITY_LINKS, PHONE_DISPLAY } from "@/lib/site";
 
@@ -43,7 +44,7 @@ const homeFaq = [
   {
     question: "How do I schedule?",
     answer:
-      "Call 818-392-8584 or send the estimate form. We follow up by text to confirm and schedule.",
+      "Call or text 818-392-8584, or send the estimate form. We follow up by text to confirm and schedule.",
   },
 ];
 
@@ -76,18 +77,19 @@ export default function HomePage() {
           <p className="eyebrow">San Fernando Valley · Greater Los Angeles</p>
           <h1>Plantation shutter repair in Los Angeles</h1>
           <p className="hero__human">
-            Your local experts in restoring the beauty, security, and function
-            of the shutters you already own.
+            We fix broken plantation shutters on site. Call or text now — most
+            jobs stay at the window.
           </p>
           <p className="lede">
-            On-site wood shutter repair — the job other companies try to turn
-            into a full replacement. Staples, louvers, tilt rods, hinges,
-            magnets, and side pins. Blinds, shades, and Somfy motors too.
+            Staples, louvers, tilt rods, hinges, magnets, and side pins. Repair
+            before replace — the job other companies try to turn into a full
+            replacement. Blinds, shades, and Somfy motors too.
           </p>
           <CtaButtons placement="home-hero" />
+          <TrustChips />
           <p>
-            Or call <strong>{PHONE_DISPLAY}</strong> — we text back to set a
-            time.
+            Call or text <strong>{PHONE_DISPLAY}</strong> — we text back to set
+            a time.
           </p>
         </div>
       </section>
@@ -256,8 +258,8 @@ export default function HomePage() {
         <div className="split-cta">
           <h2>Need the panel working again?</h2>
           <p>
-            Call now for the fastest path, or request a free estimate. We text
-            you to schedule — no online booking calendar.
+            Call or text now for the fastest path, or request a free estimate.
+            We text you to schedule — no online booking calendar.
           </p>
           <CtaButtons placement="home-bottom" />
         </div>

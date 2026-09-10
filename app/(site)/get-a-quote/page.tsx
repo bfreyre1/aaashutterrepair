@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PhoneLink } from "@/components/PhoneLink";
 import { QuoteForm } from "@/components/QuoteForm";
+import { TextLink } from "@/components/TextLink";
 import { PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
 
 const title = "Get a Free Estimate";
@@ -29,7 +30,7 @@ export default function GetAQuotePage() {
         <p className="lede">
           Tell us the city and what broke. The form is for a free estimate —
           we follow up by text to confirm and schedule. If you need someone
-          today, calling is usually fastest.
+          today, call or text — that is usually fastest.
         </p>
       </header>
 
@@ -37,12 +38,21 @@ export default function GetAQuotePage() {
         <aside className="phone-panel">
           <h2>Prefer to talk now?</h2>
           <p>
-            The phone is faster when you want to talk now. Same team. Same
-            on-site repair work.
+            Call or text when you want an answer now. Same team. Same on-site
+            repair work.
           </p>
-          <PhoneLink placement="quote-sidebar" className="btn btn-primary">
-            Call {PHONE_DISPLAY}
-          </PhoneLink>
+          <div className="phone-panel__actions">
+            <PhoneLink placement="quote-sidebar" className="btn btn-primary">
+              Call {PHONE_DISPLAY}
+            </PhoneLink>
+            <TextLink
+              placement="quote-sidebar"
+              className="btn btn-text"
+              aria-label={`Text ${PHONE_DISPLAY}`}
+            >
+              Text us
+            </TextLink>
+          </div>
           <ul>
             <li>Plantation shutter repair</li>
             <li>Blind and shade repair</li>
