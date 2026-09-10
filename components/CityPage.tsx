@@ -51,8 +51,8 @@ export function CityPage({ city }: { city: CityContent }) {
           We fix broken shutters on site in {city.name}. Call or text now.
         </p>
         <p className="lede">{city.lede}</p>
-        <CtaButtons placement={`city-${city.id}`} />
         <TrustChips />
+        <CtaButtons placement={`city-${city.id}`} />
       </header>
 
       <figure className="content-figure">

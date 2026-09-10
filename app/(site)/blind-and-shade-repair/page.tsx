@@ -69,8 +69,8 @@ export default function BlindAndShadeRepairPage() {
           that spins or a shade that will not come down does not have to become
           a whole-room replacement.
         </p>
-        <CtaButtons placement="blinds-hero" />
         <TrustChips />
+        <CtaButtons placement="blinds-hero" />
       </header>
 
       <figure className="content-figure">

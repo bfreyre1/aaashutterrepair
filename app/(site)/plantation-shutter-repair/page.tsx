@@ -69,8 +69,8 @@ export default function PlantationShutterRepairPage() {
           staple or a louver on the floor is not a reason to replace every
           window in the room.
         </p>
-        <CtaButtons placement="plantation-hero" />
         <TrustChips />
+        <CtaButtons placement="plantation-hero" />
       </header>
 
       <figure className="content-figure">

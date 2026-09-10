@@ -512,8 +512,13 @@ li {
   flex-wrap: wrap;
   gap: 0.45rem;
   list-style: none;
-  margin: 0.95rem 0 0;
+  margin: 0.85rem 0 0;
   padding: 0;
+}
+
+.cta-row + .trust-chips,
+.trust-chips + .cta-row {
+  margin-top: 0.85rem;
 }
 
 .trust-chips li {

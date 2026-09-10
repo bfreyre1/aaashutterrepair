@@ -85,8 +85,8 @@ export default function HomePage() {
             before replace — the job other companies try to turn into a full
             replacement. Blinds, shades, and Somfy motors too.
           </p>
-          <CtaButtons placement="home-hero" />
           <TrustChips />
+          <CtaButtons placement="home-hero" />
           <p>
             Call or text <strong>{PHONE_DISPLAY}</strong> — we text back to set
             a time.

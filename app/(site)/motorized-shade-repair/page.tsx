@@ -68,8 +68,8 @@ export default function MotorizedShadeRepairPage() {
           We fix Somfy and motorized shades on site. Call or text now — when
           the remote does nothing, the shade is usually still worth saving.
         </p>
-        <CtaButtons placement="motorized-hero" />
         <TrustChips />
+        <CtaButtons placement="motorized-hero" />
       </header>
 
       <figure className="content-figure">
