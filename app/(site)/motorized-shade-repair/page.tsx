@@ -93,7 +93,7 @@ export default function MotorizedShadeRepairPage() {
           battery wand that died, or a train that binds at one end of a wide
           opening. AAA Shutter Repair treats that as its own service, not a
           footnote under new product. If you searched motorized shade repair or
-          Somfy shade repair in Los Angeles, this is the final URL to use.
+          Somfy shade repair in Los Angeles, this is the page for that work.
         </p>
         <p>
           We still lead with repair. A dead control is not automatically a new

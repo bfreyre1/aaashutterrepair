@@ -27,9 +27,9 @@ export default function GetAQuotePage() {
         <p className="eyebrow">Free estimate · We text to schedule</p>
         <h1>Get a free estimate</h1>
         <p className="lede">
-          Tell us the city and what broke. We follow up by text to confirm the
-          request and schedule the visit. If you need someone today, call —
-          that is the fastest conversion path from an ad.
+          Tell us the city and what broke. The form is for a free estimate —
+          we follow up by text to confirm and schedule. If you need someone
+          today, calling is usually fastest.
         </p>
       </header>
 
@@ -37,8 +37,8 @@ export default function GetAQuotePage() {
         <aside className="phone-panel">
           <h2>Prefer to talk now?</h2>
           <p>
-            Paid-search callers usually get a faster answer on the phone than
-            on a form. Same team. Same on-site repair work.
+            The phone is faster when you want to talk now. Same team. Same
+            on-site repair work.
           </p>
           <PhoneLink placement="quote-sidebar" className="btn btn-primary">
             Call {PHONE_DISPLAY}

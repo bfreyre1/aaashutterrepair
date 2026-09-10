@@ -173,7 +173,7 @@ export const cities: CityContent[] = [
     sections: [
       {
         heading: "A Los Angeles shutter repair company that actually repairs",
-        body: "AAA Shutter Repair is a San Fernando Valley–based team that serves greater Los Angeles. The specialty is on-site plantation wood shutter repair — staples, louvers, tilt rods, hinges, magnets, and side pins — and roughly 90% of that work never leaves the house. The company comes from a family business founded in 2005. Customers who leave public reviews keep naming a technician, Alex: fast, on time, and willing to repair what other companies said needed a full replacement. That is the positioning on purpose. This is not a new-product catalog that happens to mention repair in the footer.",
+        body: "AAA Shutter Repair is a San Fernando Valley–based team that serves greater Los Angeles. The specialty is on-site plantation wood shutter repair — staples, louvers, tilt rods, hinges, magnets, and side pins — and roughly 90% of that work never leaves the house. The company comes from a family business founded in 2005. Customers who leave public reviews keep naming a technician, Alex: fast, on time, and willing to repair what other companies said needed a full replacement. This is not a new-product catalog that happens to mention repair in the footer.",
       },
       {
         heading: "When “shutter repair near me” should not mean a new order",
@@ -218,7 +218,7 @@ export const cities: CityContent[] = [
       "South Lake and Madison Heights",
     ],
     housing:
-      "Pasadena’s housing stock is the reason this page exists as its own lander. Craftsman bungalows, period revival houses, and older apartments have window sizes that do not match a warehouse shutter SKU. Many interiors were fitted with real wood plantation shutters during remodels in the 1990s and 2000s. Those sets are worth repairing.",
+      "Pasadena’s housing stock is the reason this city has its own page. Craftsman bungalows, period revival houses, and older apartments have window sizes that do not match an off-the-shelf shutter. Many interiors were fitted with real wood plantation shutters during remodels in the 1990s and 2000s. Those sets are worth repairing.",
     climate:
       "The west San Gabriel Valley is warmer and drier than the coast but less brutally hot than the deep Valley. The failure mode here is age and use more than sunbake: tired hinges on tall casements, staples that finally let go, and magnets that no longer hold a panel in an older, slightly out-of-square frame.",
     issues: [
@@ -243,7 +243,7 @@ export const cities: CityContent[] = [
       },
       {
         heading: "Pasadena, then the rest of the map",
-        body: "If you are deciding between this page and the Los Angeles or Sherman Oaks landers, use this one when the house is in Pasadena and the job is wood shutter repair. The service area still includes Van Nuys, Sherman Oaks, Santa Monica, Santa Clarita, and the wider city of Los Angeles. Secondary work — custom wood shutters, new shades, new blinds — is available when a window is past repair. The first conversation is still whether the plantation shutters you already have can be saved.",
+        body: "If you are deciding between this page and the Los Angeles or Sherman Oaks pages, use this one when the house is in Pasadena and the job is wood shutter repair. The service area still includes Van Nuys, Sherman Oaks, Santa Monica, Santa Clarita, and the wider city of Los Angeles. Secondary work — custom wood shutters, new shades, new blinds — is available when a window is past repair. The first conversation is still whether the plantation shutters you already have can be saved.",
       },
     ],
     faq: [
@@ -301,7 +301,7 @@ export const cities: CityContent[] = [
       },
       {
         heading: "Santa Monica and the rest of the service area",
-        body: "This lander is for Santa Monica searches — shutter repair, blind repair, and motorized shade repair with a coastal angle. The same company covers Van Nuys, Sherman Oaks, Los Angeles, Pasadena, and Santa Clarita. Custom wood shutters, new shades, and new blinds remain a secondary offer. If you are choosing a Google Ads landing page, use this URL for Santa Monica geo campaigns and the dedicated motorized page when the keyword is Somfy or motorized shade repair.",
+        body: "This page is for Santa Monica searches — shutter repair, blind repair, and motorized shade repair with a coastal angle. The same company covers Van Nuys, Sherman Oaks, Los Angeles, Pasadena, and Santa Clarita. Custom wood shutters, new shades, and new blinds remain a secondary offer. If the job is a Somfy or motorized shade, the dedicated motorized page has more on that work.",
       },
     ],
     faq: [
@@ -359,7 +359,7 @@ export const cities: CityContent[] = [
       },
       {
         heading: "Santa Clarita and the greater Los Angeles area",
-        body: "This page is the Santa Clarita geo lander for shutter repair near me, plantation shutter repair, and related blind or motorized work in Valencia, Canyon Country, and nearby communities. The same team covers Van Nuys, Sherman Oaks, Los Angeles, Pasadena, and Santa Monica. Custom wood shutters, new shades, and new blinds are available when a window is beyond repair. For paid search, use this URL for Santa Clarita campaigns and the plantation shutter repair page when the keyword has no city.",
+        body: "This page is for shutter repair near me, plantation shutter repair, and related blind or motorized work in Santa Clarita, Valencia, Canyon Country, and nearby communities. The same team covers Van Nuys, Sherman Oaks, Los Angeles, Pasadena, and Santa Monica. Custom wood shutters, new shades, and new blinds are available when a window is beyond repair. If you are looking up the repair itself without a city, start on the plantation shutter repair page.",
       },
     ],
     faq: [

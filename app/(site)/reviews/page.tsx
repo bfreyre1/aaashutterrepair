@@ -24,7 +24,7 @@ export default function ReviewsPage() {
     <article className="page">
       <Breadcrumbs items={[{ name: "Reviews", path: "/reviews" }]} />
       <header className="page-hero">
-        <p className="eyebrow">Public review themes · No fake ratings</p>
+        <p className="eyebrow">Themes from public reviews</p>
         <h1>What callers say about the work</h1>
         <p className="lede">
           This page paraphrases themes from public reviews. It does not invent
@@ -34,9 +34,9 @@ export default function ReviewsPage() {
       </header>
 
       <p className="prose-note">
-        We are not embedding review widgets or schema ratings. If you want the
-        original comments, look up the business on the review sites you already
-        trust.
+        We are not embedding review widgets or star ratings on this page. If
+        you want the original comments, look up the business on the review
+        sites you already trust.
       </p>
 
       <section className="review-themes">

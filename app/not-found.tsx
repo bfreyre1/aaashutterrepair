@@ -21,9 +21,8 @@ export default function NotFound() {
       <p className="eyebrow">404</p>
       <h1>That page is not on this site</h1>
       <p className="lede">
-        The URL may be a leftover from the old site, or it may have been typed
-        with a hash. Every service and city page here is a real path — no
-        hash landers.
+        The link may be old or mistyped. Try the home page, a service page, or
+        the estimate form.
       </p>
       <CtaButtons placement="404" align="center" />
       <p>

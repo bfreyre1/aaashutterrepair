@@ -131,8 +131,8 @@ export default function BlindAndShadeRepairPage() {
           shutters in the living room. Westside condos lean harder on roller
           shades. Pasadena sunrooms mix both. We serve Van Nuys, Sherman Oaks,
           Los Angeles, Pasadena, Santa Monica, and Santa Clarita. City pages
-          exist if you want a geo landing page; this URL is the service final
-          URL for blind repair and shade repair campaigns.
+          are there if you searched with a city name. This page is for the
+          type of repair — blinds and shades.
         </p>
       </section>
 
