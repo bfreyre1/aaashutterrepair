@@ -11,8 +11,8 @@ export const EMAIL = "info@aaashutterrepair.com";
 export const HOURS_DISPLAY = "Everyday 10:00 AM – 7:00 PM";
 export const HOURS_HERO =
   "Live help daily 10am–7pm · Text anytime — we schedule back";
-export const HOURS_FOOTER =
-  "Hours Everyday 10:00 AM – 7:00 PM; after hours text/message OK.";
+export const HOURS_FOOTER = "Hours Everyday 10:00 AM – 7:00 PM";
+export const HOURS_FOOTER_AFTER = "After hours text/message OK.";
 export const HOURS_FAQ = {
   question: "Are you open 24/7?",
   answer:
