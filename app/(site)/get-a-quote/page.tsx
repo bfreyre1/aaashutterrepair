@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { HoursLine } from "@/components/HoursLine";
 import { PhoneLink } from "@/components/PhoneLink";
 import { QuoteForm } from "@/components/QuoteForm";
 import { TextLink } from "@/components/TextLink";
@@ -41,6 +42,7 @@ export default function GetAQuotePage() {
             Call or text when you want an answer now. Same team. Same on-site
             repair work.
           </p>
+          <HoursLine />
           <div className="phone-panel__actions">
             <PhoneLink placement="quote-sidebar" className="btn btn-primary">
               Call {PHONE_DISPLAY}

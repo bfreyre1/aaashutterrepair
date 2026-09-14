@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
+import { HoursLine } from "@/components/HoursLine";
 import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import type { CityContent } from "@/lib/cities";
@@ -53,6 +54,7 @@ export function CityPage({ city }: { city: CityContent }) {
         <p className="lede">{city.lede}</p>
         <TrustChips />
         <CtaButtons placement={`city-${city.id}`} />
+        <HoursLine />
       </header>
 
       <figure className="content-figure">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
+import { HoursLine } from "@/components/HoursLine";
 import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
@@ -70,6 +71,7 @@ export default function MotorizedShadeRepairPage() {
         </p>
         <TrustChips />
         <CtaButtons placement="motorized-hero" />
+        <HoursLine />
       </header>
 
       <figure className="content-figure">
