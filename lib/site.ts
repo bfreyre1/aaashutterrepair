@@ -7,6 +7,18 @@ export const PHONE_TEL = "+18183928584";
 export const PHONE_SMS = `sms:${PHONE_TEL}`;
 export const EMAIL = "info@aaashutterrepair.com";
 
+/** GBP hours: daily 10am–7pm. Do not claim 24/7. Text/messages after hours OK. */
+export const HOURS_DISPLAY = "Everyday 10:00 AM – 7:00 PM";
+export const HOURS_HERO =
+  "Live help daily 10am–7pm · Text anytime — we schedule back";
+export const HOURS_FOOTER = "Hours Everyday 10:00 AM – 7:00 PM";
+export const HOURS_FOOTER_AFTER = "After hours text/message OK.";
+export const HOURS_FAQ = {
+  question: "Are you open 24/7?",
+  answer:
+    "You can call or text anytime. Live help daily 10am–7pm. After hours we take messages/texts and reply to schedule.",
+} as const;
+
 /** Official business NAP — Sherman Oaks mailing / office unit only. */
 export const ADDRESS = {
   street: "14120 Ventura Blvd",

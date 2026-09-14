@@ -521,6 +521,32 @@ li {
   margin-top: 0.85rem;
 }
 
+.hours-line {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0.75rem 0 0;
+}
+
+.cta-row + .hours-line {
+  margin-top: 0.75rem;
+}
+
+.hero__copy .hours-line {
+  color: var(--muted);
+}
+
+.phone-panel .hours-line {
+  color: #f2f2f2;
+}
+
+.text-photo {
+  margin: 2rem 0 0;
+}
+
+.text-photo .cta-row {
+  margin-top: 0.85rem;
+}
+
 .trust-chips li {
   background: #fff7f7;
   border: 1px solid #f0d6d6;

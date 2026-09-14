@@ -5,6 +5,8 @@ import {
   ADDRESS_STREET,
   CITY_LINKS,
   EMAIL,
+  HOURS_FOOTER,
+  HOURS_FOOTER_AFTER,
   PHONE_DISPLAY,
   SERVICE_LINKS,
   SITE_NAME,
@@ -30,6 +32,10 @@ export function Footer() {
             {ADDRESS_STREET}
             <br />
             {ADDRESS.city}, {ADDRESS.region} {ADDRESS.postal}
+            <br />
+            {HOURS_FOOTER}
+            <br />
+            {HOURS_FOOTER_AFTER}
           </address>
         </div>
         <div>

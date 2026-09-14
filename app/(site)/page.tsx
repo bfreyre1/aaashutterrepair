@@ -5,10 +5,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
+import { HoursLine } from "@/components/HoursLine";
 import { JsonLd } from "@/components/JsonLd";
 import { TrustChips } from "@/components/TrustChips";
 import { serviceJsonLd } from "@/lib/schema";
-import { absoluteUrl, CITY_LINKS, PHONE_DISPLAY } from "@/lib/site";
+import { HOURS_FAQ, absoluteUrl, CITY_LINKS, PHONE_DISPLAY } from "@/lib/site";
 
 const title = "Plantation Shutter Repair in Los Angeles";
 const description =
@@ -46,6 +47,7 @@ const homeFaq = [
     answer:
       "Call or text 818-392-8584, or send the estimate form. We follow up by text to confirm and schedule.",
   },
+  HOURS_FAQ,
 ];
 
 export default function HomePage() {
@@ -88,9 +90,9 @@ export default function HomePage() {
           <TrustChips />
           <CtaButtons placement="home-hero" />
           <p>
-            Call or text <strong>{PHONE_DISPLAY}</strong> — we text back to set
-            a time.
+            Call or text <strong>{PHONE_DISPLAY}</strong>.
           </p>
+          <HoursLine />
         </div>
       </section>
 

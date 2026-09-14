@@ -6,8 +6,9 @@ import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
+import { TextLink } from "@/components/TextLink";
 import { serviceJsonLd } from "@/lib/schema";
-import { absoluteUrl } from "@/lib/site";
+import { PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
 
 const title = "Blind Repair and Shade Repair in Los Angeles";
 const description =
@@ -24,6 +25,12 @@ export const metadata: Metadata = {
   },
 };
 
+const blindsChips = [
+  "Fix the part — not the whole window",
+  "Wands · rollers · magnets · clutches",
+  "Text a photo — we text back",
+] as const;
+
 const faq = [
   {
     question: "Can you repair blinds without replacing the whole window?",
@@ -39,6 +46,16 @@ const faq = [
     question: "What if the shade is motorized?",
     answer:
       "Use the motorized shade repair page for Somfy and other motors. We handle those as their own service.",
+  },
+  {
+    question: "Can I text a picture first?",
+    answer:
+      "Yes. Text a photo of the broken wand, roller, magnet, or clutch to 818-392-8584. We look at it and text back to schedule. After-hours messages are fine — live help is daily 10am–7pm.",
+  },
+  {
+    question: "Do you only repair shutters?",
+    answer:
+      "No. This page is for blind and shade repair — wands, rollers, magnets, pins, cords, and clutches. The same crew also repairs plantation shutters when that is the job.",
   },
 ];
 
@@ -65,12 +82,15 @@ export default function BlindAndShadeRepairPage() {
         <p className="eyebrow">Blinds · Shades · On-site when possible</p>
         <h1>Blind and shade repair</h1>
         <p className="lede">
-          We repair broken blinds and shades on site. Call or text now — a wand
-          that spins or a shade that will not come down does not have to become
-          a whole-room replacement.
+          Broken wand, stuck roller, or blinds that won’t tilt? We repair on
+          site across the Valley and LA — usually without replacing the whole
+          treatment. Call or text {PHONE_DISPLAY}.
         </p>
-        <TrustChips />
+        <TrustChips items={blindsChips} />
         <CtaButtons placement="blinds-hero" />
+        <p className="hours-line">
+          After hours? Text anytime — we schedule daily 10am–7pm.
+        </p>
       </header>
 
       <figure className="content-figure">
@@ -81,47 +101,54 @@ export default function BlindAndShadeRepairPage() {
           height={1067}
           sizes="(max-width: 800px) 100vw, 760px"
         />
-        <figcaption>
-          Royalty-free photo showing interior blinds — not a customer home.
-        </figcaption>
       </figure>
 
       <section>
-        <h2>Blind repair that stays at the window</h2>
+        <h2>Blind and shade repair at the window</h2>
         <p>
-          AAA Shutter Repair is known first for plantation shutters, but a
-          large share of calls are blinds and shades — especially in condos and
-          rooms that never had wood shutters. We repair horizontal blinds,
-          roller shades, and the small parts that fail: magnets, side pins,
-          slats, wands, and lift hardware. The goal is the same as the shutter
-          work: fix what is broken, keep what still works.
+          Broken wands, stuck rollers, magnets that let go, and clutches that
+          will not lift — that is the work on this page. We repair horizontal
+          blinds and roller shades on site across the San Fernando Valley and
+          Los Angeles when the job allows. The goal is to fix the part and keep
+          the treatment you already have.
         </p>
         <p>
-          Public reviews mention old, large blinds repaired on a next-day
-          visit, kitchen blinds that would not close, and blackout shades with
-          a bad cord. The pattern is not “we installed a new collection.” It is
-          a technician — often named Alex in those reviews — who diagnosed the
-          part and finished the job.
+          The same crew also repairs plantation shutters when that is what
+          failed. If the window is wood shutters, start on{" "}
+          <Link href="/plantation-shutter-repair">
+            plantation shutter repair
+          </Link>
+          .
         </p>
       </section>
 
       <section>
-        <h2>Typical blind and shade failures</h2>
+        <h2>What we fix</h2>
         <ul>
-          <li>Slats that flipped and will not tilt together</li>
-          <li>Wands or tilters that spin without moving the slats</li>
-          <li>Roller shades that retract halfway or not at all</li>
-          <li>Magnets and pins that no longer hold a shade or valance</li>
-          <li>Cords or clutches that failed on a blackout shade</li>
+          <li>
+            <strong>Wands and tilters.</strong> A wand that spins or slats that
+            will not tilt together is usually a tilter or wand repair — not a
+            new blind.
+          </li>
+          <li>
+            <strong>Roller stuck halfway.</strong> Roller shades that retract
+            halfway or will not come down are typically clutch and hardware
+            work, not a new fabric order first.
+          </li>
+          <li>
+            <strong>Magnets and pins.</strong> Magnets and side pins that no
+            longer hold a shade, valance, or panel closed are a small-part
+            visit.
+          </li>
+          <li>
+            <strong>Cord or clutch on a blackout shade.</strong> A failed cord
+            or clutch should not mean replacing the whole blackout treatment.
+          </li>
         </ul>
         <p>
           If the treatment is motorized, go to{" "}
           <Link href="/motorized-shade-repair">
             motorized / Somfy shade repair
-          </Link>
-          . If the window has wood plantation shutters, use{" "}
-          <Link href="/plantation-shutter-repair">
-            plantation shutter repair
           </Link>
           .
         </p>
@@ -137,6 +164,58 @@ export default function BlindAndShadeRepairPage() {
           are there if you searched with a city name. This page is for the
           type of repair — blinds and shades.
         </p>
+      </section>
+
+      <section aria-label="Recent blind and shade repairs">
+        <h2>Recent repairs, paraphrased</h2>
+        <p className="prose-note">
+          Themes from public reviews — no star counts, no reviewer names.
+        </p>
+        <div className="review-themes">
+          <article>
+            <h3>Next-day large blind</h3>
+            <p>
+              A large, older blind that other shops wanted to replace was
+              repaired on a next-day visit. The treatment stayed. The failed
+              part did not.
+            </p>
+          </article>
+          <article>
+            <h3>Kitchen blinds that would not close</h3>
+            <p>
+              Kitchen blinds stuck open were diagnosed and repaired on site
+              instead of becoming a new product order.
+            </p>
+          </article>
+          <article>
+            <h3>Blackout shade cord</h3>
+            <p>
+              A blackout shade with a failed cord was restored so the room
+              could go dark again — clutch and lift hardware, not a new shade.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="text-photo">
+        <h2>Text a photo — we text back</h2>
+        <p>
+          Snap the wand, the roller, the magnet, or the clutch and text it to{" "}
+          {PHONE_DISPLAY}. We reply with next steps and a time to come out.
+          After hours is fine — we schedule daily 10am–7pm.
+        </p>
+        <div className="cta-row">
+          <TextLink
+            placement="blinds-photo-text"
+            className="btn btn-text"
+            aria-label={`Text a photo to ${PHONE_DISPLAY}`}
+          >
+            Text a photo
+          </TextLink>
+          <a href="/get-a-quote" className="btn btn-secondary">
+            Get a free estimate
+          </a>
+        </div>
       </section>
 
       <FaqList items={faq} />

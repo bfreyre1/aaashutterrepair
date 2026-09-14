@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
+import { HoursLine } from "@/components/HoursLine";
 import {
   ADDRESS_DISPLAY,
   EMAIL,
@@ -104,6 +105,7 @@ export default function AboutPage() {
           is built so we can text you back to schedule. Submissions create an
           estimate request in our shop system.
         </p>
+        <HoursLine />
       </section>
     </article>
   );
