@@ -65,10 +65,10 @@ The site loads gtag for **`AW-11547263826`** (remarketing / config; do not remov
 | --- | --- | --- |
 | `generate_lead` | After Kickserv accepts the quote (customer + estimate job) | GA4-friendly event with `{ currency: 'USD' }` only. Do **not** put `send_to` on this event. |
 | `conversion` | Same successful quote submit, fired separately | Google Ads PRIMARY **Quote form submit** (`send_to: AW-16874362178/mjU2CM-2qu8cEMKqqe4-`, count One, value $0). Override with `NEXT_PUBLIC_AW_LEAD_SEND_TO`, or split `NEXT_PUBLIC_AW_LEAD_ID` + `NEXT_PUBLIC_AW_LEAD_LABEL`. |
-| `phone_call_click` | Any `tel:` link (header, sticky bar, quote sidebar, CTAs) | In Google Ads, either import that custom event or create a call conversion and put the label in `NEXT_PUBLIC_AW_PHONE_LABEL`. You can also use Google’s official website-call conversion against the same number |
-| `text_click` | Any `sms:` link (header, sticky bar, quote sidebar, CTAs) | Parallel to phone. Import the custom event, or add a label in `NEXT_PUBLIC_AW_TEXT_LABEL` if Ads creates a text conversion. |
+| `phone_call_click` | Any `tel:` link (header, sticky bar, quote sidebar, CTAs) | Google Ads PRIMARY **Click to call (website)** (`send_to: AW-16874362178/QwBXCJmkn_ocEMKqqe4-`, count One, value $0). Override with `NEXT_PUBLIC_AW_PHONE_SEND_TO`, or `NEXT_PUBLIC_AW_PHONE_LABEL` as a full send_to or label suffix. |
+| `text_click` | Any `sms:` link (header, sticky bar, quote sidebar, CTAs) | Google Ads PRIMARY **Click to text (website)** (`send_to: AW-16874362178/Egg1CJykn_ocEMKqqe4-`, count One, value $0). Override with `NEXT_PUBLIC_AW_TEXT_SEND_TO`, or `NEXT_PUBLIC_AW_TEXT_LABEL` as a full send_to or label suffix. |
 
-Do not invent other conversion labels. Phone and text Ads conversion labels stay unset until Ads provides them.
+Do not invent other conversion labels. Phone and text must send to **AW-16874362178** (same conversion account as the form), not the remarketing tag `AW-11547263826`.
 
 The quote form `POST`s to `/api/quote`. The route find-or-creates a Kickserv customer (website source `641638`) on account `c56cad`, then creates a SERVICE ESTIMATE job (`job_type_id` `745511`, `estimate=true`). Ads conversion events fire only after that succeeds. If Kickserv fails, the form shows an error (with optional mailto backup) and does **not** claim success. Copy on the page says follow-up is by **text** to schedule.
 
@@ -83,7 +83,7 @@ Search Console ownership on the Next site (leave Duda alone):
 - HTML file: `/google53928a8ada018672.html`
 - DNS TXT on Tailor Brands / GoDaddy — do not delete it. That is the Domain-property path and survives the host change.
 
-After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ryze GSC picker. The quote-form Ads conversion label is already wired (`NEXT_PUBLIC_AW_LEAD_SEND_TO`). Leave `NEXT_PUBLIC_AW_PHONE_LABEL` and `NEXT_PUBLIC_AW_TEXT_LABEL` empty until Ads provides those conversions.
+After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ryze GSC picker. Quote-form, click-to-call, and click-to-text Ads conversions are wired to `AW-16874362178` (`NEXT_PUBLIC_AW_LEAD_SEND_TO` / `NEXT_PUBLIC_AW_PHONE_SEND_TO` / `NEXT_PUBLIC_AW_TEXT_SEND_TO`).
 
 ## SEO implementation notes
 
@@ -112,8 +112,8 @@ After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ry
    - `NEXT_PUBLIC_AW_ID=AW-11547263826`
    - `NEXT_PUBLIC_AW_LEAD_SEND_TO=AW-16874362178/mjU2CM-2qu8cEMKqqe4-`
    - `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-Z405VVNDE8` (defaults in code if unset)
-   - Optional: `NEXT_PUBLIC_AW_PHONE_LABEL`
-   - Optional: `NEXT_PUBLIC_AW_TEXT_LABEL`
+   - Optional: `NEXT_PUBLIC_AW_PHONE_SEND_TO` (defaults to `AW-16874362178/QwBXCJmkn_ocEMKqqe4-`)
+   - Optional: `NEXT_PUBLIC_AW_TEXT_SEND_TO` (defaults to `AW-16874362178/Egg1CJykn_ocEMKqqe4-`)
    - `KICKSERV_API_TOKEN` (server-only; required for `/api/quote`. Basic auth uses the token as both username and password)
    - Optional: `KICKSERV_ACCOUNT=c56cad` (defaults to `c56cad` if unset)
 4. Deploy. Confirm `/sitemap.xml` and `/robots.txt`.
