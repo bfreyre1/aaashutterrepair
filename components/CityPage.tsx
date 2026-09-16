@@ -102,9 +102,7 @@ export function CityPage({ city }: { city: CityContent }) {
         <h2>Related services</h2>
         <p>
           Start with the job you actually have:{" "}
-          <Link href="/plantation-shutter-repair">
-            plantation shutter repair
-          </Link>
+          <Link href="/shutter-repair">shutter repair</Link>
           , <Link href="/blind-and-shade-repair">blind and shade repair</Link>,
           or{" "}
           <Link href="/motorized-shade-repair">

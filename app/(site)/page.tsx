@@ -158,8 +158,8 @@ export default function HomePage() {
             place. This is not a generic window-treatment catalog.
           </p>
           <div className="card-grid">
-            <Link href="/plantation-shutter-repair" className="card">
-              <h3>Plantation shutter repair</h3>
+            <Link href="/shutter-repair" className="card">
+              <h3>Shutter repair</h3>
               <p>
                 Wood shutters: staples, louvers / louvres, tilt rods, hinges,
                 magnets, side pins. Most jobs stay on site.

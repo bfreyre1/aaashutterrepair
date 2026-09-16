@@ -10,24 +10,24 @@ import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
 import { absoluteUrl } from "@/lib/site";
 
-const title = "Plantation Shutter Repair Near Me";
+const title = "Shutter Repair Near Me";
 const description =
-  "On-site plantation wood shutter repair in Los Angeles: staples, louvers, tilt rods, hinges, magnets, and side pins. About 90% of jobs finish at the house. Call 818-392-8584.";
+  "Shutter repair in Los Angeles: on-site plantation wood shutters — staples, louvers, tilt rods, hinges, magnets, and side pins. About 90% of jobs finish at the house. Call 818-392-8584.";
 
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: absoluteUrl("/plantation-shutter-repair") },
+  alternates: { canonical: absoluteUrl("/shutter-repair") },
   openGraph: {
     title: `${title} | AAA Shutter Repair`,
     description,
-    url: absoluteUrl("/plantation-shutter-repair"),
+    url: absoluteUrl("/shutter-repair"),
   },
 };
 
 const faq = [
   {
-    question: "What parts of a plantation shutter can you repair?",
+    question: "What parts of a shutter can you repair?",
     answer:
       "Staples, louvers (louvres), tilt rods, hinges, magnets, and side pins. Most wood plantation shutters can be repaired on site.",
   },
@@ -43,35 +43,35 @@ const faq = [
   },
 ];
 
-export default function PlantationShutterRepairPage() {
+export default function ShutterRepairPage() {
   return (
     <article className="page">
       <JsonLd
         data={serviceJsonLd({
-          name: "Plantation shutter repair",
-          path: "/plantation-shutter-repair",
+          name: "Shutter repair",
+          path: "/shutter-repair",
           description,
-          serviceType: "Plantation shutter repair",
+          serviceType: "Shutter repair",
         })}
       />
       <Breadcrumbs
         items={[
           {
-            name: "Plantation shutter repair",
-            path: "/plantation-shutter-repair",
+            name: "Shutter repair",
+            path: "/shutter-repair",
           },
         ]}
       />
       <header className="page-hero">
         <p className="eyebrow">On-site wood shutter repair</p>
-        <h1>Plantation shutter repair</h1>
+        <h1>Shutter repair</h1>
         <p className="lede">
           We repair broken wood shutters on site. Call or text now — a loose
           staple or a louver on the floor is not a reason to replace every
           window in the room.
         </p>
         <TrustChips />
-        <CtaButtons placement="plantation-hero" />
+        <CtaButtons placement="shutter-hero" />
         <HoursLine />
       </header>
 
@@ -95,9 +95,9 @@ export default function PlantationShutterRepairPage() {
           about 90% of those jobs stay on site. We come to the house in the San
           Fernando Valley and greater Los Angeles with the hardware that
           actually fails: tilt-rod staples, side pins, magnets, hinges, and
-          replacement louvers. If you searched plantation shutter repair or
-          shutter repair near me, this is the page meant to answer that query
-          — not a generic “quality window solutions” pitch.
+          replacement louvers. If you searched shutter repair, shutter repair
+          near me, or plantation shutter repair, this is the page meant to
+          answer that query — not a generic “quality window solutions” pitch.
         </p>
         <p>
           Public reviews of the company keep describing the same visit: a

@@ -14,8 +14,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/plantation-shutter-repair",
+        destination: "/shutter-repair",
+        permanent: true,
+      },
+      {
         source: "/services",
-        destination: "/plantation-shutter-repair",
+        destination: "/shutter-repair",
         permanent: true,
       },
       {
@@ -25,12 +30,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/shutters-in-southern-california",
-        destination: "/plantation-shutter-repair",
+        destination: "/shutter-repair",
         permanent: true,
       },
       {
         source: "/a-homeowners-guide-to-buying-window-treatments",
-        destination: "/plantation-shutter-repair",
+        destination: "/shutter-repair",
         permanent: true,
       },
     ];

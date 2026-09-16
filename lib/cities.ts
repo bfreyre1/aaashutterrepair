@@ -359,7 +359,7 @@ export const cities: CityContent[] = [
       },
       {
         heading: "Santa Clarita and the greater Los Angeles area",
-        body: "This page is for shutter repair near me, plantation shutter repair, and related blind or motorized work in Santa Clarita, Valencia, Canyon Country, and nearby communities. The same team covers Van Nuys, Sherman Oaks, Los Angeles, Pasadena, and Santa Monica. Custom wood shutters, new shades, and new blinds are available when a window is beyond repair. If you are looking up the repair itself without a city, start on the plantation shutter repair page.",
+        body: "This page is for shutter repair near me, plantation shutter repair, and related blind or motorized work in Santa Clarita, Valencia, Canyon Country, and nearby communities. The same team covers Van Nuys, Sherman Oaks, Los Angeles, Pasadena, and Santa Monica. Custom wood shutters, new shades, and new blinds are available when a window is beyond repair. If you are looking up the repair itself without a city, start on the shutter repair page.",
       },
     ],
     faq: [

@@ -28,7 +28,7 @@ export default function NotFound() {
       <p>
         <Link href="/">Plantation shutter repair in Los Angeles</Link>
         {" · "}
-        <Link href="/plantation-shutter-repair">Shutter repair</Link>
+        <Link href="/shutter-repair">Shutter repair</Link>
         {" · "}
         <Link href="/get-a-quote">Get a free estimate</Link>
       </p>

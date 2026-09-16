@@ -40,7 +40,7 @@ Use these **https** paths as Google Ads final URLs. Do not point campaigns at ha
 | Campaign / keyword theme | Final URL | H1 |
 | --- | --- | --- |
 | Branded + “shutter repair near me” / LA head terms | `/` | Plantation shutter repair in Los Angeles |
-| Plantation shutter repair, wood shutter repair, staples / louvers / tilt rods | `/plantation-shutter-repair` | Plantation shutter repair |
+| Shutter repair, plantation / wood shutter repair, staples / louvers / tilt rods | `/shutter-repair` | Shutter repair |
 | Blind repair, shade repair | `/blind-and-shade-repair` | Blind and shade repair |
 | Motorized shade repair, Somfy shade repair | `/motorized-shade-repair` | Motorized shade repair |
 | Van Nuys geo | `/shutter-repair-van-nuys` | Shutter repair in Van Nuys |
@@ -53,7 +53,7 @@ Use these **https** paths as Google Ads final URLs. Do not point campaigns at ha
 
 Supporting URLs (usually sitelinks or organic only): `/about`, `/reviews`, `/gallery`, `/privacy`. Unknown paths render the branded 404. `/404` exists as a real route for leftover inbound links.
 
-Sitelink ideas: Get a free estimate, Plantation shutter repair, Blind and shade repair, Motorized / Somfy repair, plus the city that matches the campaign geo.
+Sitelink ideas: Get a free estimate, Shutter repair, Blind and shade repair, Motorized / Somfy repair, plus the city that matches the campaign geo. `/plantation-shutter-repair` permanently redirects to `/shutter-repair`.
 
 Callout extensions and the sticky Call button should use `tel:+18183928584` (display **818-392-8584**). Text buttons use `sms:+18183928584` (same number). Call and Text are the primary CTAs; the quote form is secondary.
 
