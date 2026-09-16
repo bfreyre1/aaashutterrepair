@@ -115,9 +115,7 @@ export default function BlindAndShadeRepairPage() {
         <p>
           The same crew also repairs plantation shutters when that is what
           failed. If the window is wood shutters, start on{" "}
-          <Link href="/plantation-shutter-repair">
-            plantation shutter repair
-          </Link>
+          <Link href="/shutter-repair">plantation shutter repair</Link>
           .
         </p>
       </section>

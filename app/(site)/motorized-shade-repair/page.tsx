@@ -120,9 +120,7 @@ export default function MotorizedShadeRepairPage() {
           Manual{" "}
           <Link href="/blind-and-shade-repair">blind and shade repair</Link>{" "}
           is a different page. Wood shutters are on{" "}
-          <Link href="/plantation-shutter-repair">
-            plantation shutter repair
-          </Link>
+          <Link href="/shutter-repair">plantation shutter repair</Link>
           .
         </p>
       </section>

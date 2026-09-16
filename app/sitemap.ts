@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }> = [
     { path: "/", changeFrequency: "weekly", priority: 1 },
     {
-      path: "/plantation-shutter-repair",
+      path: "/shutter-repair",
       changeFrequency: "monthly",
       priority: 0.9,
     },

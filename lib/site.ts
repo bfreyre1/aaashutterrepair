@@ -133,6 +133,7 @@ export const GOOGLE_SITE_VERIFICATION_INFO =
   "tBt86v_ONfyMJKCFZ1kPPC5UVPk99LSHJOI34NZAPPs";
 
 export const SERVICE_TYPES = [
+  "Shutter repair",
   "Plantation shutter repair",
   "Wood shutter repair",
   "Blind repair",
@@ -154,7 +155,7 @@ export type NavLink = { href: string; label: string };
 export type CityLink = NavLink & { blurb: string };
 
 export const SERVICE_LINKS: NavLink[] = [
-  { href: "/plantation-shutter-repair", label: "Plantation shutter repair" },
+  { href: "/shutter-repair", label: "Shutter repair" },
   { href: "/blind-and-shade-repair", label: "Blind and shade repair" },
   { href: "/motorized-shade-repair", label: "Motorized / Somfy repair" },
 ];
