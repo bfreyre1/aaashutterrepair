@@ -1,14 +1,13 @@
 import {
-  AW_ID,
   AW_LEAD_SEND_TO,
-  AW_PHONE_LABEL,
-  AW_TEXT_LABEL,
+  AW_PHONE_SEND_TO,
+  AW_TEXT_SEND_TO,
 } from "@/lib/site";
 
 function trackEngagement(
   eventName: string,
   placement: string,
-  adsLabel?: string,
+  adsSendTo?: string,
 ): void {
   if (typeof window === "undefined" || typeof window.gtag !== "function") {
     return;
@@ -19,19 +18,19 @@ function trackEngagement(
     event_label: placement,
   });
 
-  if (adsLabel) {
+  if (adsSendTo) {
     window.gtag("event", "conversion", {
-      send_to: `${AW_ID}/${adsLabel}`,
+      send_to: adsSendTo,
     });
   }
 }
 
 export function trackPhoneClick(placement: string): void {
-  trackEngagement("phone_call_click", placement, AW_PHONE_LABEL || undefined);
+  trackEngagement("phone_call_click", placement, AW_PHONE_SEND_TO || undefined);
 }
 
 export function trackTextClick(placement: string): void {
-  trackEngagement("text_click", placement, AW_TEXT_LABEL || undefined);
+  trackEngagement("text_click", placement, AW_TEXT_SEND_TO || undefined);
 }
 
 export function trackGenerateLead(): void {

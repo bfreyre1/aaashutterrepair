@@ -37,12 +37,33 @@ export const ADDRESS_DISPLAY = `${ADDRESS_STREET}, ${ADDRESS.city}, ${ADDRESS.re
 
 /** Existing Google Ads remarketing / config tag. Do not remove. */
 export const AW_ID = process.env.NEXT_PUBLIC_AW_ID ?? "AW-11547263826";
-export const AW_PHONE_LABEL = process.env.NEXT_PUBLIC_AW_PHONE_LABEL ?? "";
-/** Optional Ads label for sms: clicks. Empty until Ads provides one. */
-export const AW_TEXT_LABEL = process.env.NEXT_PUBLIC_AW_TEXT_LABEL ?? "";
 
 const DEFAULT_AW_LEAD_ID = "AW-16874362178";
 const DEFAULT_AW_LEAD_SEND_TO = `${DEFAULT_AW_LEAD_ID}/mjU2CM-2qu8cEMKqqe4-`;
+const DEFAULT_AW_PHONE_SEND_TO = `${DEFAULT_AW_LEAD_ID}/QwBXCJmkn_ocEMKqqe4-`;
+const DEFAULT_AW_TEXT_SEND_TO = `${DEFAULT_AW_LEAD_ID}/Egg1CJykn_ocEMKqqe4-`;
+
+/**
+ * Google Ads conversion send_tos (customer 966-942-1656).
+ * All three live on AW-16874362178 — do not concatenate labels onto
+ * the remarketing tag AW-11547263826.
+ * - Quote form submit: AW-16874362178/mjU2CM-2qu8cEMKqqe4-
+ * - Click to call (website): AW-16874362178/QwBXCJmkn_ocEMKqqe4-
+ * - Click to text (website): AW-16874362178/Egg1CJykn_ocEMKqqe4-
+ */
+function adsSendTo(
+  sendToEnv: string | undefined,
+  labelEnv: string | undefined,
+  fallback: string,
+): string {
+  if (sendToEnv) {
+    return sendToEnv;
+  }
+  if (labelEnv) {
+    return labelEnv.includes("/") ? labelEnv : `${AW_LEAD_ID}/${labelEnv}`;
+  }
+  return fallback;
+}
 
 /**
  * Quote form conversion send_to from Google Ads
@@ -65,6 +86,38 @@ export const AW_LEAD_ID =
 export const AW_LEAD_LABEL =
   process.env.NEXT_PUBLIC_AW_LEAD_LABEL ||
   AW_LEAD_SEND_TO.split("/")[1] ||
+  "";
+
+/**
+ * Click-to-call (website) conversion. Prefer NEXT_PUBLIC_AW_PHONE_SEND_TO,
+ * or NEXT_PUBLIC_AW_PHONE_LABEL as a full send_to or label suffix.
+ */
+export const AW_PHONE_SEND_TO = adsSendTo(
+  process.env.NEXT_PUBLIC_AW_PHONE_SEND_TO,
+  process.env.NEXT_PUBLIC_AW_PHONE_LABEL,
+  DEFAULT_AW_PHONE_SEND_TO,
+);
+
+/** Label suffix after AW-xxxxx/. Kept for existing env / imports. */
+export const AW_PHONE_LABEL =
+  process.env.NEXT_PUBLIC_AW_PHONE_LABEL ||
+  AW_PHONE_SEND_TO.split("/")[1] ||
+  "";
+
+/**
+ * Click-to-text (website) conversion. Prefer NEXT_PUBLIC_AW_TEXT_SEND_TO,
+ * or NEXT_PUBLIC_AW_TEXT_LABEL as a full send_to or label suffix.
+ */
+export const AW_TEXT_SEND_TO = adsSendTo(
+  process.env.NEXT_PUBLIC_AW_TEXT_SEND_TO,
+  process.env.NEXT_PUBLIC_AW_TEXT_LABEL,
+  DEFAULT_AW_TEXT_SEND_TO,
+);
+
+/** Label suffix after AW-xxxxx/. Kept for existing env / imports. */
+export const AW_TEXT_LABEL =
+  process.env.NEXT_PUBLIC_AW_TEXT_LABEL ||
+  AW_TEXT_SEND_TO.split("/")[1] ||
   "";
 
 /** GA4 web stream on property AAA Shutter Repair (properties/544939257). */
