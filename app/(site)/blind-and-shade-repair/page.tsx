@@ -100,6 +100,7 @@ export default function BlindAndShadeRepairPage() {
           width={1600}
           height={1067}
           sizes="(max-width: 800px) 100vw, 760px"
+          priority
         />
       </figure>
 

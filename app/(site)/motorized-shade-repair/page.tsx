@@ -81,6 +81,7 @@ export default function MotorizedShadeRepairPage() {
           width={1400}
           height={1298}
           sizes="(max-width: 800px) 100vw, 720px"
+          priority
         />
         <figcaption>
           Royalty-free Unsplash photo of window hardware — not a client motor

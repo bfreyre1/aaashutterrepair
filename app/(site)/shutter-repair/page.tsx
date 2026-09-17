@@ -82,6 +82,7 @@ export default function ShutterRepairPage() {
           width={1400}
           height={2100}
           sizes="(max-width: 800px) 100vw, 640px"
+          priority
         />
         <figcaption>
           Royalty-free Unsplash photo of louvered shutters — not a client job.
