@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element --
-   Homepage hero and job strip must use the same static JPEG src on
+   Homepage hero and job strip must use the same static src on
    desktop and mobile. next/image srcset was leaving the beige box. */
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -53,7 +53,12 @@ const homeFaq = [
 export default function HomePage() {
   return (
     <>
-      <link rel="preload" as="image" href="/images/hero-on-site-repair.jpg" />
+      <link
+        rel="preload"
+        as="image"
+        href="/images/hero-on-site-repair.webp"
+        type="image/webp"
+      />
       <JsonLd
         data={serviceJsonLd({
           name: "Plantation shutter repair in Los Angeles",
@@ -67,7 +72,7 @@ export default function HomePage() {
         <figure className="hero__media">
           <img
             className="hero__photo"
-            src="/images/hero-on-site-repair.jpg"
+            src="/images/hero-on-site-repair.webp"
             alt="On-site plantation shutter repair in a Los Angeles home"
             width={1168}
             height={784}
@@ -119,7 +124,7 @@ export default function HomePage() {
           <div className="job-strip__grid">
             <figure className="job-card">
               <img
-                src="/images/gallery/bedroom-shutters.jpg"
+                src="/images/gallery/bedroom-shutters.webp"
                 alt="White plantation shutters on a bedroom window"
                 width={1000}
                 height={750}
@@ -128,7 +133,7 @@ export default function HomePage() {
             </figure>
             <figure className="job-card">
               <img
-                src="/images/gallery/house-shutters.jpg"
+                src="/images/gallery/house-shutters.webp"
                 alt="Stacked white shutter panels"
                 width={1067}
                 height={800}
@@ -137,10 +142,10 @@ export default function HomePage() {
             </figure>
             <figure className="job-card">
               <img
-                src="/images/gallery/house-window.jpg"
+                src="/images/gallery/house-window.webp"
                 alt="Finished interior shutters on a house window"
-                width={1920}
-                height={2560}
+                width={1200}
+                height={1600}
               />
               <figcaption>Finished room.</figcaption>
             </figure>
