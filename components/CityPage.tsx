@@ -64,6 +64,7 @@ export function CityPage({ city }: { city: CityContent }) {
           width={1600}
           height={1067}
           sizes="(max-width: 800px) 100vw, 760px"
+          priority
         />
         <figcaption>
           Royalty-free photo of a shuttered window — not a client project.

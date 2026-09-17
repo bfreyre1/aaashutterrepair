@@ -16,12 +16,14 @@ import "./globals.css";
 
 const sans = Raleway({
   subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
   variable: "--font-sans-loaded",
   display: "swap",
 });
 
 const heading = Montserrat({
   subsets: ["latin"],
+  weight: ["700"],
   variable: "--font-heading-loaded",
   display: "swap",
 });
