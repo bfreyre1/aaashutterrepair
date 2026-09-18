@@ -72,7 +72,7 @@ export function QuoteForm() {
       <div className="form-success" role="status">
         <h2>Request received</h2>
         <p>
-          We'll text next about the street address and a time to come out.
+          We will text next about the street address and a time to come out.
           Prefer to talk now? Call{" "}
           <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>.
         </p>
