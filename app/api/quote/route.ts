@@ -33,16 +33,20 @@ export async function POST(request: Request) {
 
   try {
     const lead = await createQuoteLead(values);
-    const wakeBody = buildSoftIntakeWakeBody(values, lead);
-    after(async () => {
-      if (!wakeBody) {
-        console.error(
-          "Soft-intake wake skipped: could not normalize phone to E.164.",
-        );
-        return;
-      }
-      await wakeSoftIntake(wakeBody);
-    });
+    try {
+      const wakeBody = buildSoftIntakeWakeBody(values, lead);
+      after(async () => {
+        if (!wakeBody) {
+          console.error(
+            "Soft-intake wake skipped: could not normalize phone to E.164.",
+          );
+          return;
+        }
+        await wakeSoftIntake(wakeBody);
+      });
+    } catch (error) {
+      console.error("Soft-intake wake schedule error:", error);
+    }
     return Response.json({
       ok: true,
       customerId: lead.customerId,
