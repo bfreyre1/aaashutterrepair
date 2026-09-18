@@ -70,7 +70,7 @@ The site loads gtag for **`AW-11547263826`** (remarketing / config; do not remov
 
 Do not invent other conversion labels. Phone and text must send to **AW-16874362178** (same conversion account as the form), not the remarketing tag `AW-11547263826`.
 
-The quote form `POST`s to `/api/quote`. The route find-or-creates a Kickserv customer (website source `641638`) on account `c56cad`, then creates a SERVICE ESTIMATE job (`job_type_id` `745511`, `estimate=true`). Ads conversion events fire only after that succeeds. If Kickserv fails, the form shows an error (with optional mailto backup) and does **not** claim success. Copy on the page says follow-up is by **text** to schedule.
+The quote form `POST`s to `/api/quote`. The route find-or-creates a Kickserv customer (website source `641638`) on account `c56cad`, then creates a SERVICE ESTIMATE job (`job_type_id` `745511`, `estimate=true`). After Kickserv succeeds, the route fire-and-forgets a POST to the soft-intake webhook (`SOFT_INTAKE_WEBHOOK_URL`) so Quo can SMS for missing fields (address, window). Soft-intake failures are logged only — the customer still sees success. Ads conversion events fire only after Kickserv succeeds. If Kickserv fails, the form shows an error (with optional mailto backup) and does **not** claim success. Copy on the page says follow-up is by **text** to schedule. The quote form does **not** collect a street address.
 
 ## Analytics and ownership
 
@@ -116,6 +116,8 @@ After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ry
    - Optional: `NEXT_PUBLIC_AW_TEXT_SEND_TO` (defaults to `AW-16874362178/Egg1CJykn_ocEMKqqe4-`)
    - `KICKSERV_API_TOKEN` (server-only; required for `/api/quote`. Basic auth uses the token as both username and password)
    - Optional: `KICKSERV_ACCOUNT=c56cad` (defaults to `c56cad` if unset)
+   - `SOFT_INTAKE_WEBHOOK_URL` (server-only; Cursor automation webhook that wakes soft-intake after a Kickserv quote)
+   - `SOFT_INTAKE_WEBHOOK_AUTH` (server-only; full `Bearer …` value from the automation's "Generate auth header")
 4. Deploy. Confirm `/sitemap.xml` and `/robots.txt`.
 5. When you are ready to replace the live Duda site, point the `aaashutterrepair.com` DNS to Vercel and keep the https canonicals. Until then, this remains a sample.
 

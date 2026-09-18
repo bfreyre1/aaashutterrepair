@@ -1,9 +1,11 @@
+import { after } from "next/server";
 import { KickservError, createQuoteLead } from "@/lib/kickserv";
 import {
   normalizeQuoteForm,
   readQuoteFormBody,
   validateQuoteForm,
 } from "@/lib/quote";
+import { wakeSoftIntake } from "@/lib/soft-intake";
 
 export const runtime = "nodejs";
 
@@ -31,6 +33,13 @@ export async function POST(request: Request) {
 
   try {
     const lead = await createQuoteLead(values);
+    after(() =>
+      wakeSoftIntake({
+        values,
+        customerId: lead.customerId,
+        jobId: lead.jobId,
+      }),
+    );
     return Response.json({
       ok: true,
       customerId: lead.customerId,

@@ -44,6 +44,12 @@ export function toTenDigitUsPhone(phone: string): string | null {
   return null;
 }
 
+/** E.164 +1 for Quo / soft-intake. Returns null if the number is not 10-digit US. */
+export function toE164UsPhone(phone: string): string | null {
+  const ten = toTenDigitUsPhone(phone);
+  return ten ? `+1${ten}` : null;
+}
+
 export function validateQuoteForm(values: QuoteFormValues): QuoteFormErrors {
   const errors: QuoteFormErrors = {};
   if (values.name.trim().length < 2) {
