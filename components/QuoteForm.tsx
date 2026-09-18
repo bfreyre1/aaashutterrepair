@@ -72,8 +72,8 @@ export function QuoteForm() {
       <div className="form-success" role="status">
         <h2>Request received</h2>
         <p>
-          We follow up by text to confirm your request and schedule the visit.
-          Prefer to talk now? Call{" "}
+          We follow up by text to confirm your request and pick a day and time
+          window. Prefer to talk now? Call{" "}
           <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>.
         </p>
       </div>
@@ -156,6 +156,29 @@ export function QuoteForm() {
         {errors.email ? (
           <p id="email-error" className="field-error">
             {errors.email}
+          </p>
+        ) : null}
+      </div>
+
+      <div className="field">
+        <label htmlFor="address">Street address</label>
+        <input
+          id="address"
+          name="address"
+          autoComplete="street-address"
+          value={values.address}
+          onChange={(event) => update("address", event.target.value)}
+          aria-invalid={Boolean(errors.address)}
+          aria-describedby={
+            errors.address ? "address-error address-hint" : "address-hint"
+          }
+        />
+        <p id="address-hint" className="field-hint">
+          House or building number and street. Include the unit if you have one.
+        </p>
+        {errors.address ? (
+          <p id="address-error" className="field-error">
+            {errors.address}
           </p>
         ) : null}
       </div>

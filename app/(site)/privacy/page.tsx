@@ -37,12 +37,12 @@ export default function PrivacyPage() {
       <section>
         <h2>Information you provide</h2>
         <p>
-          The quote form asks for name, phone, email, city, job type, and a
-          description. We send those details to our shop system (Kickserv) so
-          we can find or create your customer record and open a service
-          estimate, then text you back. There is no account login or payment form on this
-          site. If the shop connection fails, you can email the same details
-          to {EMAIL} or call.
+          The quote form asks for name, phone, email, street address, city,
+          job type, and a description. We send those details to our shop
+          system (Kickserv) so we can find or create your customer record and
+          open a service estimate, then text you back. There is no account
+          login or payment form on this site. If the shop connection fails,
+          you can email the same details to {EMAIL} or call.
         </p>
       </section>
 
