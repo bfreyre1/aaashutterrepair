@@ -4,6 +4,7 @@ export type QuoteFormValues = {
   name: string;
   phone: string;
   email: string;
+  address: string;
   city: string;
   jobType: string;
   description: string;
@@ -26,6 +27,7 @@ export function emptyQuoteForm(): QuoteFormValues {
     name: "",
     phone: "",
     email: "",
+    address: "",
     city: "",
     jobType: "",
     description: "",
@@ -44,6 +46,12 @@ export function toTenDigitUsPhone(phone: string): string | null {
   return null;
 }
 
+/** E.164 US number for Quo / soft-intake (`+1` + 10 digits). */
+export function toE164UsPhone(phone: string): string | null {
+  const ten = toTenDigitUsPhone(phone);
+  return ten ? `+1${ten}` : null;
+}
+
 export function validateQuoteForm(values: QuoteFormValues): QuoteFormErrors {
   const errors: QuoteFormErrors = {};
   if (values.name.trim().length < 2) {
@@ -54,6 +62,9 @@ export function validateQuoteForm(values: QuoteFormValues): QuoteFormErrors {
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
     errors.email = "Enter a valid email address.";
+  }
+  if (values.address.trim().length < 5) {
+    errors.address = "Enter the street address.";
   }
   if (!values.city || !CITY_SET.has(values.city)) {
     errors.city = "Choose your city.";
@@ -72,6 +83,7 @@ export function normalizeQuoteForm(values: QuoteFormValues): QuoteFormValues {
     name: values.name.trim(),
     phone: values.phone.trim(),
     email: values.email.trim(),
+    address: values.address.trim(),
     city: values.city.trim(),
     jobType: values.jobType.trim(),
     description: values.description.trim(),
@@ -89,6 +101,7 @@ export function readQuoteFormBody(body: unknown): QuoteFormValues | null {
     name: read("name"),
     phone: read("phone"),
     email: read("email"),
+    address: read("address"),
     city: read("city"),
     jobType: read("jobType"),
     description: read("description"),
@@ -104,6 +117,7 @@ export function quoteMailtoHref(values: QuoteFormValues): string {
       `Name: ${values.name}`,
       `Phone: ${values.phone}`,
       `Email: ${values.email}`,
+      `Street address: ${values.address}`,
       `City: ${values.city}`,
       `Job type: ${values.jobType}`,
       "",

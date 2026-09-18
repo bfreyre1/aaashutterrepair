@@ -1,9 +1,11 @@
+import { after } from "next/server";
 import { KickservError, createQuoteLead } from "@/lib/kickserv";
 import {
   normalizeQuoteForm,
   readQuoteFormBody,
   validateQuoteForm,
 } from "@/lib/quote";
+import { buildSoftIntakeWakeBody, wakeSoftIntake } from "@/lib/soft-intake";
 
 export const runtime = "nodejs";
 
@@ -31,6 +33,20 @@ export async function POST(request: Request) {
 
   try {
     const lead = await createQuoteLead(values);
+    try {
+      const wakeBody = buildSoftIntakeWakeBody(values, lead);
+      after(async () => {
+        if (!wakeBody) {
+          console.error(
+            "Soft-intake wake skipped: could not normalize phone to E.164.",
+          );
+          return;
+        }
+        await wakeSoftIntake(wakeBody);
+      });
+    } catch (error) {
+      console.error("Soft-intake wake schedule error:", error);
+    }
     return Response.json({
       ok: true,
       customerId: lead.customerId,

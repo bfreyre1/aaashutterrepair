@@ -29,9 +29,9 @@ export default function GetAQuotePage() {
         <p className="eyebrow">Free estimate · We text to schedule</p>
         <h1>Get a free estimate</h1>
         <p className="lede">
-          Tell us the city and what broke. The form is for a free estimate —
-          we follow up by text to confirm and schedule. If you need someone
-          today, call or text — that is usually fastest.
+          Tell us the street address, city, and what broke. The form is for a
+          free estimate — we follow up by text to pick a day and time window.
+          If you need someone today, call or text — that is usually fastest.
         </p>
       </header>
 

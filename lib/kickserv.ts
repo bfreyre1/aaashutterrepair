@@ -201,6 +201,7 @@ async function findCustomerId(
 function customerXml(values: QuoteFormValues, phone: string): string {
   const notes = [
     `Website quote form — ${values.jobType} in ${values.city}`,
+    `Street address: ${values.address}`,
     values.description,
   ].join("\n\n");
 
@@ -211,6 +212,7 @@ function customerXml(values: QuoteFormValues, phone: string): string {
     xmlTag("phone_number", phone),
     xmlTag("mobile", phone),
     xmlTag("email", values.email),
+    xmlTag("service_address", values.address),
     xmlTag("city", values.city),
     xmlTag("service_city", values.city),
     xmlTag("customer_source_id", KICKSERV_WEBSITE_SOURCE_ID),
@@ -223,6 +225,7 @@ function customerXml(values: QuoteFormValues, phone: string): string {
 function jobXml(values: QuoteFormValues, customerId: string): string {
   const name = `Website estimate: ${values.jobType} in ${values.city}`;
   const description = [
+    `Street address: ${values.address}`,
     `City: ${values.city}`,
     `Job type: ${values.jobType}`,
     "",
@@ -230,6 +233,7 @@ function jobXml(values: QuoteFormValues, customerId: string): string {
   ].join("\n");
   const notes = [
     "Website quote form",
+    `Street address: ${values.address}`,
     `City: ${values.city}`,
     `Job type: ${values.jobType}`,
     `Phone: ${values.phone}`,
