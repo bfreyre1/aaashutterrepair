@@ -91,11 +91,11 @@ After DNS points at Vercel, hit **Verify** in Search Console, then finish the Ry
 - `Service` JSON-LD on home, service, and city pages. `FAQPage` where there is a FAQ. `BreadcrumbList` on inner pages.
 - Canonicals are absolute `https` URLs from `NEXT_PUBLIC_SITE_URL`.
 - `app/sitemap.ts` → `/sitemap.xml`. `app/robots.ts` → `/robots.txt`.
-- One H1 per page. Images use `next/image` and descriptive alts. The homepage hero and `/gallery` use the shop’s own bedroom / shutter / window photos. No stock-photo disclaimers.
+- One H1 per page. Images use `next/image` and descriptive alts. The homepage hero is a shop photo. `/gallery` and the homepage job strip use real AAA Shutter Repair job photos (shutters, blinds, and shades). No stock-photo disclaimers on those shots.
 
 ## Shop photos
 
-`/public/images/gallery/` holds the live-site shop photos (bedroom shutters, wood panels, house window). Do not add generated people frames or “not a client project” captions.
+`/public/images/gallery/` holds real AAA Shutter Repair job photos (plantation shutters, blinds, and shades). Captions must say they are real job photos. Do not add generated people frames, stock stand-ins, or “not a client project” / “illustrative only” captions on these shots.
 
 ## Design and accessibility
 
