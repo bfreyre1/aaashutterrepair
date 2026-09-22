@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
+import { JobFigure } from "@/components/JobFigure";
 import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
@@ -75,19 +75,11 @@ export default function ShutterRepairPage() {
         <HoursLine />
       </header>
 
-      <figure className="content-figure">
-        <Image
-          src="/images/white-window-shutters.webp"
-          alt="Tan louvered shutters on a cream stucco wall, showing hinges and slats"
-          width={1400}
-          height={2100}
-          sizes="(max-width: 800px) 100vw, 640px"
-          priority
-        />
-        <figcaption>
-          Royalty-free Unsplash photo of louvered shutters — not a client job.
-        </figcaption>
-      </figure>
+      <JobFigure
+        filename="white-plantation-shutter-louver.jpg"
+        sizes="(max-width: 800px) 100vw, 640px"
+        priority
+      />
 
       <section>
         <h2>On-site wood shutter repair</h2>

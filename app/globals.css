@@ -669,6 +669,7 @@ li {
 .content-figure img,
 .card-media img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -879,6 +880,7 @@ li {
 
 .content-figure {
   margin: 1.5rem 0;
+  max-width: 100%;
 }
 
 .split-cta {

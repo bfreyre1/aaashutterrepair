@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
+import { JobFigure } from "@/components/JobFigure";
 import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
@@ -74,20 +74,11 @@ export default function MotorizedShadeRepairPage() {
         <HoursLine />
       </header>
 
-      <figure className="content-figure">
-        <Image
-          src="/images/wood-shutters-detail.webp"
-          alt="Close-up of wooden louvered shutters and metal hinges on a sunlit wall"
-          width={1400}
-          height={1298}
-          sizes="(max-width: 800px) 100vw, 720px"
-          priority
-        />
-        <figcaption>
-          Royalty-free Unsplash photo of window hardware — not a client motor
-          install.
-        </figcaption>
-      </figure>
+      <JobFigure
+        filename="roman-shade-mount.jpg"
+        sizes="(max-width: 800px) 100vw, 720px"
+        priority
+      />
 
       <section>
         <h2>Somfy and motorized shade systems, restored</h2>

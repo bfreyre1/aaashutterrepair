@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
+import { JobFigure } from "@/components/JobFigure";
 import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import type { CityContent } from "@/lib/cities";
@@ -57,19 +57,11 @@ export function CityPage({ city }: { city: CityContent }) {
         <HoursLine />
       </header>
 
-      <figure className="content-figure">
-        <Image
-          src="/images/plantation-shutters-window.webp"
-          alt={`Window with shutters and interior blinds — typical of the ${city.name} jobs AAA Shutter Repair handles on site`}
-          width={1600}
-          height={1067}
-          sizes="(max-width: 800px) 100vw, 760px"
-          priority
-        />
-        <figcaption>
-          Royalty-free photo of a shuttered window — not a client project.
-        </figcaption>
-      </figure>
+      <JobFigure
+        filename={city.jobPhoto}
+        sizes="(max-width: 800px) 100vw, 760px"
+        priority
+      />
 
       {city.sections.map((section) => (
         <section key={section.heading}>

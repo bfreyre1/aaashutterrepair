@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
+import { JobFigure } from "@/components/JobFigure";
 import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { TextLink } from "@/components/TextLink";
@@ -93,16 +93,11 @@ export default function BlindAndShadeRepairPage() {
         </p>
       </header>
 
-      <figure className="content-figure">
-        <Image
-          src="/images/plantation-shutters-window.webp"
-          alt="Interior wood blinds visible through a multi-pane window next to exterior shutters"
-          width={1600}
-          height={1067}
-          sizes="(max-width: 800px) 100vw, 760px"
-          priority
-        />
-      </figure>
+      <JobFigure
+        filename="wood-blind-valance-wand.jpg"
+        sizes="(max-width: 800px) 100vw, 760px"
+        priority
+      />
 
       <section>
         <h2>Blind and shade repair at the window</h2>
