@@ -7,7 +7,7 @@ import { absoluteUrl } from "@/lib/site";
 
 const title = "Repair Gallery";
 const description =
-  "Shop photos of plantation shutters and windows from AAA Shutter Repair — on-site work in the San Fernando Valley and greater Los Angeles.";
+  "Real AAA Shutter Repair job photos — plantation shutters, blinds, and shades from on-site work in the San Fernando Valley and greater Los Angeles.";
 
 export const metadata: Metadata = {
   title,
@@ -28,8 +28,8 @@ export default function GalleryPage() {
         <p className="eyebrow">San Fernando Valley · Greater Los Angeles</p>
         <h1>Repair gallery</h1>
         <p className="lede">
-          Shop photos of plantation shutters and windows — the on-site work we
-          do in Los Angeles rooms.
+          Real job photos from AAA Shutter Repair — plantation shutters, blinds,
+          and shades worked on in Los Angeles homes.
         </p>
         <CtaButtons placement="gallery-hero" />
       </header>

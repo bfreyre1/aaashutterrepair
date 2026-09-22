@@ -19,6 +19,7 @@ export function GalleryGrid({ images, columns = "full" }: GalleryGridProps) {
               height={image.height}
               sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
             />
+            <figcaption>{image.caption}</figcaption>
           </figure>
         </li>
       ))}

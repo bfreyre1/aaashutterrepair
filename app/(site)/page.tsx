@@ -8,6 +8,7 @@ import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
 import { JsonLd } from "@/components/JsonLd";
 import { TrustChips } from "@/components/TrustChips";
+import { HOME_JOB_STRIP } from "@/lib/gallery";
 import { serviceJsonLd } from "@/lib/schema";
 import { HOURS_FAQ, absoluteUrl, CITY_LINKS, PHONE_DISPLAY } from "@/lib/site";
 
@@ -122,33 +123,17 @@ export default function HomePage() {
         <section className="job-strip" aria-label="Recent on-site work">
           <h2>Recent on-site work</h2>
           <div className="job-strip__grid">
-            <figure className="job-card">
-              <img
-                src="/images/gallery/bedroom-shutters.webp"
-                alt="White plantation shutters on a bedroom window"
-                width={1000}
-                height={750}
-              />
-              <figcaption>Panel saved on site.</figcaption>
-            </figure>
-            <figure className="job-card">
-              <img
-                src="/images/gallery/house-shutters.webp"
-                alt="Stacked white shutter panels"
-                width={1067}
-                height={800}
-              />
-              <figcaption>Matched slat.</figcaption>
-            </figure>
-            <figure className="job-card">
-              <img
-                src="/images/gallery/house-window.webp"
-                alt="Finished interior shutters on a house window"
-                width={1200}
-                height={1600}
-              />
-              <figcaption>Finished room.</figcaption>
-            </figure>
+            {HOME_JOB_STRIP.map((image) => (
+              <figure className="job-card" key={image.src}>
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
+                />
+                <figcaption>{image.caption}</figcaption>
+              </figure>
+            ))}
           </div>
           <p>
             <Link href="/gallery">See the gallery →</Link>
