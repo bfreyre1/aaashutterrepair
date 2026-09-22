@@ -204,13 +204,15 @@ const HOME_JOB_FILENAMES = [
   "roller-shades-french-doors.jpg",
 ] as const;
 
+export function galleryByFilename(filename: string): GalleryImage {
+  const image = GALLERY_IMAGES.find((item) => item.filename === filename);
+  if (!image) {
+    throw new Error(`Missing gallery image ${filename}`);
+  }
+  return image;
+}
+
 /** Landscape job photos for the homepage strip. 4:3, so the strip crop stays honest. */
 export const HOME_JOB_STRIP: GalleryImage[] = HOME_JOB_FILENAMES.map(
-  (filename) => {
-    const image = GALLERY_IMAGES.find((item) => item.filename === filename);
-    if (!image) {
-      throw new Error(`Missing gallery image ${filename}`);
-    }
-    return image;
-  },
+  (filename) => galleryByFilename(filename),
 );

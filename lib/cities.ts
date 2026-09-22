@@ -12,6 +12,8 @@ export type CityId =
 export type CityContent = {
   id: CityId;
   slug: string;
+  /** Filename in `public/images/gallery/`. Real job photo, not a city-specific shoot. */
+  jobPhoto: string;
   name: string;
   title: string;
   description: string;
@@ -29,6 +31,7 @@ export const cities: CityContent[] = [
   {
     id: "van-nuys",
     slug: "/shutter-repair-van-nuys",
+    jobPhoto: "bay-window-white-plantation-shutters.jpg",
     name: "Van Nuys",
     title: "Shutter Repair in Van Nuys | On-Site Plantation Shutter Fixes",
     description:
@@ -88,6 +91,7 @@ export const cities: CityContent[] = [
   {
     id: "sherman-oaks",
     slug: "/shutter-repair-sherman-oaks",
+    jobPhoto: "tier-on-tier-white-shutters.jpg",
     name: "Sherman Oaks",
     title: "Shutter Repair in Sherman Oaks | Plantation Shutter Repair",
     description:
@@ -146,6 +150,7 @@ export const cities: CityContent[] = [
   {
     id: "los-angeles",
     slug: "/shutter-repair-los-angeles",
+    jobPhoto: "arched-window-white-shutters.jpg",
     name: "Los Angeles",
     title: "Shutter Repair in Los Angeles | Plantation Shutter Repair Near Me",
     description:
@@ -204,6 +209,7 @@ export const cities: CityContent[] = [
   {
     id: "pasadena",
     slug: "/shutter-repair-pasadena",
+    jobPhoto: "cafe-shutters-kitchen-sink.jpg",
     name: "Pasadena",
     title: "Shutter Repair in Pasadena | Wood Plantation Shutter Repair",
     description:
@@ -262,6 +268,7 @@ export const cities: CityContent[] = [
   {
     id: "santa-monica",
     slug: "/shutter-repair-santa-monica",
+    jobPhoto: "white-shutters-sliding-door-track.jpg",
     name: "Santa Monica",
     title: "Shutter Repair in Santa Monica | Shutters, Blinds & Motorized Shades",
     description:
@@ -320,6 +327,7 @@ export const cities: CityContent[] = [
   {
     id: "santa-clarita",
     slug: "/shutter-repair-santa-clarita",
+    jobPhoto: "white-plantation-shutters-bedroom.jpg",
     name: "Santa Clarita",
     title: "Shutter Repair in Santa Clarita | Valencia & Canyon Country",
     description:

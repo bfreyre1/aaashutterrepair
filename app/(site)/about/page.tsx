@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { HoursLine } from "@/components/HoursLine";
+import { JobFigure } from "@/components/JobFigure";
 import {
   ADDRESS_DISPLAY,
   EMAIL,
@@ -41,18 +41,10 @@ export default function AboutPage() {
         <CtaButtons placement="about-hero" />
       </header>
 
-      <figure className="content-figure">
-        <Image
-          src="/images/wood-shutters-detail.webp"
-          alt="Weathered wooden louvered shutters and metal hinges in sunlight"
-          width={1400}
-          height={1298}
-          sizes="(max-width: 800px) 100vw, 720px"
-        />
-        <figcaption>
-          Royalty-free Unsplash photo — not a staff or customer portrait.
-        </figcaption>
-      </figure>
+      <JobFigure
+        filename="white-plantation-shutters-living-room.jpg"
+        sizes="(max-width: 800px) 100vw, 720px"
+      />
 
       <section>
         <h2>Family-business roots, repair-first work</h2>
