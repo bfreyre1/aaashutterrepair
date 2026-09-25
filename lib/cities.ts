@@ -1,5 +1,6 @@
 import type { FaqItem } from "@/lib/schema";
 import { ADDRESS_DISPLAY, EMAIL, PHONE_DISPLAY } from "@/lib/site";
+import { valleyCities } from "@/lib/valley-cities";
 
 export type CityId =
   | "van-nuys"
@@ -7,7 +8,23 @@ export type CityId =
   | "los-angeles"
   | "pasadena"
   | "santa-monica"
-  | "santa-clarita";
+  | "santa-clarita"
+  | "encino"
+  | "studio-city"
+  | "valley-village"
+  | "north-hollywood"
+  | "toluca-lake"
+  | "tarzana"
+  | "burbank"
+  | "glendale"
+  | "woodland-hills"
+  | "reseda"
+  | "northridge"
+  | "panorama-city"
+  | "calabasas"
+  | "canoga-park"
+  | "chatsworth"
+  | "granada-hills";
 
 export type CityContent = {
   id: CityId;
@@ -383,6 +400,7 @@ export const cities: CityContent[] = [
       },
     ],
   },
+  ...valleyCities,
 ];
 
 export function getCity(id: CityId): CityContent {

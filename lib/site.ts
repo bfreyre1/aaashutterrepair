@@ -152,7 +152,20 @@ export const JOB_TYPES = [
 ] as const;
 
 export type NavLink = { href: string; label: string };
-export type CityLink = NavLink & { blurb: string };
+
+export type CityGroupId =
+  | "central-valley"
+  | "wider-valley"
+  | "greater-los-angeles";
+
+export type CityLink = NavLink & { blurb: string; group: CityGroupId };
+
+/** Nav, footer, and city-link columns. Closest to the Sherman Oaks office first. */
+export const CITY_GROUPS: { id: CityGroupId; label: string }[] = [
+  { id: "central-valley", label: "Central Valley" },
+  { id: "wider-valley", label: "Wider Valley" },
+  { id: "greater-los-angeles", label: "Greater Los Angeles" },
+];
 
 export const SERVICE_LINKS: NavLink[] = [
   { href: "/shutter-repair", label: "Shutter repair" },
@@ -162,38 +175,156 @@ export const SERVICE_LINKS: NavLink[] = [
 
 export const CITY_LINKS: CityLink[] = [
   {
-    href: "/shutter-repair-van-nuys",
-    label: "Van Nuys",
-    blurb:
-      "Central Valley ranch homes — staples and louvers that let go in the heat.",
-  },
-  {
     href: "/shutter-repair-sherman-oaks",
     label: "Sherman Oaks",
+    group: "central-valley",
     blurb:
       "Ventura Boulevard and the hills — custom openings and heavy door-wall panels.",
   },
   {
+    href: "/shutter-repair-encino",
+    label: "Encino",
+    group: "central-valley",
+    blurb:
+      "The next stretch of Ventura west of the office — wide openings and hillside light.",
+  },
+  {
+    href: "/shutter-repair-studio-city",
+    label: "Studio City",
+    group: "central-valley",
+    blurb:
+      "Ventura corridor and the hills — bungalows, condos, and mid-century wood.",
+  },
+  {
+    href: "/shutter-repair-valley-village",
+    label: "Valley Village",
+    group: "central-valley",
+    blurb:
+      "Quiet streets just north of Sherman Oaks — ranch-house plantation shutters.",
+  },
+  {
+    href: "/shutter-repair-van-nuys",
+    label: "Van Nuys",
+    group: "central-valley",
+    blurb:
+      "Central Valley ranch homes — staples and louvers that let go in the heat.",
+  },
+  {
+    href: "/shutter-repair-north-hollywood",
+    label: "North Hollywood",
+    group: "central-valley",
+    blurb:
+      "Arts District apartments and older bungalows — usually one failed panel.",
+  },
+  {
+    href: "/shutter-repair-toluca-lake",
+    label: "Toluca Lake",
+    group: "central-valley",
+    blurb:
+      "Small-lot traditional houses — stained wood, cafe shutters, and French doors.",
+  },
+  {
+    href: "/shutter-repair-tarzana",
+    label: "Tarzana",
+    group: "central-valley",
+    blurb:
+      "West along Ventura — family homes, sliders, and south-facing hill rooms.",
+  },
+  {
+    href: "/shutter-repair-burbank",
+    label: "Burbank",
+    group: "wider-valley",
+    blurb:
+      "Magnolia Park bungalows and hillside houses above the studios.",
+  },
+  {
+    href: "/shutter-repair-glendale",
+    label: "Glendale",
+    group: "wider-valley",
+    blurb:
+      "Chevy Chase and Rossmoyne hills, plus older openings nearer downtown.",
+  },
+  {
+    href: "/shutter-repair-woodland-hills",
+    label: "Woodland Hills",
+    group: "wider-valley",
+    blurb:
+      "Warner Center units and hillside houses that take west-valley sun.",
+  },
+  {
+    href: "/shutter-repair-reseda",
+    label: "Reseda",
+    group: "wider-valley",
+    blurb:
+      "Postwar ranches — bay windows and tilt rods that finally let go.",
+  },
+  {
+    href: "/shutter-repair-northridge",
+    label: "Northridge",
+    group: "wider-valley",
+    blurb:
+      "Tract houses north of the 101 — builder wood that has lived in the sun.",
+  },
+  {
+    href: "/shutter-repair-panorama-city",
+    label: "Panorama City",
+    group: "wider-valley",
+    blurb:
+      "Apartments and modest houses — a single broken panel is the usual call.",
+  },
+  {
+    href: "/shutter-repair-calabasas",
+    label: "Calabasas",
+    group: "wider-valley",
+    blurb:
+      "Hillside streets — custom panels and great-room door walls in strong sun.",
+  },
+  {
+    href: "/shutter-repair-canoga-park",
+    label: "Canoga Park",
+    group: "wider-valley",
+    blurb:
+      "Older west-valley lots — wood repair on ranch and courtyard homes.",
+  },
+  {
+    href: "/shutter-repair-chatsworth",
+    label: "Chatsworth",
+    group: "wider-valley",
+    blurb:
+      "Northwest valley sun — larger lots, sliders, and shutters that dry out.",
+  },
+  {
+    href: "/shutter-repair-granada-hills",
+    label: "Granada Hills",
+    group: "wider-valley",
+    blurb:
+      "North-valley family houses — white plantation sets on sliders and bedrooms.",
+  },
+  {
     href: "/shutter-repair-los-angeles",
     label: "Los Angeles",
+    group: "greater-los-angeles",
     blurb:
       "Citywide on-site repair when one panel failed, not a whole-house replacement.",
   },
   {
     href: "/shutter-repair-pasadena",
     label: "Pasadena",
+    group: "greater-los-angeles",
     blurb:
       "Craftsman and remodel-era wood shutters, repaired in older openings.",
   },
   {
     href: "/shutter-repair-santa-monica",
     label: "Santa Monica",
+    group: "greater-los-angeles",
     blurb:
       "Coastal magnets, condo shades, and Somfy motors on the Westside.",
   },
   {
     href: "/shutter-repair-santa-clarita",
     label: "Santa Clarita",
+    group: "greater-los-angeles",
     blurb:
       "Valencia and Canyon Country builder shutters that have lived in strong sun.",
   },
@@ -201,13 +332,12 @@ export const CITY_LINKS: CityLink[] = [
 
 export const AREA_SERVED = [
   "San Fernando Valley",
-  "Los Angeles",
-  "Van Nuys",
-  "Sherman Oaks",
-  "Santa Clarita",
-  "Pasadena",
-  "Santa Monica",
-] as const;
+  ...CITY_LINKS.map((city) => city.label),
+];
+
+export function cityLinksInGroup(groupId: CityGroupId): CityLink[] {
+  return CITY_LINKS.filter((city) => city.group === groupId);
+}
 
 export function absoluteUrl(path = "/"): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
