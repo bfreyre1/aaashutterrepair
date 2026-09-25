@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { PhoneLink } from "@/components/PhoneLink";
 import { trackGenerateLead } from "@/lib/analytics";
 import {
   emptyQuoteForm,
@@ -9,7 +10,7 @@ import {
   type QuoteFormErrors,
   type QuoteFormValues,
 } from "@/lib/quote";
-import { CITY_LINKS, EMAIL, JOB_TYPES, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
+import { CITY_LINKS, EMAIL, JOB_TYPES, PHONE_DISPLAY } from "@/lib/site";
 
 export function QuoteForm() {
   const [values, setValues] = useState<QuoteFormValues>(emptyQuoteForm);
@@ -74,7 +75,7 @@ export function QuoteForm() {
         <p>
           We will text next about the street address and a time to come out.
           Prefer to talk now? Call{" "}
-          <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>.
+          <PhoneLink placement="quote_form_success">{PHONE_DISPLAY}</PhoneLink>.
         </p>
       </div>
     );
@@ -95,7 +96,7 @@ export function QuoteForm() {
           <p>
             You can also{" "}
             <a href={mailto}>email the same details to {EMAIL}</a> or call{" "}
-            <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>.
+            <PhoneLink placement="quote_form_error">{PHONE_DISPLAY}</PhoneLink>.
           </p>
         </div>
       ) : null}
@@ -236,7 +237,7 @@ export function QuoteForm() {
       </button>
       <p className="form-fineprint">
         We text this number to schedule. Prefer to talk now? Call{" "}
-        <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>.
+        <PhoneLink placement="quote_form_fineprint">{PHONE_DISPLAY}</PhoneLink>.
       </p>
     </form>
   );
