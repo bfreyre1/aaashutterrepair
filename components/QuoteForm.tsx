@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { PhoneLink } from "@/components/PhoneLink";
+import { TextLink } from "@/components/TextLink";
 import { trackGenerateLead } from "@/lib/analytics";
 import {
   emptyQuoteForm,
@@ -12,8 +13,15 @@ import {
 } from "@/lib/quote";
 import { CITY_LINKS, EMAIL, JOB_TYPES, PHONE_DISPLAY } from "@/lib/site";
 
-export function QuoteForm() {
-  const [values, setValues] = useState<QuoteFormValues>(emptyQuoteForm);
+type QuoteFormProps = {
+  initialJobType?: string;
+};
+
+export function QuoteForm({ initialJobType = "" }: QuoteFormProps) {
+  const [values, setValues] = useState<QuoteFormValues>(() => ({
+    ...emptyQuoteForm(),
+    jobType: initialJobType,
+  }));
   const [errors, setErrors] = useState<QuoteFormErrors>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -74,8 +82,11 @@ export function QuoteForm() {
         <h2>Request received</h2>
         <p>
           We will text next about the street address and a time to come out.
-          Prefer to talk now? Call{" "}
-          <PhoneLink placement="quote_form_success">{PHONE_DISPLAY}</PhoneLink>.
+          Prefer to talk now?{" "}
+          <PhoneLink placement="quote_form_success">
+            Call {PHONE_DISPLAY}
+          </PhoneLink>{" "}
+          or <TextLink placement="quote_form_success">text us</TextLink>.
         </p>
       </div>
     );
@@ -95,8 +106,11 @@ export function QuoteForm() {
           <p>{submitError}</p>
           <p>
             You can also{" "}
-            <a href={mailto}>email the same details to {EMAIL}</a> or call{" "}
-            <PhoneLink placement="quote_form_error">{PHONE_DISPLAY}</PhoneLink>.
+            <a href={mailto}>email the same details to {EMAIL}</a>,{" "}
+            <PhoneLink placement="quote_form_error">
+              call {PHONE_DISPLAY}
+            </PhoneLink>
+            , or <TextLink placement="quote_form_error">text us</TextLink>.
           </p>
         </div>
       ) : null}
@@ -138,25 +152,6 @@ export function QuoteForm() {
         {errors.phone ? (
           <p id="phone-error" className="field-error">
             {errors.phone}
-          </p>
-        ) : null}
-      </div>
-
-      <div className="field">
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          value={values.email}
-          onChange={(event) => update("email", event.target.value)}
-          aria-invalid={Boolean(errors.email)}
-          aria-describedby={errors.email ? "email-error" : undefined}
-        />
-        {errors.email ? (
-          <p id="email-error" className="field-error">
-            {errors.email}
           </p>
         ) : null}
       </div>
@@ -217,14 +212,19 @@ export function QuoteForm() {
         <textarea
           id="description"
           name="description"
-          rows={5}
+          rows={4}
           value={values.description}
           onChange={(event) => update("description", event.target.value)}
           aria-invalid={Boolean(errors.description)}
           aria-describedby={
-            errors.description ? "description-error" : undefined
+            errors.description
+              ? "description-hint description-error"
+              : "description-hint"
           }
         />
+        <p id="description-hint" className="field-hint">
+          A sentence is enough. Or call or text and skip the rest.
+        </p>
         {errors.description ? (
           <p id="description-error" className="field-error">
             {errors.description}
@@ -232,12 +232,52 @@ export function QuoteForm() {
         ) : null}
       </div>
 
+      <div className="field">
+        <label htmlFor="email">Email (optional)</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          value={values.email}
+          onChange={(event) => update("email", event.target.value)}
+          aria-invalid={Boolean(errors.email)}
+          aria-describedby={
+            errors.email ? "email-hint email-error" : "email-hint"
+          }
+        />
+        <p id="email-hint" className="field-hint">
+          Skip this if you would rather we text you.
+        </p>
+        {errors.email ? (
+          <p id="email-error" className="field-error">
+            {errors.email}
+          </p>
+        ) : null}
+      </div>
+
+      <div className="cta-row form-escape">
+        <PhoneLink
+          placement="quote_form_escape"
+          className="btn btn-primary"
+          aria-label={`Call ${PHONE_DISPLAY}`}
+        >
+          Call now
+        </PhoneLink>
+        <TextLink
+          placement="quote_form_escape"
+          className="btn btn-text"
+          aria-label={`Text ${PHONE_DISPLAY}`}
+        >
+          Text us
+        </TextLink>
+      </div>
+
       <button type="submit" className="btn btn-primary" disabled={submitting}>
         {submitting ? "Sending request…" : "Request a free estimate"}
       </button>
       <p className="form-fineprint">
-        We text this number to schedule. Prefer to talk now? Call{" "}
-        <PhoneLink placement="quote_form_fineprint">{PHONE_DISPLAY}</PhoneLink>.
+        We text this number to schedule. Email is optional.
       </p>
     </form>
   );

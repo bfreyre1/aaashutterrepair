@@ -58,8 +58,9 @@ export function validateQuoteForm(values: QuoteFormValues): QuoteFormErrors {
   if (!toTenDigitUsPhone(values.phone)) {
     errors.phone = "Enter a 10-digit phone number so we can text you.";
   }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
-    errors.email = "Enter a valid email address.";
+  const email = values.email.trim();
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = "Enter a valid email, or leave it blank.";
   }
   if (!values.city || !CITY_SET.has(values.city)) {
     errors.city = "Choose your city.";
@@ -99,6 +100,41 @@ export function readQuoteFormBody(body: unknown): QuoteFormValues | null {
     jobType: read("jobType"),
     description: read("description"),
   };
+}
+
+/** Visible intent on /get-a-quote when a lander links with ?job= */
+export function quoteIntentLabel(job: string | undefined): string {
+  switch (job) {
+    case "shutter":
+      return "Shutter repair";
+    case "plantation":
+      return "Plantation shutter repair";
+    case "blind":
+      return "Blind repair";
+    case "shade":
+      return "Shade repair";
+    case "motorized":
+      return "Motorized / Somfy shade repair";
+    default:
+      return "";
+  }
+}
+
+/** Prefill the quote form when a lander links to /get-a-quote?job= */
+export function quoteJobFromParam(job: string | undefined): string {
+  switch (job) {
+    case "shutter":
+    case "plantation":
+      return "Plantation shutter repair";
+    case "blind":
+      return "Blind repair";
+    case "shade":
+      return "Shade repair";
+    case "motorized":
+      return "Motorized / Somfy shade repair";
+    default:
+      return "";
+  }
 }
 
 export function quoteMailtoHref(values: QuoteFormValues): string {

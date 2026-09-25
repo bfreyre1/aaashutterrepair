@@ -14,11 +14,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/plantation-shutter-repair",
-        destination: "/shutter-repair",
-        permanent: true,
-      },
-      {
         source: "/services",
         destination: "/shutter-repair",
         permanent: true,

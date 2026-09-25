@@ -5,14 +5,15 @@ import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
 import { JobFigure } from "@/components/JobFigure";
-import { TrustChips } from "@/components/TrustChips";
+import { LANDING_TRUST_CHIPS, TrustChips } from "@/components/TrustChips";
+import { TextLink } from "@/components/TextLink";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
-import { absoluteUrl } from "@/lib/site";
+import { PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
 
-const title = "Shutter Repair Near Me";
+const title = "Shutter Repair in Los Angeles";
 const description =
-  "Shutter repair in Los Angeles: on-site plantation wood shutters — staples, louvers, tilt rods, hinges, magnets, and side pins. About 90% of jobs finish at the house. Call 818-392-8584.";
+  "Shutter repair near you in Los Angeles and the San Fernando Valley. On-site wood shutters — staples, louvers, tilt rods, hinges, magnets, and side pins. Free estimate. Call 818-392-8584.";
 
 export const metadata: Metadata = {
   title,
@@ -29,7 +30,7 @@ const faq = [
   {
     question: "What parts of a shutter can you repair?",
     answer:
-      "Staples, louvers (louvres), tilt rods, hinges, magnets, and side pins. Most wood plantation shutters can be repaired on site.",
+      "Staples, louvers (louvres), tilt rods, hinges, magnets, and side pins. Most wood shutter jobs can be repaired on site.",
   },
   {
     question: "Will I have to replace the whole set?",
@@ -40,6 +41,16 @@ const faq = [
     question: "Do you repair stained as well as painted shutters?",
     answer:
       "Yes. Matching a single slat or panel is a regular part of the work when the rest of the room is still good.",
+  },
+  {
+    question: "Can I text a picture first?",
+    answer:
+      "Yes. Text a photo of the broken louver, tilt rod, hinge, or magnet to 818-392-8584. We look at it and text back to schedule. After-hours messages are fine — live help is daily 10am–7pm.",
+  },
+  {
+    question: "Are these plantation shutters?",
+    answer:
+      "Many Los Angeles wood shutters are plantation shutters. If you know that is what you have, the plantation shutter repair page is the closer match. The same crew does both.",
   },
 ];
 
@@ -66,12 +77,15 @@ export default function ShutterRepairPage() {
         <p className="eyebrow">On-site wood shutter repair</p>
         <h1>Shutter repair</h1>
         <p className="lede">
-          We repair broken wood shutters on site. Call or text now — a loose
-          staple or a louver on the floor is not a reason to replace every
-          window in the room.
+          Louver on the floor, or shutters that will not tilt? We repair wood
+          shutters on site across Los Angeles and the San Fernando Valley —
+          usually without replacing the whole set. Call or text {PHONE_DISPLAY}.
         </p>
-        <TrustChips />
-        <CtaButtons placement="shutter-hero" />
+        <TrustChips items={LANDING_TRUST_CHIPS} />
+        <CtaButtons
+          placement="shutter-hero"
+          quoteHref="/get-a-quote?job=shutter"
+        />
         <HoursLine />
       </header>
 
@@ -82,15 +96,23 @@ export default function ShutterRepairPage() {
       />
 
       <section>
-        <h2>On-site wood shutter repair</h2>
+        <h2>Shutter repair near you</h2>
         <p>
-          AAA Shutter Repair specializes in plantation wood shutter repair, and
-          about 90% of those jobs stay on site. We come to the house in the San
-          Fernando Valley and greater Los Angeles with the hardware that
-          actually fails: tilt-rod staples, side pins, magnets, hinges, and
-          replacement louvers. If you searched shutter repair, shutter repair
-          near me, or plantation shutter repair, this is the page meant to
-          answer that query — not a generic “quality window solutions” pitch.
+          If you searched shutter repair or shutter repair near me, this is the
+          page for that job. We come to the house in the San Fernando Valley
+          and greater Los Angeles with the hardware that actually fails:
+          tilt-rod staples, side pins, magnets, hinges, and replacement
+          louvers. About 90% of wood shutter jobs finish at the window.
+        </p>
+        <p>
+          Plantation shutters are the set we see most often. If you already
+          know that is what is on the window, start on{" "}
+          <Link href="/plantation-shutter-repair">
+            plantation shutter repair
+          </Link>
+          . Cafe shutters, tier-on-tier panels, and other wood shutters are
+          the same visit — say what the window looks like when you call or
+          text.
         </p>
         <p>
           Public reviews of the company keep describing the same visit: a
@@ -101,7 +123,7 @@ export default function ShutterRepairPage() {
       </section>
 
       <section>
-        <h2>What we fix on plantation shutters</h2>
+        <h2>What we fix</h2>
         <ul>
           <li>
             <strong>Staples and tilt rods.</strong> The most common Valley
@@ -125,6 +147,27 @@ export default function ShutterRepairPage() {
             a louver hanging or on the floor.
           </li>
         </ul>
+      </section>
+
+      <section className="text-photo">
+        <h2>Text a photo — we text back</h2>
+        <p>
+          Snap the louver, the tilt rod, the hinge, or the magnet and text it
+          to {PHONE_DISPLAY}. We reply with next steps and a time to come out.
+          After hours is fine — we schedule daily 10am–7pm.
+        </p>
+        <div className="cta-row">
+          <TextLink
+            placement="shutter-photo-text"
+            className="btn btn-text"
+            aria-label={`Text a photo to ${PHONE_DISPLAY}`}
+          >
+            Text a photo
+          </TextLink>
+          <a href="/get-a-quote?job=shutter" className="btn btn-secondary">
+            Get a free estimate
+          </a>
+        </div>
       </section>
 
       <section>
@@ -174,10 +217,10 @@ export default function ShutterRepairPage() {
       </section>
 
       <FaqList items={faq} />
-      <p>
-        Ready to schedule? <Link href="/get-a-quote">Get a free estimate</Link>
-        . We follow up by text.
-      </p>
+      <CtaButtons
+        placement="shutter-bottom"
+        quoteHref="/get-a-quote?job=shutter"
+      />
     </article>
   );
 }
