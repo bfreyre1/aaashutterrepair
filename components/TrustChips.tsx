@@ -4,6 +4,13 @@ const DEFAULT_CHIPS = [
   "We text back to schedule",
 ] as const;
 
+/** Short chips for shutter, plantation, quote, and city landers. */
+export const LANDING_TRUST_CHIPS = [
+  "On-site repair",
+  "Free estimate",
+  "LA & San Fernando Valley",
+] as const;
+
 type TrustChipsProps = {
   className?: string;
   items?: readonly string[];

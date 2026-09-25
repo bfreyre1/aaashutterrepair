@@ -185,9 +185,12 @@ async function findCustomerId(
     return byPhone[0];
   }
 
-  const byEmail = await searchCustomers(config, { email: values.email });
-  if (byEmail.length > 0) {
-    return byEmail[0];
+  const email = values.email.trim();
+  if (email) {
+    const byEmail = await searchCustomers(config, { email });
+    if (byEmail.length > 0) {
+      return byEmail[0];
+    }
   }
 
   const byName = await searchCustomers(config, { name: values.name });
@@ -204,13 +207,14 @@ function customerXml(values: QuoteFormValues, phone: string): string {
     values.description,
   ].join("\n\n");
 
+  const email = values.email.trim();
   return [
     `<?xml version="1.0" encoding="UTF-8"?>`,
     `<customer>`,
     xmlTag("name", values.name),
     xmlTag("phone_number", phone),
     xmlTag("mobile", phone),
-    xmlTag("email", values.email),
+    email ? xmlTag("email", email) : "",
     xmlTag("city", values.city),
     xmlTag("service_city", values.city),
     xmlTag("customer_source_id", KICKSERV_WEBSITE_SOURCE_ID),
@@ -233,7 +237,7 @@ function jobXml(values: QuoteFormValues, customerId: string): string {
     `City: ${values.city}`,
     `Job type: ${values.jobType}`,
     `Phone: ${values.phone}`,
-    `Email: ${values.email}`,
+    `Email: ${values.email.trim() || "not provided"}`,
     "",
     values.description,
   ].join("\n");

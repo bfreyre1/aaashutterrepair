@@ -5,7 +5,7 @@ import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
 import { JobFigure } from "@/components/JobFigure";
-import { TrustChips } from "@/components/TrustChips";
+import { LANDING_TRUST_CHIPS, TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import type { CityContent } from "@/lib/cities";
 import { cities } from "@/lib/cities";
@@ -52,8 +52,11 @@ export function CityPage({ city }: { city: CityContent }) {
           We fix broken shutters on site in {city.name}. Call or text now.
         </p>
         <p className="lede">{city.lede}</p>
-        <TrustChips />
-        <CtaButtons placement={`city-${city.id}`} />
+        <TrustChips items={LANDING_TRUST_CHIPS} />
+        <CtaButtons
+          placement={`city-${city.id}`}
+          quoteHref="/get-a-quote?job=shutter"
+        />
         <HoursLine />
       </header>
 
@@ -95,7 +98,10 @@ export function CityPage({ city }: { city: CityContent }) {
         <h2>Related services</h2>
         <p>
           Start with the job you actually have:{" "}
-          <Link href="/shutter-repair">shutter repair</Link>
+          <Link href="/shutter-repair">shutter repair</Link>,{" "}
+          <Link href="/plantation-shutter-repair">
+            plantation shutter repair
+          </Link>
           , <Link href="/blind-and-shade-repair">blind and shade repair</Link>,
           or{" "}
           <Link href="/motorized-shade-repair">
@@ -116,7 +122,10 @@ export function CityPage({ city }: { city: CityContent }) {
       </section>
 
       <FaqList items={city.faq} />
-      <CtaButtons placement={`city-${city.id}-bottom`} />
+      <CtaButtons
+        placement={`city-${city.id}-bottom`}
+        quoteHref="/get-a-quote?job=shutter"
+      />
     </article>
   );
 }

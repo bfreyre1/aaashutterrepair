@@ -941,6 +941,14 @@ li {
   margin-top: 0;
 }
 
+.quote-form .form-escape.cta-row {
+  margin: 0.35rem 0 0.75rem;
+}
+
+.quote-form > button.btn {
+  width: 100%;
+}
+
 .quote-form,
 .form-success {
   background: white;

@@ -5,9 +5,17 @@ import { PHONE_DISPLAY } from "@/lib/site";
 type CtaButtonsProps = {
   placement: string;
   align?: "start" | "center";
+  /** Hide the estimate link when the visitor is already on the quote page. */
+  showQuote?: boolean;
+  quoteHref?: string;
 };
 
-export function CtaButtons({ placement, align = "start" }: CtaButtonsProps) {
+export function CtaButtons({
+  placement,
+  align = "start",
+  showQuote = true,
+  quoteHref = "/get-a-quote",
+}: CtaButtonsProps) {
   return (
     <div
       className={`cta-row ${align === "center" ? "cta-row--center" : ""}`}
@@ -26,9 +34,11 @@ export function CtaButtons({ placement, align = "start" }: CtaButtonsProps) {
       >
         Text us
       </TextLink>
-      <a href="/get-a-quote" className="btn btn-secondary">
-        Get a free estimate
-      </a>
+      {showQuote ? (
+        <a href={quoteHref} className="btn btn-secondary">
+          Get a free estimate
+        </a>
+      ) : null}
     </div>
   );
 }

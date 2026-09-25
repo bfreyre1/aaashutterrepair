@@ -15,6 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      path: "/plantation-shutter-repair",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       path: "/blind-and-shade-repair",
       changeFrequency: "monthly",
       priority: 0.8,
