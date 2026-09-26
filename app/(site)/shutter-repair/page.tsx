@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CityAreaGroups } from "@/components/CityAreaGroups";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
@@ -189,31 +190,12 @@ export default function ShutterRepairPage() {
       <section>
         <h2>Where we do this work</h2>
         <p>
-          Van Nuys, Sherman Oaks, Los Angeles, Pasadena, Santa Monica, and
-          Santa Clarita each have a city page with local copy. Start here if
-          you are looking up the repair itself; use a city page if you
-          searched with a city name.
+          Each city we cover has its own page, grouped from Sherman Oaks
+          outward through the Valley and then greater Los Angeles. Start here
+          if you are looking up plantation shutter repair itself; use a city
+          page if you searched with a city name.
         </p>
-        <ul className="link-columns">
-          <li>
-            <Link href="/shutter-repair-van-nuys">Van Nuys</Link>
-          </li>
-          <li>
-            <Link href="/shutter-repair-sherman-oaks">Sherman Oaks</Link>
-          </li>
-          <li>
-            <Link href="/shutter-repair-los-angeles">Los Angeles</Link>
-          </li>
-          <li>
-            <Link href="/shutter-repair-pasadena">Pasadena</Link>
-          </li>
-          <li>
-            <Link href="/shutter-repair-santa-monica">Santa Monica</Link>
-          </li>
-          <li>
-            <Link href="/shutter-repair-santa-clarita">Santa Clarita</Link>
-          </li>
-        </ul>
+        <CityAreaGroups />
       </section>
 
       <FaqList items={faq} />

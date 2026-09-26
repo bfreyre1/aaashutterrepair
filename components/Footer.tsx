@@ -3,7 +3,8 @@ import { PhoneLink } from "@/components/PhoneLink";
 import {
   ADDRESS,
   ADDRESS_STREET,
-  CITY_LINKS,
+  CITY_GROUPS,
+  cityLinksInGroup,
   EMAIL,
   HOURS_FOOTER,
   HOURS_FOOTER_AFTER,
@@ -53,13 +54,18 @@ export function Footer() {
         </div>
         <div>
           <p className="site-footer__heading">Service areas</p>
-          <ul>
-            {CITY_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
-              </li>
-            ))}
-          </ul>
+          {CITY_GROUPS.map((group) => (
+            <div key={group.id} className="site-footer__group">
+              <p className="site-footer__subhead">{group.label}</p>
+              <ul>
+                {cityLinksInGroup(group.id).map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
         <div>
           <p className="site-footer__heading">Company</p>

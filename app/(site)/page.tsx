@@ -10,7 +10,13 @@ import { JsonLd } from "@/components/JsonLd";
 import { TrustChips } from "@/components/TrustChips";
 import { HOME_JOB_STRIP } from "@/lib/gallery";
 import { serviceJsonLd } from "@/lib/schema";
-import { HOURS_FAQ, absoluteUrl, CITY_LINKS, PHONE_DISPLAY } from "@/lib/site";
+import {
+  HOURS_FAQ,
+  absoluteUrl,
+  CITY_GROUPS,
+  cityLinksInGroup,
+  PHONE_DISPLAY,
+} from "@/lib/site";
 
 const title = "Plantation Shutter Repair in Los Angeles";
 const description =
@@ -195,19 +201,24 @@ export default function HomePage() {
         <section>
           <h2>Cities we cover</h2>
           <p>
-            San Fernando Valley and greater Los Angeles. Use a city page if you
-            searched with a city name. Use a service page if you know the type
-            of repair — plantation shutters, blinds and shades, or motorized /
-            Somfy.
+            San Fernando Valley and greater Los Angeles, listed from Sherman
+            Oaks outward. Use a city page if you searched with a city name.
+            Use a service page if you know the type of repair — plantation
+            shutters, blinds and shades, or motorized / Somfy.
           </p>
-          <div className="city-grid">
-            {CITY_LINKS.map((city) => (
-              <Link key={city.href} href={city.href} className="city-card">
-                <h3>Shutter repair in {city.label}</h3>
-                <p>{city.blurb}</p>
-              </Link>
-            ))}
-          </div>
+          {CITY_GROUPS.map((group) => (
+            <div key={group.id} className="city-group">
+              <p className="city-group__label">{group.label}</p>
+              <div className="city-grid">
+                {cityLinksInGroup(group.id).map((city) => (
+                  <Link key={city.href} href={city.href} className="city-card">
+                    <h3>Shutter repair in {city.label}</h3>
+                    <p>{city.blurb}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </section>
 
         <section>

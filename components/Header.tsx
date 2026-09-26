@@ -5,7 +5,12 @@ import { useState } from "react";
 import { Logo } from "@/components/Logo";
 import { PhoneLink } from "@/components/PhoneLink";
 import { TextLink } from "@/components/TextLink";
-import { CITY_LINKS, PHONE_DISPLAY, SERVICE_LINKS } from "@/lib/site";
+import {
+  CITY_GROUPS,
+  cityLinksInGroup,
+  PHONE_DISPLAY,
+  SERVICE_LINKS,
+} from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -38,13 +43,20 @@ export function Header() {
             <button type="button" className="nav-flyout__btn">
               Service areas
             </button>
-            <ul className="nav-flyout__menu">
-              {CITY_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
-                </li>
+            <div className="nav-flyout__menu nav-flyout__menu--areas">
+              {CITY_GROUPS.map((group) => (
+                <div key={group.id} className="nav-flyout__group">
+                  <p className="nav-flyout__label">{group.label}</p>
+                  <ul>
+                    {cityLinksInGroup(group.id).map((link) => (
+                      <li key={link.href}>
+                        <Link href={link.href}>{link.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
           <Link href="/about">About</Link>
           <Link href="/reviews">Reviews</Link>
@@ -107,10 +119,15 @@ export function Header() {
           </Link>
         ))}
         <p className="nav-mobile__label">Service areas</p>
-        {CITY_LINKS.map((link) => (
-          <Link key={link.href} href={link.href} onClick={close}>
-            {link.label}
-          </Link>
+        {CITY_GROUPS.map((group) => (
+          <div key={group.id} className="nav-mobile__group">
+            <p className="nav-mobile__sublabel">{group.label}</p>
+            {cityLinksInGroup(group.id).map((link) => (
+              <Link key={link.href} href={link.href} onClick={close}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
         ))}
         <Link href="/about" onClick={close}>
           About

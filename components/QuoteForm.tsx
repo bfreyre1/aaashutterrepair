@@ -11,7 +11,13 @@ import {
   type QuoteFormErrors,
   type QuoteFormValues,
 } from "@/lib/quote";
-import { CITY_LINKS, EMAIL, JOB_TYPES, PHONE_DISPLAY } from "@/lib/site";
+import {
+  CITY_GROUPS,
+  cityLinksInGroup,
+  EMAIL,
+  JOB_TYPES,
+  PHONE_DISPLAY,
+} from "@/lib/site";
 
 type QuoteFormProps = {
   initialJobType?: string;
@@ -167,10 +173,14 @@ export function QuoteForm({ initialJobType = "" }: QuoteFormProps) {
           aria-describedby={errors.city ? "city-error" : undefined}
         >
           <option value="">Select a city</option>
-          {CITY_LINKS.map((city) => (
-            <option key={city.href} value={city.label}>
-              {city.label}
-            </option>
+          {CITY_GROUPS.map((group) => (
+            <optgroup key={group.id} label={group.label}>
+              {cityLinksInGroup(group.id).map((city) => (
+                <option key={city.href} value={city.label}>
+                  {city.label}
+                </option>
+              ))}
+            </optgroup>
           ))}
           <option value="Other San Fernando Valley / LA">
             Other San Fernando Valley / LA

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CityAreaGroups } from "@/components/CityAreaGroups";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
@@ -8,7 +9,6 @@ import { JobFigure } from "@/components/JobFigure";
 import { LANDING_TRUST_CHIPS, TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import type { CityContent } from "@/lib/cities";
-import { cities } from "@/lib/cities";
 import { serviceJsonLd } from "@/lib/schema";
 import { absoluteUrl } from "@/lib/site";
 
@@ -27,8 +27,6 @@ export function cityMetadata(city: CityContent): Metadata {
 }
 
 export function CityPage({ city }: { city: CityContent }) {
-  const others = cities.filter((item) => item.id !== city.id);
-
   return (
     <article className="page">
       <JsonLd
@@ -112,13 +110,10 @@ export function CityPage({ city }: { city: CityContent }) {
           to set a time.
         </p>
         <p>Other cities we cover:</p>
-        <ul className="link-columns">
-          {others.map((item) => (
-            <li key={item.id}>
-              <Link href={item.slug}>Shutter repair in {item.name}</Link>
-            </li>
-          ))}
-        </ul>
+        <CityAreaGroups
+          omitHref={city.slug}
+          linkText={(label) => `Shutter repair in ${label}`}
+        />
       </section>
 
       <FaqList items={city.faq} />
