@@ -33,6 +33,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about", changeFrequency: "yearly", priority: 0.5 },
     { path: "/reviews", changeFrequency: "monthly", priority: 0.5 },
     { path: "/gallery", changeFrequency: "monthly", priority: 0.5 },
+    { path: "/faq", changeFrequency: "monthly", priority: 0.7 },
+    {
+      path: "/faq/plantation-shutter-repair-cost-los-angeles",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      path: "/faq/somfy-motorized-shade-repair",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
   ];
 

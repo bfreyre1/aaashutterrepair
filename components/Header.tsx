@@ -61,6 +61,7 @@ export function Header() {
           <Link href="/about">About</Link>
           <Link href="/reviews">Reviews</Link>
           <Link href="/gallery">Gallery</Link>
+          <Link href="/faq">FAQ</Link>
         </nav>
 
         <div className="header-actions">
@@ -137,6 +138,9 @@ export function Header() {
         </Link>
         <Link href="/gallery" onClick={close}>
           Gallery
+        </Link>
+        <Link href="/faq" onClick={close}>
+          FAQ
         </Link>
         <Link href="/get-a-quote" className="btn btn-secondary" onClick={close}>
           Get a quote
