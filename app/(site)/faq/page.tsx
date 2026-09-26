@@ -57,7 +57,7 @@ export default function FaqPage() {
         <h2>How estimates work</h2>
         <p>
           Repair is usually far less than full replacement, and most plantation
-          jobs finish in one visit at the house. We do not publish dollar
+          shutter jobs finish in one visit at the house. We do not publish dollar
           prices here. The number depends on the window. Longer answers live
           on{" "}
           <Link href="/faq/plantation-shutter-repair-cost-los-angeles">

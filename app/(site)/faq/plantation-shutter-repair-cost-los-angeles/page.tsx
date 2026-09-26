@@ -72,7 +72,7 @@ export default function PlantationShutterRepairCostPage() {
         </p>
         <p>
           What we can say before the visit: repair is usually far less than
-          full replacement, and most plantation jobs finish in one visit at
+          full replacement, and most plantation shutter jobs finish in one visit at
           the house. About 90% of plantation wood shutter jobs never leave the
           opening. Call{" "}
           <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> or text the same
@@ -90,7 +90,7 @@ export default function PlantationShutterRepairCostPage() {
           </li>
           <li>
             <strong>Tilt rod.</strong> Staples that walked out of the rod are
-            the usual plantation failure. A rod that itself is broken is a
+            the usual plantation shutter failure. A rod that itself is broken is a
             different repair.
           </li>
           <li>
@@ -118,7 +118,7 @@ export default function PlantationShutterRepairCostPage() {
       </section>
 
       <section>
-        <h2>Repair before a new plantation set</h2>
+        <h2>Repair before a new plantation shutter set</h2>
         <p>
           Custom plantation shutters are a secondary offer. If rot, a broken
           stile, or an opening that was never the right size makes repair a
