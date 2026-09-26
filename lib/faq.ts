@@ -3,13 +3,13 @@ import { ADDRESS_DISPLAY, HOURS_FAQ, PHONE_DISPLAY } from "@/lib/site";
 
 const plantationRepairCost: FaqItem = {
   question: "How much does plantation shutter repair cost in Los Angeles?",
-  answer: `There is no flat price. The job depends on how many louvers failed, whether the tilt rod or the hinges are the problem, whether the paint or stain has to match, and how far the house is from our Valley base. Repair is usually far less than full replacement, and most plantation jobs finish in one visit. Call or text ${PHONE_DISPLAY} for a free estimate on the window you actually have.`,
+  answer: `There is no flat price. The job depends on how many louvers failed, whether the tilt rod or the hinges are the problem, whether the paint or stain has to match, and how far the house is from our Valley base. Repair is usually far less than full replacement, and most plantation shutter jobs finish in one visit. Call or text ${PHONE_DISPLAY} for a free estimate on the window you actually have.`,
 };
 
 const repairVsReplace: FaqItem = {
   question: "Is repairing cheaper than replacing plantation shutters?",
   answer:
-    "Usually, yes. A split louver, a loose tilt rod, or a hinge that let go is a repair, and that is far less than a new custom plantation set for the room. We bring up new shutters only when rot, a broken stile, or an opening that was never the right size makes repair a waste. We say that on the visit.",
+    "Usually, yes. A split louver, a loose tilt rod, or a hinge that let go is a repair, and that is far less than a new custom plantation shutter set for the room. We bring up new shutters only when rot, a broken stile, or an opening that was never the right size makes repair a waste. We say that on the visit.",
 };
 
 const typicalVisit: FaqItem = {
@@ -33,7 +33,7 @@ const onePart: FaqItem = {
   question:
     "Can you replace one louver, tilt rod, or hinge instead of the whole panel?",
   answer:
-    "Often yes. A split or missing plantation louver, a loose tilt rod, or a tired hinge can be replaced so the rest of the panel stays. We say so when the stile or the whole panel is actually finished. One failed part is the usual call.",
+    "Often yes. A split or missing plantation shutter louver, a loose tilt rod, or a tired hinge can be replaced so the rest of the panel stays. We say so when the stile or the whole panel is actually finished. One failed part is the usual call.",
 };
 
 const paintedAndStained: FaqItem = {
