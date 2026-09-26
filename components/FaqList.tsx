@@ -1,11 +1,24 @@
 import { JsonLd } from "@/components/JsonLd";
 import { faqJsonLd, type FaqItem } from "@/lib/schema";
 
-export function FaqList({ items }: { items: FaqItem[] }) {
+type FaqListProps = {
+  items: FaqItem[];
+  heading?: string;
+  headingId?: string;
+  /** Skip FAQPage JSON-LD when the page already emits one schema for every list. */
+  jsonLd?: boolean;
+};
+
+export function FaqList({
+  items,
+  heading = "Common questions",
+  headingId = "faq-heading",
+  jsonLd = true,
+}: FaqListProps) {
   return (
-    <section className="faq" aria-labelledby="faq-heading">
-      <JsonLd data={faqJsonLd(items)} />
-      <h2 id="faq-heading">Common questions</h2>
+    <section className="faq" aria-labelledby={headingId}>
+      {jsonLd ? <JsonLd data={faqJsonLd(items)} /> : null}
+      <h2 id={headingId}>{heading}</h2>
       <div className="faq__list">
         {items.map((item) => (
           <details key={item.question} className="faq__item">

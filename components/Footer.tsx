@@ -80,6 +80,9 @@ export function Footer() {
               <Link href="/gallery">Gallery</Link>
             </li>
             <li>
+              <Link href="/faq">FAQ</Link>
+            </li>
+            <li>
               <Link href="/privacy">Privacy</Link>
             </li>
           </ul>
