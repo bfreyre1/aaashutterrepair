@@ -1,24 +1,29 @@
 /**
  * Sona (Quo AI agent) calls arrive as call.missed, not call.completed.
- * Fast-path those to the post-call relay when the call object shows the AI
- * answered an incoming call that lasted at least 10 seconds.
  *
- * Field names, from the Calls API and the legacy webhook envelope
- * (data.object) plus the 2026-03-30 envelope (data.resource):
+ * When the call object includes the Calls API fields, fast-path to the
+ * post-call relay only if the AI answered an incoming call of at least 10s:
  * - type === "call.missed"
- * - aiHandled === "ai-agent"   (Calls API; null means a human or nobody)
+ * - call object at data.object (legacy) or data.resource (2026-03-30)
+ * - aiHandled === "ai-agent"   (null means a human or nobody)
  * - direction === "incoming"
  * - duration >= 10             (seconds)
  *
- * The official call.missed resource is only id/createdAt/updatedAt. Missing
- * fields fail closed so the event stays on the missed-call relay.
+ * The published call.missed resource is often only id/createdAt/updatedAt.
+ * That id-only shape fans out to both relays. The post-call routine looks the
+ * call up and ignores anything Sona did not answer. Any of the three fields
+ * being present, without a full match, stays on the missed-call relay.
  */
 
 const MIN_SONA_DURATION_SECONDS = 10;
 
 export type MissedCallRelayChoice = {
-  /** Relay name. "post-call-sona-fastpath" or "missed-call". */
-  path: "post-call-sona-fastpath" | "missed-call";
+  /**
+   * "post-call-sona-fastpath": post-call relay only.
+   * "post-call-sona-fanout": missed-call relay, plus a second post-call forward.
+   * "missed-call": missed-call relay only.
+   */
+  path: "post-call-sona-fastpath" | "post-call-sona-fanout" | "missed-call";
   /** Safe to log: no phone numbers and no auth values. */
   reason: string;
 };
@@ -33,12 +38,16 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
-function inspectCall(call: CallFields): { match: true; durationSeconds: number } | { match: false; reason: string } {
-  const hasSignal =
+function hasCallSignal(call: object): boolean {
+  return (
     Object.prototype.hasOwnProperty.call(call, "aiHandled") ||
     Object.prototype.hasOwnProperty.call(call, "direction") ||
-    Object.prototype.hasOwnProperty.call(call, "duration");
-  if (!hasSignal) {
+    Object.prototype.hasOwnProperty.call(call, "duration")
+  );
+}
+
+function inspectCall(call: CallFields): { match: true; durationSeconds: number } | { match: false; reason: string } {
+  if (!hasCallSignal(call)) {
     return { match: false, reason: "missing-call-fields" };
   }
   if (call.aiHandled !== "ai-agent") {
@@ -67,11 +76,16 @@ export function classifySonaMissedCall(body: unknown): MissedCallRelayChoice {
     return { path: "missed-call", reason: "missing-call-object" };
   }
 
-  let fallback: MissedCallRelayChoice = {
-    path: "missed-call",
-    reason: "missing-call-fields",
-  };
-  for (const call of candidates) {
+  const signaled = candidates.filter((call) => hasCallSignal(call));
+  if (signaled.length === 0) {
+    return {
+      path: "post-call-sona-fanout",
+      reason: "call.missed missing aiHandled direction duration",
+    };
+  }
+
+  let fallbackReason = "missing-call-fields";
+  for (const call of signaled) {
     const result = inspectCall(call);
     if (result.match) {
       return {
@@ -79,11 +93,11 @@ export function classifySonaMissedCall(body: unknown): MissedCallRelayChoice {
         reason: `aiHandled=ai-agent direction=incoming duration=${result.durationSeconds}s`,
       };
     }
-    if (fallback.reason === "missing-call-fields") {
-      fallback = { path: "missed-call", reason: result.reason };
+    if (fallbackReason === "missing-call-fields") {
+      fallbackReason = result.reason;
     }
   }
-  return fallback;
+  return { path: "missed-call", reason: fallbackReason };
 }
 
 /**
@@ -106,7 +120,7 @@ export async function chooseMissedCallPath(
   }
 
   const decision = classifySonaMissedCall(body);
-  if (decision.path !== "post-call-sona-fastpath") {
+  if (decision.path === "missed-call") {
     return decision;
   }
 
@@ -115,7 +129,10 @@ export async function chooseMissedCallPath(
   if (!postUrl || !postAuth) {
     return {
       path: "missed-call",
-      reason: "POST_CALL_WEBHOOK_URL or POST_CALL_WEBHOOK_AUTH unset",
+      reason:
+        decision.path === "post-call-sona-fanout"
+          ? "id-only POST_CALL_WEBHOOK_URL or POST_CALL_WEBHOOK_AUTH unset"
+          : "POST_CALL_WEBHOOK_URL or POST_CALL_WEBHOOK_AUTH unset",
     };
   }
 
