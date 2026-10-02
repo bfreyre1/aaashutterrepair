@@ -18,6 +18,8 @@ const QUO_SIGNATURE_HEADERS = [
   "svix-signature",
 ] as const;
 
+const DEFAULT_RELAY_TIMEOUT_MS = 10_000;
+
 export type QuoWebhookRelayConfig = {
   url: string | undefined;
   auth: string | undefined;
@@ -25,6 +27,11 @@ export type QuoWebhookRelayConfig = {
   authEnv: string;
   /** Short name used in logs, e.g. "missed-call". */
   name: string;
+  /**
+   * Abort the upstream fetch after this many milliseconds.
+   * Defaults to 10s. The Sona id-only fanout uses 5s.
+   */
+  timeoutMs?: number;
 };
 
 export async function relayQuoWebhook(
@@ -72,7 +79,7 @@ export async function relayQuoWebhook(
       cache: "no-store",
       // Do not follow redirects; the bearer token must stay on this host.
       redirect: "manual",
-      signal: AbortSignal.timeout(10_000),
+      signal: AbortSignal.timeout(config.timeoutMs ?? DEFAULT_RELAY_TIMEOUT_MS),
     });
 
     const upstreamBody = await upstream.arrayBuffer();
