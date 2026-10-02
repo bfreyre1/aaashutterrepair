@@ -42,6 +42,12 @@ export type CityContent = {
   issues: string[];
   sections: { heading: string; body: string }[];
   faq: FaqItem[];
+  /** Extra sentence on this city page only, with a link to blind and shade repair. */
+  blindRepairLink?: {
+    before: string;
+    anchor: string;
+    after: string;
+  };
 };
 
 export const cities: CityContent[] = [
@@ -104,6 +110,13 @@ export const cities: CityContent[] = [
           "Usually yes. Age alone is not a reason to replace. Staples, pins, hinges, and magnets are replaceable on most wood plantation shutters.",
       },
     ],
+    blindRepairLink: {
+      before:
+        "When the window has a blind or a shade instead of a shutter, see ",
+      anchor: "blind repair in Van Nuys",
+      after:
+        ". Wands, rollers, magnets, and clutches are repaired on site when the job allows.",
+    },
   },
   {
     id: "sherman-oaks",
@@ -163,6 +176,13 @@ export const cities: CityContent[] = [
           "Yes. French-door and slider panels are a frequent Sherman Oaks job — hinges, magnets, and meeting stiles take the most wear.",
       },
     ],
+    blindRepairLink: {
+      before:
+        "Condos and guest rooms along Ventura Boulevard often need ",
+      anchor: "blind and shade repair in Sherman Oaks",
+      after:
+        ". We repair the clutch, cord, roller, or wand on site when the job allows.",
+    },
   },
   {
     id: "los-angeles",
