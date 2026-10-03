@@ -10,9 +10,9 @@ import { TextLink } from "@/components/TextLink";
 import { serviceJsonLd } from "@/lib/schema";
 import { PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
 
-const title = "Blind Repair and Shade Repair in Los Angeles";
+const title = "Blind Repair Near Me | Van Nuys & Sherman Oaks";
 const description =
-  "Blind repair and shade repair in the San Fernando Valley and Los Angeles. Magnets, pins, wands, clutches, and roller shades — on-site when the job allows. Call 818-392-8584.";
+  "Blind and shade repair near you in Van Nuys, Sherman Oaks, and the Valley. On-site fixes for wands, rollers, magnets, and clutches. Call 818-392-8584.";
 
 export const metadata: Metadata = {
   title,
@@ -32,6 +32,20 @@ const blindsChips = [
 ] as const;
 
 const faq = [
+  {
+    question: "Do you repair blinds and shades, or only replace them?",
+    answer:
+      "We repair them. A wand, tilter, roller, magnet, pin, cord, or clutch is usually a repair, not a new blind or shade. The aim is to keep the treatment you already have. If it is truly finished, we will say so.",
+  },
+  {
+    question: "Do you come to my home in the Valley?",
+    answer:
+      "Yes. We come to houses and condos in Van Nuys, Sherman Oaks, and nearby San Fernando Valley neighborhoods. The repair is on site when the job allows.",
+  },
+  {
+    question: "How fast can you come out?",
+    answer: `Call or text ${PHONE_DISPLAY} and we will set a time to come to the house. Live help is every day from 10 AM to 7 PM, and you can text after those hours. When the part can be fixed on site, the work happens at the window instead of waiting on a new product order.`,
+  },
   {
     question: "Can you repair blinds without replacing the whole window?",
     answer:
@@ -145,6 +159,40 @@ export default function BlindAndShadeRepairPage() {
             motorized / Somfy shade repair
           </Link>
           .
+        </p>
+      </section>
+
+      <section>
+        <h2>Blind and shade repair in Van Nuys and Sherman Oaks</h2>
+        <p>
+          If you searched for blind repair near me from{" "}
+          <Link href="/shutter-repair-van-nuys">Van Nuys</Link> or{" "}
+          <Link href="/shutter-repair-sherman-oaks">Sherman Oaks</Link>, this
+          is the repair. We come to the house. A wand that spins, slats that
+          will not tilt, a roller stuck halfway, or a magnet that let go is
+          usually the part we fix, not a reason to order a new blind.
+        </p>
+        <p>
+          Van Nuys calls are often a ranch house or an apartment along the
+          boulevard. Secondary bedrooms still have horizontal blinds. Sherman
+          Oaks is a short drive south, on Ventura Boulevard and into the hills.
+          Condos and guest rooms there mix roller shades with older blinds. The
+          failed piece is usually a clutch, a cord, a pin, or a wand, and we
+          repair it on site when the job allows.
+        </p>
+        <p>
+          The same crew covers nearby Valley neighborhoods, including Encino,
+          Studio City, Valley Village, and North Hollywood. If the window is
+          wood shutters instead of a blind, start with{" "}
+          <Link href="/shutter-repair-van-nuys">
+            shutter repair in Van Nuys
+          </Link>{" "}
+          or{" "}
+          <Link href="/shutter-repair-sherman-oaks">
+            shutter repair in Sherman Oaks
+          </Link>
+          . For a blind or a shade, call or text {PHONE_DISPLAY} and we will
+          set a time to come out. Live help is every day from 10 AM to 7 PM.
         </p>
       </section>
 

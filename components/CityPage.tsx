@@ -94,6 +94,15 @@ export function CityPage({ city }: { city: CityContent }) {
 
       <section>
         <h2>Related services</h2>
+        {city.blindRepairLink ? (
+          <p>
+            {city.blindRepairLink.before}
+            <Link href="/blind-and-shade-repair">
+              {city.blindRepairLink.anchor}
+            </Link>
+            {city.blindRepairLink.after}
+          </p>
+        ) : null}
         <p>
           Start with the job you actually have:{" "}
           <Link href="/shutter-repair">shutter repair</Link>,{" "}
