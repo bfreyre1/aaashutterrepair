@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
-import { absoluteUrl } from "@/lib/site";
+import { SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 const title = "AAA Shutter Repair Review Themes";
 const description =
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/reviews") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | AAA Shutter Repair`,
     description,
     url: absoluteUrl("/reviews"),

@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { GALLERY_IMAGES } from "@/lib/gallery";
-import { absoluteUrl } from "@/lib/site";
+import { SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 const title = "Repair Gallery";
 const description =
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/gallery") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | AAA Shutter Repair`,
     description,
     url: absoluteUrl("/gallery"),

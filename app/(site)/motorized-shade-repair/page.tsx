@@ -8,7 +8,7 @@ import { JobFigure } from "@/components/JobFigure";
 import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
-import { absoluteUrl } from "@/lib/site";
+import { SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 const title = "Somfy and Motorized Shade Repair in Los Angeles";
 const description =
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/motorized-shade-repair") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | AAA Shutter Repair`,
     description,
     url: absoluteUrl("/motorized-shade-repair"),

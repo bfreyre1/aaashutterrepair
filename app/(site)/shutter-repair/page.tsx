@@ -10,7 +10,7 @@ import { LANDING_TRUST_CHIPS, TrustChips } from "@/components/TrustChips";
 import { TextLink } from "@/components/TextLink";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
-import { PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
+import { PHONE_DISPLAY, SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 const title = "Shutter Repair in Los Angeles";
 const description =
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/shutter-repair") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | AAA Shutter Repair`,
     description,
     url: absoluteUrl("/shutter-repair"),

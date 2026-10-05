@@ -2,6 +2,14 @@ export const SITE_NAME = "AAA Shutter Repair";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aaashutterrepair.com";
 
+/** Logo on white for link previews. Absolute so shares do not depend on the crawler resolving a path. */
+export const SHARE_IMAGE = {
+  url: `${SITE_URL}/og-image.png`,
+  width: 1200,
+  height: 630,
+  alt: SITE_NAME,
+} as const;
+
 export const PHONE_DISPLAY = "818-392-8584";
 export const PHONE_TEL = "+18183928584";
 export const PHONE_SMS = `sms:${PHONE_TEL}`;
