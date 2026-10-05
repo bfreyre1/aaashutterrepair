@@ -52,9 +52,9 @@ Use these **https** paths as Google Ads final URLs. Do not point campaigns at ha
 | Santa Clarita / Valencia geo | `/shutter-repair-santa-clarita` | Shutter repair in Santa Clarita |
 | Lead form / sitelink | `/get-a-quote` | Get a free estimate |
 
-Supporting URLs (usually sitelinks or organic only): `/about`, `/reviews`, `/gallery`, `/privacy`. Unknown paths render the branded 404. `/404` exists as a real route for leftover inbound links.
+Supporting URLs (usually sitelinks or organic only): `/about`, `/partners`, `/reviews`, `/gallery`, `/privacy`. Unknown paths render the branded 404. `/404` exists as a real route for leftover inbound links.
 
-Sitelink ideas: Get a free estimate, Shutter repair, Plantation shutter repair, Blind and shade repair, Motorized / Somfy repair, plus the city that matches the campaign geo. `/plantation-shutter-repair` is its own lander (it no longer redirects to `/shutter-repair`).
+Sitelink ideas: Get a free estimate, Shutter repair, Plantation shutter repair, Blind and shade repair, Motorized / Somfy repair, plus the city that matches the campaign geo. Partner Search can use `/partners` (brands and systems we repair, including Somfy shade repair, with a not-a-dealer note). `/motorized-shade-repair` stays the deep Somfy repair lander. `/plantation-shutter-repair` is its own lander (it no longer redirects to `/shutter-repair`).
 
 Callout extensions and the sticky Call button should use `tel:+18183928584` (display **818-392-8584**). Text buttons use `sms:+18183928584` (same number). Call and Text are the primary CTAs; the quote form is secondary.
 

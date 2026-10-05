@@ -89,6 +89,9 @@ export default function MotorizedShadeRepairPage() {
           opening. AAA Shutter Repair treats that as its own service, not a
           footnote under new product. If you searched motorized shade repair or
           Somfy shade repair in Los Angeles, this is the page for that work.
+          Makers and systems we repair, and the note that we are not a dealer,
+          are listed on{" "}
+          <Link href="/partners">brands and systems we repair</Link>.
         </p>
         <p>
           We still lead with repair. A dead control is not automatically a new
