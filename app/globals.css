@@ -870,6 +870,24 @@ li {
   .city-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .card-grid.card-grid--pairs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card.card--note:hover {
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+.estimate-points {
+  margin: 0.75rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.estimate-points li + li {
+  margin-top: 0.35rem;
 }
 
 .card,
@@ -969,6 +987,11 @@ li {
 .quote-layout {
   display: grid;
   gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+#estimate-form {
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
 }
 
 @media (min-width: 860px) {
