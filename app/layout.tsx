@@ -9,6 +9,7 @@ import { businessJsonLd } from "@/lib/schema";
 import {
   GOOGLE_SITE_VERIFICATION,
   GOOGLE_SITE_VERIFICATION_INFO,
+  SHARE_IMAGE,
   SITE_NAME,
   SITE_URL,
 } from "@/lib/site";
@@ -30,6 +31,11 @@ const heading = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  appleWebApp: {
+    capable: false,
+    title: SITE_NAME,
+  },
   title: {
     default: `Plantation Shutter Repair in Los Angeles | ${SITE_NAME}`,
     template: `%s | ${SITE_NAME}`,
@@ -40,6 +46,11 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
+    images: [SHARE_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [SHARE_IMAGE.url],
   },
   verification: {
     google: [GOOGLE_SITE_VERIFICATION, GOOGLE_SITE_VERIFICATION_INFO],

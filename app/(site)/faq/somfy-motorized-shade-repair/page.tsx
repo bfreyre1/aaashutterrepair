@@ -6,7 +6,7 @@ import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
 import { JobFigure } from "@/components/JobFigure";
 import { somfyPageFaq } from "@/lib/faq";
-import { PHONE_DISPLAY, PHONE_TEL, absoluteUrl } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_TEL, SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 const title = "Somfy motorized shade repair in Los Angeles";
 const description =
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: absoluteUrl("/faq/somfy-motorized-shade-repair"),
   },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | AAA Shutter Repair`,
     description,
     url: absoluteUrl("/faq/somfy-motorized-shade-repair"),

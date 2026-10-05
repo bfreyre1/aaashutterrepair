@@ -10,7 +10,7 @@ import { LANDING_TRUST_CHIPS, TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import type { CityContent } from "@/lib/cities";
 import { serviceJsonLd } from "@/lib/schema";
-import { absoluteUrl } from "@/lib/site";
+import { SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 export function cityMetadata(city: CityContent): Metadata {
   return {
@@ -18,6 +18,7 @@ export function cityMetadata(city: CityContent): Metadata {
     description: city.description,
     alternates: { canonical: absoluteUrl(city.slug) },
     openGraph: {
+      images: [SHARE_IMAGE],
       title: `${city.title} | AAA Shutter Repair`,
       description: city.description,
       url: absoluteUrl(city.slug),

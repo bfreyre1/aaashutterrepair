@@ -10,6 +10,7 @@ import {
   ADDRESS_DISPLAY,
   HOURS_DISPLAY,
   PHONE_DISPLAY,
+  SHARE_IMAGE,
   SITE_NAME,
   absoluteUrl,
 } from "@/lib/site";
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/partners") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | ${SITE_NAME}`,
     description,
     url: absoluteUrl("/partners"),

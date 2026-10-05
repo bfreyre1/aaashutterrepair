@@ -7,7 +7,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { TextLink } from "@/components/TextLink";
 import { LANDING_TRUST_CHIPS, TrustChips } from "@/components/TrustChips";
 import { quoteIntentLabel, quoteJobFromParam } from "@/lib/quote";
-import { PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
+import { PHONE_DISPLAY, SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 const title = "Get a Free Estimate";
 const description =
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/get-a-quote") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | AAA Shutter Repair`,
     description,
     url: absoluteUrl("/get-a-quote"),
