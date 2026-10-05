@@ -18,18 +18,23 @@ import {
   PHONE_DISPLAY,
 } from "@/lib/site";
 
-const title = "Plantation Shutter Repair in Los Angeles";
+const title = "Shutter Repair in Los Angeles | AAA Shutter Repair";
 const description =
-  "On-site plantation shutter repair in Los Angeles and the San Fernando Valley. Staples, louvers, tilt rods, hinges, magnets, plus blinds and Somfy shades. Call 818-392-8584.";
+  "On-site shutter repair in Los Angeles and the San Fernando Valley. Staples, louvers, tilt rods, hinges, magnets, plus blinds and Somfy shades. Call 818-392-8584.";
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} | AAA Shutter Repair` },
+  title: { absolute: title },
   description,
   alternates: { canonical: absoluteUrl("/") },
   openGraph: {
-    title: `${title} | AAA Shutter Repair`,
+    title,
     description,
     url: absoluteUrl("/"),
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
   },
 };
 
@@ -68,10 +73,10 @@ export default function HomePage() {
       />
       <JsonLd
         data={serviceJsonLd({
-          name: "Plantation shutter repair in Los Angeles",
+          name: "Shutter repair in Los Angeles",
           path: "/",
           description,
-          serviceType: "Plantation shutter repair",
+          serviceType: "Shutter repair",
         })}
       />
 
@@ -80,7 +85,7 @@ export default function HomePage() {
           <img
             className="hero__photo"
             src="/images/hero-on-site-repair.webp"
-            alt="On-site plantation shutter repair in a Los Angeles home"
+            alt="On-site shutter repair of wood plantation shutters in a Los Angeles home"
             width={1168}
             height={784}
             fetchPriority="high"
@@ -89,15 +94,19 @@ export default function HomePage() {
         </figure>
         <div className="hero__copy">
           <p className="eyebrow">San Fernando Valley · Greater Los Angeles</p>
-          <h1>Plantation shutter repair in Los Angeles</h1>
+          <h1>Shutter repair in Los Angeles</h1>
           <p className="hero__human">
-            We fix broken plantation shutters on site. Call or text now — most
-            jobs stay at the window.
+            We fix broken shutters on site. Call or text now. Most jobs stay at
+            the window.
           </p>
           <p className="lede">
             Staples, louvers, tilt rods, hinges, magnets, and side pins. Repair
-            before replace — the job other companies try to turn into a full
-            replacement. Blinds, shades, and Somfy motors too.
+            before replace. That is the job other companies try to turn into a
+            full replacement.{" "}
+            <Link href="/plantation-shutter-repair">
+              Plantation shutter repair
+            </Link>{" "}
+            is a strong part of the work. Blinds, shades, and Somfy motors too.
           </p>
           <TrustChips />
           <CtaButtons placement="home-hero" />
@@ -112,7 +121,8 @@ export default function HomePage() {
         <section className="trust" aria-label="Why callers book AAA">
           <div>
             <strong>On-site about 90% of the time</strong>
-            Plantation wood shutter repair at the window, not a shop drop-off.
+            Shutter repair at the window, including plantation wood. Not a shop
+            drop-off.
           </div>
           <div>
             <strong>Repair before replacement</strong>
@@ -149,9 +159,9 @@ export default function HomePage() {
         <section>
           <h2>What we actually repair</h2>
           <p>
-            If you searched plantation shutter repair, shutter repair near me,
-            blind repair, or motorized shade repair, you are in the right
-            place. This is not a generic window-treatment catalog.
+            If you searched shutter repair, shutter repair near me, plantation
+            shutter repair, blind repair, or motorized shade repair, you are
+            in the right place. This is not a generic window-treatment catalog.
           </p>
           <div className="card-grid">
             <Link href="/shutter-repair" className="card">
@@ -159,6 +169,13 @@ export default function HomePage() {
               <p>
                 Wood shutters: staples, louvers / louvres, tilt rods, hinges,
                 magnets, side pins. Most jobs stay on site.
+              </p>
+            </Link>
+            <Link href="/plantation-shutter-repair" className="card">
+              <h3>Plantation shutter repair</h3>
+              <p>
+                Painted or stained wood plantation panels. Staples, louvers,
+                tilt rods, hinges, and magnets, repaired at the house.
               </p>
             </Link>
             <Link href="/blind-and-shade-repair" className="card">

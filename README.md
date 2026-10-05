@@ -39,7 +39,7 @@ Use these **https** paths as Google Ads final URLs. Do not point campaigns at ha
 
 | Campaign / keyword theme | Final URL | H1 |
 | --- | --- | --- |
-| Branded + “shutter repair near me” / LA head terms | `/` | Plantation shutter repair in Los Angeles |
+| Branded + “shutter repair near me” / LA head terms | `/` | Shutter repair in Los Angeles |
 | Shutter repair, shutter repair near me, wood shutter repair | `/shutter-repair` | Shutter repair |
 | Plantation shutter repair, plantation shutters, tilt rods / louvers | `/plantation-shutter-repair` | Plantation shutter repair |
 | Blind repair, shade repair | `/blind-and-shade-repair` | Blind and shade repair |
