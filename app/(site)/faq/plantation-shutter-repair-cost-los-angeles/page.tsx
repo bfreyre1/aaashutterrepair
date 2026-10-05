@@ -10,6 +10,7 @@ import {
   ADDRESS_DISPLAY,
   PHONE_DISPLAY,
   PHONE_TEL,
+  SHARE_IMAGE,
   absoluteUrl,
 } from "@/lib/site";
 
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     canonical: absoluteUrl("/faq/plantation-shutter-repair-cost-los-angeles"),
   },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | AAA Shutter Repair`,
     description,
     url: absoluteUrl("/faq/plantation-shutter-repair-cost-los-angeles"),

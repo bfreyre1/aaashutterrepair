@@ -8,7 +8,7 @@ import { TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { TextLink } from "@/components/TextLink";
 import { serviceJsonLd } from "@/lib/schema";
-import { PHONE_DISPLAY, absoluteUrl } from "@/lib/site";
+import { PHONE_DISPLAY, SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 const title = "Blind Repair Near Me | Van Nuys & Sherman Oaks";
 const description =
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/blind-and-shade-repair") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | AAA Shutter Repair`,
     description,
     url: absoluteUrl("/blind-and-shade-repair"),

@@ -19,6 +19,7 @@ import {
   EMAIL,
   PHONE_DISPLAY,
   PHONE_TEL,
+  SHARE_IMAGE,
   absoluteUrl,
 } from "@/lib/site";
 
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/faq") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | AAA Shutter Repair`,
     description,
     url: absoluteUrl("/faq"),

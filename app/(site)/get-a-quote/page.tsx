@@ -14,6 +14,7 @@ import type { FaqItem } from "@/lib/schema";
 import {
   ADDRESS_DISPLAY,
   PHONE_DISPLAY,
+  SHARE_IMAGE,
   SITE_NAME,
   absoluteUrl,
 } from "@/lib/site";
@@ -50,6 +51,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/get-a-quote") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title: `${title} | ${SITE_NAME}`,
     description,
     url: absoluteUrl("/get-a-quote"),

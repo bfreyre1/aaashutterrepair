@@ -12,6 +12,7 @@ import { HOME_JOB_STRIP } from "@/lib/gallery";
 import { serviceJsonLd } from "@/lib/schema";
 import {
   HOURS_FAQ,
+  SHARE_IMAGE,
   absoluteUrl,
   CITY_GROUPS,
   cityLinksInGroup,
@@ -27,14 +28,16 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: absoluteUrl("/") },
   openGraph: {
+    images: [SHARE_IMAGE],
     title,
     description,
     url: absoluteUrl("/"),
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title,
     description,
+    images: [SHARE_IMAGE.url],
   },
 };
 
