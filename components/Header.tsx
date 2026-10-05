@@ -59,6 +59,7 @@ export function Header() {
             </div>
           </div>
           <Link href="/about">About</Link>
+          <Link href="/partners">Partners</Link>
           <Link href="/reviews">Reviews</Link>
           <Link href="/gallery">Gallery</Link>
           <Link href="/faq">FAQ</Link>
@@ -132,6 +133,9 @@ export function Header() {
         ))}
         <Link href="/about" onClick={close}>
           About
+        </Link>
+        <Link href="/partners" onClick={close}>
+          Partners
         </Link>
         <Link href="/reviews" onClick={close}>
           Reviews
