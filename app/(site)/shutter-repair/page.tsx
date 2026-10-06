@@ -12,19 +12,23 @@ import { JsonLd } from "@/components/JsonLd";
 import { serviceJsonLd } from "@/lib/schema";
 import { PHONE_DISPLAY, SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
-const title = "Shutter Repair in Los Angeles";
+const title = "Shutter Repair Near Me | Louvers, Tilt Rods & Hinges | AAA";
 const description =
-  "Shutter repair near you in Los Angeles and the San Fernando Valley. On-site wood shutters — staples, louvers, tilt rods, hinges, magnets, and side pins. Free estimate. Call 818-392-8584.";
+  "Shutter repair near you in Los Angeles and the San Fernando Valley. On-site wood shutter fixes for staples, louvers, tilt rods, hinges, magnets, and side pins. Free estimate. Call 818-392-8584.";
 
 export const metadata: Metadata = {
-  title,
+  title: { absolute: title },
   description,
   alternates: { canonical: absoluteUrl("/shutter-repair") },
   openGraph: {
     images: [SHARE_IMAGE],
-    title: `${title} | AAA Shutter Repair`,
+    title,
     description,
     url: absoluteUrl("/shutter-repair"),
+  },
+  twitter: {
+    title,
+    description,
   },
 };
 
