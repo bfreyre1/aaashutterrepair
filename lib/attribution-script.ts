@@ -100,9 +100,16 @@ export const ATTRIBUTION_BOOT_SCRIPT = `(function () {
       });
     } catch (e2) {}
   }
+  function eventId() {
+    try {
+      if (crypto && crypto.randomUUID) return crypto.randomUUID();
+    } catch (e) {}
+    return "";
+  }
   function payload(action, href, page) {
     var attr = capture();
     return {
+      event_id: eventId(),
       event: action,
       action: action,
       click_ts: new Date().toISOString(),
