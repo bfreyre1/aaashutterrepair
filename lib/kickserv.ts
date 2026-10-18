@@ -1,3 +1,7 @@
+import {
+  attributionNoteLines,
+  type AttributionFields,
+} from "@/lib/attribution";
 import { toTenDigitUsPhone, type QuoteFormValues } from "@/lib/quote";
 
 export const KICKSERV_ACCOUNT_DEFAULT = "c56cad";
@@ -201,11 +205,26 @@ async function findCustomerId(
   return null;
 }
 
-function customerXml(values: QuoteFormValues, phone: string): string {
-  const notes = [
-    `Website quote form — ${values.jobType} in ${values.city}`,
-    values.description,
-  ].join("\n\n");
+function withAttribution(notes: string, attribution: AttributionFields): string {
+  const lines = attributionNoteLines(attribution);
+  if (lines.length === 0) {
+    return notes;
+  }
+  return `${notes}\n\nAttribution\n${lines.join("\n")}`;
+}
+
+function customerXml(
+  values: QuoteFormValues,
+  phone: string,
+  attribution: AttributionFields,
+): string {
+  const notes = withAttribution(
+    [
+      `Website quote form — ${values.jobType} in ${values.city}`,
+      values.description,
+    ].join("\n\n"),
+    attribution,
+  );
 
   const email = values.email.trim();
   return [
@@ -224,7 +243,11 @@ function customerXml(values: QuoteFormValues, phone: string): string {
   ].join("");
 }
 
-function jobXml(values: QuoteFormValues, customerId: string): string {
+function jobXml(
+  values: QuoteFormValues,
+  customerId: string,
+  attribution: AttributionFields,
+): string {
   const name = `Website estimate: ${values.jobType} in ${values.city}`;
   const description = [
     `City: ${values.city}`,
@@ -232,15 +255,18 @@ function jobXml(values: QuoteFormValues, customerId: string): string {
     "",
     values.description,
   ].join("\n");
-  const notes = [
-    "Website quote form",
-    `City: ${values.city}`,
-    `Job type: ${values.jobType}`,
-    `Phone: ${values.phone}`,
-    `Email: ${values.email.trim() || "not provided"}`,
-    "",
-    values.description,
-  ].join("\n");
+  const notes = withAttribution(
+    [
+      "Website quote form",
+      `City: ${values.city}`,
+      `Job type: ${values.jobType}`,
+      `Phone: ${values.phone}`,
+      `Email: ${values.email.trim() || "not provided"}`,
+      "",
+      values.description,
+    ].join("\n"),
+    attribution,
+  );
 
   return [
     `<?xml version="1.0" encoding="UTF-8"?>`,
@@ -259,12 +285,13 @@ async function createCustomer(
   config: KickservConfig,
   values: QuoteFormValues,
   phone: string,
+  attribution: AttributionFields,
 ): Promise<string> {
   const { status, xml } = await kickservRequest(
     config,
     "POST",
     "/customers.xml",
-    customerXml(values, phone),
+    customerXml(values, phone, attribution),
   );
   if (!status.toString().startsWith("2")) {
     failFromKickserv(status, xml, "customer create");
@@ -284,8 +311,9 @@ async function createEstimateJob(
   config: KickservConfig,
   values: QuoteFormValues,
   customerId: string,
+  attribution: AttributionFields,
 ): Promise<string> {
-  const body = jobXml(values, customerId);
+  const body = jobXml(values, customerId, attribution);
   const nested = await kickservRequest(
     config,
     "POST",
@@ -319,6 +347,7 @@ async function createEstimateJob(
 
 export async function createQuoteLead(
   values: QuoteFormValues,
+  attribution: AttributionFields,
 ): Promise<QuoteLeadResult> {
   const config = kickservConfig();
   const phone = toTenDigitUsPhone(values.phone);
@@ -327,8 +356,9 @@ export async function createQuoteLead(
   }
 
   const existingId = await findCustomerId(config, values, phone);
-  const customerId = existingId ?? (await createCustomer(config, values, phone));
-  const jobId = await createEstimateJob(config, values, customerId);
+  const customerId =
+    existingId ?? (await createCustomer(config, values, phone, attribution));
+  const jobId = await createEstimateJob(config, values, customerId, attribution);
 
   return {
     customerId,

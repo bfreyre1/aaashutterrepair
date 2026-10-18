@@ -1,10 +1,19 @@
 import { after } from "next/server";
+import {
+  attributionFieldsFromUnknown,
+  attributionFromUnknown,
+  buildClickRecord,
+  cleanFullUrl,
+  type AttributionFields,
+} from "@/lib/attribution";
+import { writeClickRecord } from "@/lib/click-log-store";
 import { KickservError, createQuoteLead } from "@/lib/kickserv";
 import {
   normalizeQuoteForm,
   readQuoteFormBody,
   validateQuoteForm,
 } from "@/lib/quote";
+import { SITE_URL } from "@/lib/site";
 import { wakeSoftIntake } from "@/lib/soft-intake";
 
 export const runtime = "nodejs";
@@ -31,15 +40,20 @@ export async function POST(request: Request) {
     );
   }
 
+  const attribution = attributionFieldsFromUnknown(body);
+  const firstSeen = attributionFromUnknown(body)?.first_seen_ts ?? "";
+
   try {
-    const lead = await createQuoteLead(values);
+    const lead = await createQuoteLead(values, attribution);
     after(() =>
       wakeSoftIntake({
         values,
+        attribution,
         customerId: lead.customerId,
         jobId: lead.jobId,
       }),
     );
+    await logQuoteClick(request, values.phone, attribution, firstSeen, body);
     return Response.json({
       ok: true,
       customerId: lead.customerId,
@@ -57,5 +71,62 @@ export async function POST(request: Request) {
       },
       { status: 502 },
     );
+  }
+}
+
+function quotePage(request: Request, body: unknown): string {
+  const record =
+    body && typeof body === "object" ? (body as Record<string, unknown>) : {};
+  const fromBody = typeof record.page === "string" ? cleanFullUrl(record.page) : "";
+  if (fromBody) {
+    return fromBody;
+  }
+  const referer = request.headers.get("referer");
+  const fromReferer = referer ? cleanFullUrl(referer) : "";
+  if (fromReferer) {
+    return fromReferer;
+  }
+  return `${SITE_URL}/get-a-quote`;
+}
+
+function ipCountry(request: Request): string {
+  const value = (request.headers.get("x-vercel-ip-country") ?? "").toUpperCase();
+  return /^[A-Z]{2}$/.test(value) ? value : "";
+}
+
+async function logQuoteClick(
+  request: Request,
+  phone: string,
+  attribution: AttributionFields,
+  firstSeen: string,
+  body: unknown,
+): Promise<void> {
+  try {
+    const now = new Date();
+    const built = buildClickRecord(
+      {
+        action: "form",
+        event: "form",
+        click_ts: now.toISOString(),
+        page: quotePage(request, body),
+        href: "",
+        lead_phone: phone,
+        ...attribution,
+        first_seen_ts: firstSeen,
+        user_agent: request.headers.get("user-agent") ?? "",
+      },
+      {
+        now,
+        userAgent: request.headers.get("user-agent") ?? "",
+        ipCountry: ipCountry(request),
+      },
+    );
+    if (!built.ok) {
+      console.error("quote click log skipped:", built.error);
+      return;
+    }
+    await writeClickRecord(built.record);
+  } catch {
+    console.error("quote click log failed");
   }
 }
