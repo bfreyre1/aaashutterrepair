@@ -36,6 +36,7 @@ export const CLICK_ACTIONS = ["call", "text", "form"] as const;
 export type ClickAction = (typeof CLICK_ACTIONS)[number];
 
 export type ClickLogRecord = Attribution & {
+  event_id: string;
   event: ClickAction;
   action: ClickAction;
   click_ts: string;
@@ -49,10 +50,13 @@ export type ClickLogRecord = Attribution & {
 };
 
 export const CSV_COLUMNS = [
+  "event_id",
   "gclid",
   "gbraid",
   "wbraid",
   "click_time",
+  "click_ts",
+  "received_ts",
   "action",
   "page",
   "lead_phone",
@@ -357,6 +361,7 @@ export function buildClickRecord(
   return {
     ok: true,
     record: {
+      event_id: resolveEventId(record.event_id),
       event: action,
       action,
       click_ts: clickDate.toISOString(),
@@ -379,6 +384,16 @@ export function buildClickRecord(
       ip_country: country,
     },
   };
+}
+
+const EVENT_ID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function resolveEventId(value: unknown): string {
+  if (typeof value === "string" && EVENT_ID_RE.test(value.trim())) {
+    return value.trim().toLowerCase();
+  }
+  return crypto.randomUUID();
 }
 
 function resolveAction(action: unknown, event: unknown): ClickAction | null {
