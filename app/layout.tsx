@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Raleway } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
+import { ATTRIBUTION_BOOT_SCRIPT } from "@/lib/attribution-script";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
@@ -62,6 +63,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${sans.variable} ${heading.variable}`}>
       <body>
         <Analytics />
+        <script
+          id="aaa-attr"
+          dangerouslySetInnerHTML={{ __html: ATTRIBUTION_BOOT_SCRIPT }}
+        />
         <JsonLd data={businessJsonLd()} />
         <a className="skip-link" href="#main">
           Skip to content

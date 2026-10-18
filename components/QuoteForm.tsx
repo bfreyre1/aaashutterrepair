@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PhoneLink } from "@/components/PhoneLink";
 import { TextLink } from "@/components/TextLink";
+import { ATTRIBUTION_FIELDS, readStoredAttribution } from "@/lib/attribution";
 import { trackGenerateLead } from "@/lib/analytics";
 import {
   emptyQuoteForm,
@@ -32,6 +33,21 @@ export function QuoteForm({ initialJobType = "" }: QuoteFormProps) {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    const form = formRef.current;
+    if (!form) {
+      return;
+    }
+    const stored = readStoredAttribution();
+    for (const name of ATTRIBUTION_FIELDS) {
+      const field = form.elements.namedItem(name);
+      if (field instanceof HTMLInputElement) {
+        field.value = stored[name];
+      }
+    }
+  }, []);
 
   function update<K extends keyof QuoteFormValues>(
     key: K,
@@ -51,10 +67,15 @@ export function QuoteForm({ initialJobType = "" }: QuoteFormProps) {
 
     setSubmitting(true);
     try {
+      const stored = readStoredAttribution();
       const response = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          ...stored,
+          page: window.location.href,
+        }),
       });
       const data: { error?: string; errors?: QuoteFormErrors } = await response
         .json()
@@ -98,21 +119,25 @@ export function QuoteForm({ initialJobType = "" }: QuoteFormProps) {
     );
   }
 
-  const mailto = quoteMailtoHref(values);
-
   return (
     <form
+      ref={formRef}
       className="quote-form"
       onSubmit={onSubmit}
       noValidate
       aria-busy={submitting}
     >
+      {ATTRIBUTION_FIELDS.map((name) => (
+        <input key={name} type="hidden" name={name} defaultValue="" />
+      ))}
       {submitError ? (
         <div className="form-submit-error" role="alert">
           <p>{submitError}</p>
           <p>
             You can also{" "}
-            <a href={mailto}>email the same details to {EMAIL}</a>,{" "}
+            <a href={quoteMailtoHref(values, readStoredAttribution())}>
+              email the same details to {EMAIL}
+            </a>,{" "}
             <PhoneLink placement="quote_form_error">
               call {PHONE_DISPLAY}
             </PhoneLink>

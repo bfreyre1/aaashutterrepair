@@ -1,3 +1,4 @@
+import { attributionNoteLines, type AttributionFields } from "@/lib/attribution";
 import { CITY_LINKS, EMAIL, JOB_TYPES } from "@/lib/site";
 
 export type QuoteFormValues = {
@@ -137,10 +138,14 @@ export function quoteJobFromParam(job: string | undefined): string {
   }
 }
 
-export function quoteMailtoHref(values: QuoteFormValues): string {
+export function quoteMailtoHref(
+  values: QuoteFormValues,
+  attribution?: AttributionFields,
+): string {
   const subject = encodeURIComponent(
     `Estimate request: ${values.jobType} in ${values.city}`,
   );
+  const tracking = attribution ? attributionNoteLines(attribution) : [];
   const body = encodeURIComponent(
     [
       `Name: ${values.name}`,
@@ -150,6 +155,7 @@ export function quoteMailtoHref(values: QuoteFormValues): string {
       `Job type: ${values.jobType}`,
       "",
       values.description,
+      ...(tracking.length > 0 ? ["", "Attribution", ...tracking] : []),
     ].join("\n"),
   );
   return `mailto:${EMAIL}?subject=${subject}&body=${body}`;

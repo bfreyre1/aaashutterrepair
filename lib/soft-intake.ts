@@ -1,3 +1,4 @@
+import type { AttributionFields } from "@/lib/attribution";
 import { toE164UsPhone, type QuoteFormValues } from "@/lib/quote";
 
 export const SOFT_INTAKE_MISSING_FIELDS = ["address", "window"] as const;
@@ -5,6 +6,7 @@ export const SOFT_INTAKE_NEXT_FIELD = "address";
 
 export type SoftIntakeWakeInput = {
   values: QuoteFormValues;
+  attribution: AttributionFields;
   customerId: string;
   jobId: string;
 };
@@ -18,6 +20,15 @@ export type SoftIntakePayload = {
   city: string;
   jobType: string;
   description: string;
+  gclid: string;
+  gbraid: string;
+  wbraid: string;
+  utm_source: string;
+  utm_medium: string;
+  utm_campaign: string;
+  utm_term: string;
+  utm_content: string;
+  landing_page: string;
   customerId: string;
   jobId: string;
   missing_fields: string[];
@@ -41,6 +52,15 @@ export function buildSoftIntakePayload(
     city: input.values.city,
     jobType: input.values.jobType,
     description: input.values.description,
+    gclid: input.attribution.gclid,
+    gbraid: input.attribution.gbraid,
+    wbraid: input.attribution.wbraid,
+    utm_source: input.attribution.utm_source,
+    utm_medium: input.attribution.utm_medium,
+    utm_campaign: input.attribution.utm_campaign,
+    utm_term: input.attribution.utm_term,
+    utm_content: input.attribution.utm_content,
+    landing_page: input.attribution.landing_page,
     customerId: input.customerId,
     jobId: input.jobId,
     missing_fields: [...SOFT_INTAKE_MISSING_FIELDS],
