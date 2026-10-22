@@ -65,7 +65,14 @@ export function businessJsonLd() {
       telephone: PHONE_TEL,
       email: EMAIL,
       contactType: "customer service",
-      areaServed: "US",
+      areaServed: AREA_SERVED.map((name) => ({
+        "@type": name === "San Fernando Valley" ? "AdministrativeArea" : "City",
+        name,
+        containedInPlace: {
+          "@type": "State",
+          name: "California",
+        },
+      })),
       availableLanguage: ["English"],
     },
   };
