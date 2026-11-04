@@ -14,12 +14,14 @@ import { SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 export function cityMetadata(city: CityContent): Metadata {
   return {
-    title: city.title,
+    title: city.titleAbsolute ? { absolute: city.title } : city.title,
     description: city.description,
     alternates: { canonical: absoluteUrl(city.slug) },
     openGraph: {
       images: [SHARE_IMAGE],
-      title: `${city.title} | AAA Shutter Repair`,
+      title: city.titleAbsolute
+        ? city.title
+        : `${city.title} | AAA Shutter Repair`,
       description: city.description,
       url: absoluteUrl(city.slug),
       type: "website",

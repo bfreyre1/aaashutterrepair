@@ -33,6 +33,8 @@ export type CityContent = {
   jobPhoto: string;
   name: string;
   title: string;
+  /** Use title as-is, without the site name template suffix. */
+  titleAbsolute?: boolean;
   description: string;
   h1: string;
   lede: string;
