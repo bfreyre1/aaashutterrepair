@@ -428,12 +428,13 @@ export const valleyCities: CityContent[] = [
     slug: "/shutter-repair-glendale",
     jobPhoto: "arched-window-white-shutters.jpg",
     name: "Glendale",
-    title: "Shutter Repair in Glendale | Wood Plantation Shutter Repair",
+    title: "Shutter Repair in Glendale, CA | Plantation Shutter Repair | AAA",
+    titleAbsolute: true,
     description:
-      "On-site plantation shutter repair in Glendale for hillside houses and older city openings. Hinges, louvers, magnets, and pins. Call 818-392-8584.",
-    h1: "Shutter repair in Glendale",
+      "On-site plantation shutter repair in Glendale, California (LA County), from hillside homes to older city openings. Hinges, louvers, magnets and pins. Call 818-392-8584.",
+    h1: "Shutter repair in Glendale, CA",
     lede:
-      "Glendale’s shutter work is mostly older houses — Rossmoyne, Chevy Chase, Adams Hill — where the wood was fitted to openings that were never square. We repair those panels in place.",
+      "We repair shutters across Glendale, California, from the Verdugo foothills to the flats near Brand Blvd, about 20 minutes from our Sherman Oaks base. Glendale’s shutter work is mostly older houses — Rossmoyne, Chevy Chase, Adams Hill — where the wood was fitted to openings that were never square. We repair those panels in place.",
     neighborhoods: [
       "Rossmoyne and the Chevy Chase hills",
       "Adams Hill",

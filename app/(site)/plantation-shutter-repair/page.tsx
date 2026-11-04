@@ -72,7 +72,14 @@ export default function PlantationShutterRepairPage() {
       />
       <header className="page-hero">
         <p className="eyebrow">Wood plantation shutters · On-site</p>
-        <h1>Plantation shutter repair</h1>
+        <h1>Plantation shutter repair in Los Angeles</h1>
+        <p className="lede">
+          Already have plantation shutters in your Los Angeles home? We fix the
+          ones you own, right at the window: loose staples, broken louvers,
+          sagging panels, snapped tilt rods, worn hinges and weak magnets. We
+          cover LA and the San Fernando Valley, from Sherman Oaks out to Santa
+          Monica and Pasadena. Text a photo to 818-392-8584 for a quick look.
+        </p>
         <p className="lede">
           Tilt rod loose, a louver split, or a plantation panel that will not
           stay shut? We repair it at the house in Los Angeles and the San
@@ -177,7 +184,7 @@ export default function PlantationShutterRepairPage() {
       </section>
 
       <section>
-        <h2>Los Angeles and Valley cities</h2>
+        <h2>Plantation shutter repair across Los Angeles and the Valley</h2>
         <p>
           Van Nuys, Sherman Oaks, Los Angeles, Pasadena, Santa Monica, and
           Santa Clarita each have a city page. Use one if you searched with a

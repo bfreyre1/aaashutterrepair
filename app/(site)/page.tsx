@@ -166,6 +166,14 @@ export default function HomePage() {
             shutter repair, blind repair, or motorized shade repair, you are
             in the right place. This is not a generic window-treatment catalog.
           </p>
+          <p>
+            Most of our calls are for{" "}
+            <Link href="/plantation-shutter-repair">
+              plantation shutter repair in Los Angeles
+            </Link>
+            : staples, louvers, tilt rods and hinges on the shutters you already
+            have.
+          </p>
           <div className="card-grid">
             <Link href="/shutter-repair" className="card">
               <h3>Shutter repair</h3>
