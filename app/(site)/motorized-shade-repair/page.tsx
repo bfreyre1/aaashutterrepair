@@ -107,7 +107,7 @@ export default function MotorizedShadeRepairPage() {
       </header>
 
       <JobFigure
-        filename="roman-shade-mount.jpg"
+        filename="motorized-black-roller-shade-repair.jpg"
         sizes="(max-width: 800px) 100vw, 720px"
         priority
       />
