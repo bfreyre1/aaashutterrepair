@@ -308,8 +308,22 @@ const HOME_JOB_FILENAMES = [
   "roller-shades-french-doors.jpg",
 ] as const;
 
+/** Page-only hero photos. Looked up by JobFigure, not shown on /gallery. */
+const PAGE_HERO_IMAGES: GalleryImage[] = [
+  {
+    filename: "motorized-black-roller-shade-repair.jpg",
+    src: "/images/gallery/motorized-black-roller-shade-repair.jpg",
+    alt: "Black motorized roller shade we repaired in a Los Angeles home",
+    caption: `${JOB}. Black motorized roller shade.`,
+    width: 1600,
+    height: 1200,
+  },
+];
+
 export function galleryByFilename(filename: string): GalleryImage {
-  const image = GALLERY_IMAGES.find((item) => item.filename === filename);
+  const image =
+    GALLERY_IMAGES.find((item) => item.filename === filename) ??
+    PAGE_HERO_IMAGES.find((item) => item.filename === filename);
   if (!image) {
     throw new Error(`Missing gallery image ${filename}`);
   }

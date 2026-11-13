@@ -18,9 +18,9 @@ import {
   absoluteUrl,
 } from "@/lib/site";
 
-const title = "Motorized Shade Repair in Los Angeles";
+const title = "Motorized Shade and Somfy Repair in Los Angeles";
 const description =
-  "Motorized shade repair in Los Angeles and the San Fernando Valley. Somfy shade repair for stopped motors, dead remotes, battery wands, and lost limits. On-site diagnosis, then a free estimate. Call 818-392-8584.";
+  "Somfy and motorized shade repair in Los Angeles and the San Fernando Valley. We fix motors that will not respond, lost remotes or programming, shades stuck partway, noisy motors, and power issues. On-site diagnosis, then a free estimate. Call 818-392-8584.";
 
 const quoteHref = "/get-a-quote?job=motorized";
 
@@ -38,6 +38,12 @@ const faq: FaqItem[] = [
     question: "Can a humming motor be repaired without replacing the shade?",
     answer:
       "Often yes. A hum with no travel can be a motor trying to turn against a bind, a drive that is slipping inside the tube, or a motor that has failed while the fabric is still sound. We watch the shade at the window and say whether the repair is the motor, the path the fabric travels, or both.",
+  },
+  {
+    question:
+      "The shade is stuck partway, runs uneven, or the motor is noisy. Can you repair that?",
+    answer:
+      "Those are common repair calls. A shade that stops halfway often has limits that drifted, or fabric catching at one end. A shade that tilts or walks to one side is usually a hem, a tube, or a track issue, not a reason to replace the whole treatment. A noisy motor can be a failing drive, a dry or binding path, or a motor that is working harder than it should. We diagnose that at the window, then say whether a repair will hold.",
   },
   {
     question: "When is a new motorized shade the honest call?",
@@ -90,9 +96,10 @@ export default function MotorizedShadeRepairPage() {
         <h1>Motorized shade repair</h1>
         <p className="lede">
           A shade that will not go up or down is often the motor, the remote,
-          or the stops it is supposed to remember. We repair motorized shades
-          on site in Los Angeles and the San Fernando Valley, including Somfy
-          systems. Free estimate. Call or text {PHONE_DISPLAY}.
+          the programming, or the stops it is supposed to remember. We repair
+          Somfy and other motorized shades on site in Los Angeles and the San
+          Fernando Valley, from our Sherman Oaks base. Free estimate. Call or
+          text {PHONE_DISPLAY}.
         </p>
         <TrustChips items={LANDING_TRUST_CHIPS} />
         <CtaButtons placement="motorized-hero" quoteHref={quoteHref} />
@@ -100,7 +107,7 @@ export default function MotorizedShadeRepairPage() {
       </header>
 
       <JobFigure
-        filename="roman-shade-mount.jpg"
+        filename="motorized-black-roller-shade-repair.jpg"
         sizes="(max-width: 800px) 100vw, 720px"
         priority
       />
@@ -114,8 +121,9 @@ export default function MotorizedShadeRepairPage() {
           The motor stops. The remote loses its pairing. A battery wand dies
           in the headrail. Fabric binds at one end of a wide opening and the
           motor keeps trying. {SITE_NAME} treats that as its own service. If
-          you searched for motorized shade repair in Los Angeles, this is the
-          page for that visit.
+          you searched for motorized shade repair, Somfy shade repair, or
+          electric blinds repair in Los Angeles, this is the page for that
+          visit.
         </p>
         <p>
           We still lead with repair. A control that does nothing is not
@@ -130,12 +138,122 @@ export default function MotorizedShadeRepairPage() {
           <Link href="/partners">brands and systems we repair</Link>. Manual
           blinds and roller shades with no motor are on{" "}
           <Link href="/blind-and-shade-repair">blind and shade repair</Link>.
-          Longer answers about remotes and limits are on{" "}
+          Wood shutter work is on{" "}
+          <Link href="/shutter-repair">shutter repair</Link>. Longer answers
+          about remotes and limits are on{" "}
           <Link href="/faq/somfy-motorized-shade-repair">
             Somfy motorized shade repair
           </Link>
           .
         </p>
+      </section>
+
+      <section aria-labelledby="motor-brands">
+        <h2 id="motor-brands">Somfy and other motor brands we repair</h2>
+        <p>
+          Somfy is the motorized system Los Angeles homeowners ask us to repair
+          most often. It shows up in newer condos, remodels, and media rooms,
+          on both hardwired shades and battery shades. We repair the motor,
+          the remote, the pairing, the limits, and the way the shade travels.
+          The fabric is frequently still the right shade for the room.
+        </p>
+        <p>
+          We also repair most major motor brands used in motorized roller
+          shades, solar screens, Roman shades, and electric blinds. If the
+          motor sits in the tube or the headrail, and the handset or wall
+          control has quit, that is a repair visit for us. You do not need
+          the model number before we come. Tell us the name on the back of
+          the remote if you can read it. If you are not sure of the brand, we
+          can usually tell from the motor, the remote, or the battery wand
+          once we are at the window.
+        </p>
+        <p>
+          {SITE_NAME} is a repair shop. We are not a Somfy dealer, and we are
+          not an authorized dealer or factory partner for any motor brand.
+          Naming Somfy, or asking you for the brand, tells you we can look at
+          the system. It is not a badge and it is not a showroom claim. The
+          same disclaimer, and a shorter list of makers, is on{" "}
+          <Link href="/partners">brands and systems we repair</Link>.
+        </p>
+      </section>
+
+      <section aria-labelledby="common-symptoms">
+        <h2 id="common-symptoms">
+          Common motorized shade problems we see
+        </h2>
+        <p>
+          Most calls start with one of the problems below. Two shades can show
+          the same symptom and still need different repairs, so this list is a
+          starting point, not a diagnosis you have to make yourself. Tell us
+          what the shade does, and we will sort it at the house.
+        </p>
+        <div className="card-grid card-grid--pairs">
+          <article className="card card--note">
+            <h3>The motor will not respond</h3>
+            <p>
+              You press the remote or the wall switch and nothing happens. No
+              hum, no twitch, no travel. That can be power, a dead battery
+              pack, a handset that is no longer paired, or a motor that has
+              failed inside the tube. We test the remote, the power, and the
+              motor before anyone talks about a new shade.
+            </p>
+          </article>
+          <article className="card card--note">
+            <h3>The remote or the programming is lost</h3>
+            <p>
+              A remote that used to run the shade may have a dead cell, the
+              wrong channel selected, or a pairing the motor no longer
+              recognizes. A new handset that was never programmed, or a
+              second remote that only works on some shades in the room, is
+              the same kind of visit. We reprogram remotes and channels at
+              the window when the motor still answers.
+            </p>
+          </article>
+          <article className="card card--note">
+            <h3>The shade is stuck partway</h3>
+            <p>
+              The shade starts, then stops in the middle of the glass, or it
+              will go down but will not come back up. Limits that drifted are
+              a common cause. So is fabric catching at one end, a hem bar
+              that is not level, or a motor that is cutting out under load.
+              We watch a full up and down before we name the repair.
+            </p>
+          </article>
+          <article className="card card--note">
+            <h3>The shade runs uneven or tilts</h3>
+            <p>
+              One end drops faster than the other, the hem walks toward a
+              jamb, or the fabric telescopes on the tube. That is often a
+              mechanical problem, not a dead motor: a hem that bent, a
+              bracket that shifted, or cloth that has crept off the roll. We
+              correct the path when the fabric is still sound, then reset
+              travel so both ends stop together.
+            </p>
+          </article>
+          <article className="card card--note">
+            <h3>The motor is noisy</h3>
+            <p>
+              A motor that used to be quiet and now grinds, clicks, or
+              rattles is telling you something has changed. It may be a drive
+              that is wearing out, a tube that is no longer turning true, or
+              the shade binding in a track or against a stop. We listen at
+              the window and say whether the noise is the motor itself or
+              the path it is trying to move.
+            </p>
+          </article>
+          <article className="card card--note">
+            <h3>Limits have drifted, or power is the issue</h3>
+            <p>
+              Limits are the top and bottom stops the motor is supposed to
+              remember. When they drift, the shade may climb into the
+              cassette, stop short of the sill, or refuse to cover the
+              opening. Battery shades have a different first check: a wand,
+              a cassette pack, or a charger that is no longer doing its job.
+              Hardwired shades can have a loose connection or a supply that
+              has quit. We test power before we replace a motor.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section aria-labelledby="what-we-fix">
@@ -174,14 +292,15 @@ export default function MotorizedShadeRepairPage() {
             </p>
           </article>
           <article className="card card--note">
-            <h3>Battery wands</h3>
+            <h3>Battery wands and charging</h3>
             <p>
               Battery shades often hide the pack in a wand, a cassette, or a
               small panel at one end of the headrail. A shade that worked
-              yesterday and is dead today is sometimes only that pack. If you
-              know the shade is battery powered, say so when you call. If you
-              do not, we can usually tell from the headrail on site. We do not
-              ask you to take the shade down to find the wand.
+              yesterday and is dead today is sometimes only that pack, or a
+              charger that is no longer keeping it up. If you know the shade
+              is battery powered, say so when you call. If you do not, we can
+              usually tell from the headrail on site. We do not ask you to
+              take the shade down to find the wand.
             </p>
           </article>
           <article className="card card--note">
@@ -228,12 +347,12 @@ export default function MotorizedShadeRepairPage() {
           How a motorized shade repair visit works
         </h2>
         <p>
-          The visit starts at the window. We come to the house, watch what the
-          shade does, and check the remote, the power, and the travel. You get
-          an estimate for the shade in front of us. Work starts after you
-          approve that estimate. There is no published price for a motor, a
-          remote, or a limit reset, because two shades with the same symptom
-          can be different jobs.
+          The visit starts at the window. We come to the house, diagnose the
+          shade where it hangs, and test the motor, the remote, and the power
+          before we name a repair. You get an estimate for the shade in front
+          of us. Work starts after you approve that estimate. There is no
+          published price for a motor, a remote, or a limit reset, because two
+          shades with the same symptom can be different jobs.
         </p>
         <ol className="steps">
           <li>
@@ -241,19 +360,21 @@ export default function MotorizedShadeRepairPage() {
             Call or text {PHONE_DISPLAY}, or send the{" "}
             <Link href={quoteHref}>free estimate form</Link> and choose
             motorized / Somfy shade repair. Say whether the remote lights up,
-            and whether the shade hums, jerks, or stays dead. Brand helps if
-            you know it. You do not need a part number. Live help is every day
-            from 10 AM to 7 PM. A text after hours still gets a reply so we
-            can set a time.
+            and whether the shade hums, jerks, stalls partway, or stays dead.
+            Brand helps if you know it. You do not need a part number. Live
+            help is every day from 10 AM to 7 PM. A text after hours still
+            gets a reply so we can set a time.
           </li>
           <li>
-            <strong>We diagnose the shade on site.</strong> A photo helps us
-            schedule and decide what to put on the truck. It does not replace
-            standing under the opening. We note whether the shade is a roller,
-            a Roman, a solar screen, or a panel in side channels, and whether
-            one shade failed or a whole bank of them. Houses with wood shutters
-            in one room and a motor in another can put both on the same visit.
-            Shutter work is{" "}
+            <strong>We diagnose the shade on site and test it.</strong> A photo
+            helps us schedule and decide what to put on the truck. It does not
+            replace standing under the opening. We test the motor, the remote,
+            and the power, and we watch how the shade travels. We note whether
+            the shade is a roller, a Roman, a solar screen, or a panel in side
+            channels, and whether one shade failed or a whole bank of them.
+            Houses with wood shutters in one room and a motor in another can
+            put both on the same visit. Shutter work is on{" "}
+            <Link href="/shutter-repair">shutter repair</Link> and{" "}
             <Link href="/plantation-shutter-repair">
               plantation shutter repair
             </Link>
@@ -268,13 +389,21 @@ export default function MotorizedShadeRepairPage() {
             visit.
           </li>
           <li>
-            <strong>Repair happens when the part and the shade allow it.</strong>{" "}
+            <strong>We reprogram, repair, or replace the failed part.</strong>{" "}
             Many remote, pairing, battery, and limit problems can be finished
-            on the first visit when the shade only needs to be set again or the
-            part is already on the truck. If a motor or a remote has to be
-            matched or ordered, we say that before we leave and come back when
-            it is in. We do not promise that every opening will be done the day
-            you call.
+            on the first visit: we reprogram remotes and limits at the window,
+            or we repair or replace the part if it is already on the truck. If
+            a motor or a remote has to be matched or ordered, we say that
+            before we leave and come back when it is in. We do not promise
+            that every opening will be done the day you call.
+          </li>
+          <li>
+            <strong>We test the shade before we leave.</strong> When the work
+            is done, we run the shade through its travel, confirm the top and
+            bottom stops, and make sure the remote or wall control does what
+            it is supposed to do. You should see the shade work the way it is
+            meant to work before the visit ends. If a part is on order, we
+            test again on the return trip.
           </li>
         </ol>
       </section>
@@ -316,19 +445,13 @@ export default function MotorizedShadeRepairPage() {
       <section aria-labelledby="somfy-repair">
         <h2 id="somfy-repair">Somfy shade repair, from a repair shop</h2>
         <p>
-          Somfy is the motorized system Los Angeles homeowners ask us to repair
-          most often. The failures look like the list above: a remote that lost
-          pairing, a battery wand that died, limits the motor no longer
-          remembers, or a motor that stopped inside the tube. We repair that
-          operation at the window. The fabric is frequently still the right
-          shade for the room.
-        </p>
-        <p>
-          {SITE_NAME} is a repair shop. We are not a Somfy dealer, and we are
-          not an authorized dealer or factory partner. Naming the brand tells
-          you we can look at the system. It is not a badge and it is not a
-          showroom claim. The same disclaimer, and the other makers we repair,
-          are on <Link href="/partners">brands and systems we repair</Link>.
+          The Somfy failures we see most often are the ones already listed:
+          a remote that lost pairing, a battery wand that died, limits the
+          motor no longer remembers, or a motor that stopped inside the tube.
+          We repair that operation at the window. The fabric is frequently
+          still the right shade for the room. The not-a-dealer note, and the
+          other motors we repair, are in the brands section above and on{" "}
+          <Link href="/partners">brands and systems we repair</Link>.
         </p>
         <p>
           Hardwired Somfy shades and battery Somfy shades both come through
@@ -370,21 +493,27 @@ export default function MotorizedShadeRepairPage() {
           Motorized shade repair across the Valley and Los Angeles
         </h2>
         <p>
-          The office is in Sherman Oaks. The repair happens at your window.
-          Central Valley calls are often a condo or a remodel along Ventura
-          Boulevard, where a bedroom or a great room got a motorized roller.
-          Wider Valley houses mix those shades with older wood shutters. Santa
-          Monica condos and newer Santa Clarita builds see more motorized
-          systems than a typical ranch, and we still make the trip when the
-          drive is reasonable.
+          We work from a Sherman Oaks base and repair motorized shades on
+          site across the San Fernando Valley and greater Los Angeles. Central
+          Valley calls are often a condo or a remodel along Ventura Boulevard,
+          where a bedroom or a great room got a motorized roller. Wider Valley
+          houses mix those shades with older wood shutters. Santa Monica
+          condos and newer Santa Clarita builds see more motorized systems
+          than a typical ranch, and we still make the trip when the drive is
+          reasonable.
         </p>
         <p>
-          The cities below are the same coverage list used on our other service
-          pages: central Valley first, then the wider Valley, then greater Los
-          Angeles. Use a city page if you searched with a city name. This page
-          is for the type of repair, motorized shades and Somfy shade repair.
-          If your city is nearby and not named, call or text {PHONE_DISPLAY}{" "}
-          and we will say whether the drive is reasonable.
+          If you searched with a city name, start with the city page for{" "}
+          <Link href="/shutter-repair-sherman-oaks">Sherman Oaks</Link>,{" "}
+          <Link href="/shutter-repair-van-nuys">Van Nuys</Link>,{" "}
+          <Link href="/shutter-repair-los-angeles">Los Angeles</Link>, or{" "}
+          <Link href="/shutter-repair-santa-monica">Santa Monica</Link>. This
+          page is for the type of repair, motorized shades and Somfy shade
+          repair. The cities below are the same coverage list used on our
+          other service pages: central Valley first, then the wider Valley,
+          then greater Los Angeles. If your city is nearby and not named, call
+          or text {PHONE_DISPLAY} and we will say whether the drive is
+          reasonable.
         </p>
         <CityAreaGroups />
         <p>
