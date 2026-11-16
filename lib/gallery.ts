@@ -298,6 +298,86 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     width: 1600,
     height: 1200,
   },
+  {
+    filename: "motorized-black-roller-shade-repair.jpg",
+    src: "/images/gallery/motorized-black-roller-shade-repair.jpg",
+    alt: "Black motorized roller shade we repaired in a Los Angeles home",
+    caption: `${JOB}. Black motorized roller shade.`,
+    width: 1600,
+    height: 1200,
+  },
+  {
+    filename: "motorized-black-roller-shade-mid-position.jpg",
+    src: "/images/gallery/motorized-black-roller-shade-mid-position.jpg",
+    alt: "Black motorized roller shade stopped mid-drop over French doors in a Los Angeles home",
+    caption: `${JOB}. Black motorized roller shade mid-drop.`,
+    width: 1600,
+    height: 1200,
+  },
+  {
+    filename: "motorized-black-roller-shade-raised.jpg",
+    src: "/images/gallery/motorized-black-roller-shade-raised.jpg",
+    alt: "Black motorized roller shade raised to the cassette over French doors in a Los Angeles home",
+    caption: `${JOB}. Black motorized roller shade raised.`,
+    width: 1600,
+    height: 1200,
+  },
+  {
+    filename: "skylight-shade-partly-open.jpg",
+    src: "/images/gallery/skylight-shade-partly-open.jpg",
+    alt: "Skylight shade drawn partway across a ceiling well in a Los Angeles home",
+    caption: `${JOB}. Skylight shade partly open.`,
+    width: 1600,
+    height: 1200,
+  },
+  {
+    filename: "skylight-shade-closed.jpg",
+    src: "/images/gallery/skylight-shade-closed.jpg",
+    alt: "Skylight shade closed across a ceiling well in a Los Angeles home",
+    caption: `${JOB}. Skylight shade closed.`,
+    width: 1200,
+    height: 1600,
+  },
+  {
+    filename: "plantation-shutters-flanking-entry-doors.jpg",
+    src: "/images/gallery/plantation-shutters-flanking-entry-doors.jpg",
+    alt: "White plantation shutters flanking black entry doors in a Los Angeles home",
+    caption: `${JOB}. Plantation shutters beside entry doors.`,
+    width: 1200,
+    height: 1600,
+  },
+  {
+    filename: "tall-two-panel-plantation-shutters.jpg",
+    src: "/images/gallery/tall-two-panel-plantation-shutters.jpg",
+    alt: "Tall two-panel white plantation shutters on a window in a Los Angeles home",
+    caption: `${JOB}. Tall two-panel plantation shutters.`,
+    width: 1200,
+    height: 1600,
+  },
+  {
+    filename: "white-plantation-shutters-open-louvers.jpg",
+    src: "/images/gallery/white-plantation-shutters-open-louvers.jpg",
+    alt: "White plantation shutters with louvers open on a window in a Los Angeles home",
+    caption: `${JOB}. Plantation shutters with open louvers.`,
+    width: 1600,
+    height: 1200,
+  },
+  {
+    filename: "four-panel-plantation-shutters.jpg",
+    src: "/images/gallery/four-panel-plantation-shutters.jpg",
+    alt: "Four-panel white plantation shutters with mixed louver angles in a Los Angeles home",
+    caption: `${JOB}. Four-panel plantation shutters.`,
+    width: 1600,
+    height: 1200,
+  },
+  {
+    filename: "plantation-shutters-on-french-doors.jpg",
+    src: "/images/gallery/plantation-shutters-on-french-doors.jpg",
+    alt: "White plantation shutter panels on French doors in a Los Angeles home",
+    caption: `${JOB}. Plantation shutters on French doors.`,
+    width: 1600,
+    height: 1200,
+  },
 ];
 
 export const HOME_GALLERY_IMAGES = GALLERY_IMAGES;
@@ -308,7 +388,7 @@ const HOME_JOB_FILENAMES = [
   "roller-shades-french-doors.jpg",
 ] as const;
 
-/** Page-only hero photos. Looked up by JobFigure, not shown on /gallery. */
+/** Extra JobFigure lookups. Images listed only here are not shown on /gallery. */
 const PAGE_HERO_IMAGES: GalleryImage[] = [
   {
     filename: "motorized-black-roller-shade-repair.jpg",
