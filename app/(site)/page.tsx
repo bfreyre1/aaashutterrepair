@@ -203,6 +203,16 @@ export default function HomePage() {
                 and the fabric move again.
               </p>
             </Link>
+            <Link
+              href="/hunter-douglas-motorized-shade-repair"
+              className="card"
+            >
+              <h3>Hunter Douglas PowerView repair</h3>
+              <p>
+                PowerView programming, battery packs, remotes, and motors
+                repaired on site, as an independent shop.
+              </p>
+            </Link>
           </div>
         </section>
 

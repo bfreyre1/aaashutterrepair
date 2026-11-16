@@ -93,6 +93,9 @@ export function Footer() {
       </div>
       <p className="site-footer__legal">
         © {new Date().getFullYear()} {SITE_NAME}.
+        <br />
+        Independent repair business, not an authorized Hunter Douglas service
+        center.
       </p>
     </footer>
   );
