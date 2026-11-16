@@ -122,17 +122,17 @@ export default function HunterDouglasMotorizedShadeRepairPage() {
       </header>
 
       <PhotoRow
-        label="Repair job photos of cellular, roller, and motorized shades"
+        label="Repair job photos of motorized and roller shades"
         photos={[
           {
-            filename: "honeycomb-shade-sliding-door.jpg",
-            alt: "Honeycomb cellular shade partly lowered on a sliding glass door in a Los Angeles-area home. Real AAA Shutter Repair job photo.",
-            caption: "Honeycomb cellular shade on a sliding door. Real AAA Shutter Repair job photo.",
+            filename: "sheer-black-roller-shade-repair-1.jpg",
+            alt: "Sheer black roller shades lowered across a wide sliding glass door, with palm trees visible through the fabric. Real AAA Shutter Repair job photo.",
+            caption: "Sheer black roller shades on a sliding door. Real AAA Shutter Repair job photo.",
           },
           {
-            filename: "roller-shades-french-doors.jpg",
-            alt: "Two light roller shades lowered over French doors in a Los Angeles-area home. Real AAA Shutter Repair job photo.",
-            caption: "Roller shades on French doors. Real AAA Shutter Repair job photo.",
+            filename: "sheer-black-roller-shade-repair-7.jpg",
+            alt: "Sheer black roller shades rolled up on the left and lowered on the right of a sliding glass door. Real AAA Shutter Repair job photo.",
+            caption: "Sheer black roller shades at mixed heights. Real AAA Shutter Repair job photo.",
           },
           {
             filename: "motorized-black-roller-shade-repair.jpg",
