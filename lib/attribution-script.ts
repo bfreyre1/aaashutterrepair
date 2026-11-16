@@ -1,3 +1,5 @@
+import { ATTR_MAX_AGE_SECONDS } from "@/lib/attribution";
+
 /**
  * Inline boot script. Runs before hydration so a tel:/sms: tap on the first
  * paint still logs, and so the cookie exists before the quote form reads it.
@@ -8,6 +10,7 @@ export const ATTRIBUTION_BOOT_SCRIPT = `(function () {
   if (window.__aaaAttr) return;
   window.__aaaAttr = 1;
   var KEY = "aaa_attr";
+  var MAX_AGE_MS = ${ATTR_MAX_AGE_SECONDS * 1000};
   var FIELDS = ["gclid","gbraid","wbraid","utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
   function empty() {
     return { gclid: "", gbraid: "", wbraid: "", utm_source: "", utm_medium: "", utm_campaign: "", utm_term: "", utm_content: "", landing_page: "", first_seen_ts: "" };
@@ -25,8 +28,24 @@ export const ATTRIBUTION_BOOT_SCRIPT = `(function () {
     if (!raw) return null;
     try { return JSON.parse(raw); } catch (e) { return null; }
   }
+  function isFresh(record) {
+    if (!record) return false;
+    var exp = Date.parse(record.expires_ts || "");
+    if (!isNaN(exp)) return exp > Date.now();
+    var seen = Date.parse(record.first_seen_ts || "");
+    if (!isNaN(seen)) return Date.now() - seen < MAX_AGE_MS;
+    return false;
+  }
   function readLocal() {
-    try { return parse(localStorage.getItem(KEY)); } catch (e) { return null; }
+    try {
+      var parsed = parse(localStorage.getItem(KEY));
+      if (!parsed) return null;
+      if (!isFresh(parsed)) {
+        try { localStorage.removeItem(KEY); } catch (e2) {}
+        return null;
+      }
+      return parsed;
+    } catch (e) { return null; }
   }
   function readCookie() {
     var parts = (document.cookie || "").split(";");
@@ -73,8 +92,15 @@ export const ATTRIBUTION_BOOT_SCRIPT = `(function () {
   function write(record) {
     var json = JSON.stringify(record);
     var secure = location.protocol === "https:" ? "; Secure" : "";
-    document.cookie = KEY + "=" + encodeURIComponent(json) + "; Max-Age=7776000; Path=/; SameSite=Lax" + secure;
-    try { localStorage.setItem(KEY, json); } catch (e) {}
+    document.cookie = KEY + "=" + encodeURIComponent(json) + "; Max-Age=" + ${ATTR_MAX_AGE_SECONDS} + "; Path=/; SameSite=Lax" + secure;
+    try {
+      var local = {};
+      for (var k in record) {
+        if (Object.prototype.hasOwnProperty.call(record, k)) local[k] = record[k];
+      }
+      local.expires_ts = new Date(Date.now() + MAX_AGE_MS).toISOString();
+      localStorage.setItem(KEY, JSON.stringify(local));
+    } catch (e) {}
   }
   function capture() {
     var next = merge(merge(readLocal(), readCookie()), fromUrl());
