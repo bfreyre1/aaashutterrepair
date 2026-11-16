@@ -5,8 +5,10 @@ import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
 import { JobFigure } from "@/components/JobFigure";
+import { PhoneLink } from "@/components/PhoneLink";
+import { TextLink } from "@/components/TextLink";
 import { somfyPageFaq } from "@/lib/faq";
-import { PHONE_DISPLAY, PHONE_TEL, SHARE_IMAGE, absoluteUrl } from "@/lib/site";
+import { PHONE_DISPLAY, SHARE_IMAGE, absoluteUrl } from "@/lib/site";
 
 const title = "Somfy motorized shade repair in Los Angeles";
 const description =
@@ -134,8 +136,8 @@ export default function SomfyMotorizedShadeRepairFaqPage() {
       <section>
         <h2>How to ask for a look</h2>
         <p>
-          Call <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> or text a
-          photo of the shade and the remote to the same number. The{" "}
+          Call <PhoneLink placement="faq-somfy">{PHONE_DISPLAY}</PhoneLink> or{" "}
+          <TextLink placement="faq-somfy">text a photo of the shade and the remote to the same number</TextLink>. The{" "}
           <Link href="/get-a-quote?job=motorized">estimate form</Link> can be
           marked motorized / Somfy, and we text back to schedule. There is no
           published price for a motor, a remote, or a limit reset. The

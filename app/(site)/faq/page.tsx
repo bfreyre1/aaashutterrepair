@@ -6,6 +6,8 @@ import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
 import { JsonLd } from "@/components/JsonLd";
+import { PhoneLink } from "@/components/PhoneLink";
+import { TextLink } from "@/components/TextLink";
 import {
   faqCostItems,
   faqHubItems,
@@ -18,7 +20,6 @@ import {
   ADDRESS_DISPLAY,
   EMAIL,
   PHONE_DISPLAY,
-  PHONE_TEL,
   SHARE_IMAGE,
   absoluteUrl,
 } from "@/lib/site";
@@ -121,8 +122,9 @@ export default function FaqPage() {
       <section>
         <h2>How to reach us</h2>
         <p>
-          Call <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> or text the
-          same number. Email <a href={`mailto:${EMAIL}`}>{EMAIL}</a> if that
+          Call <PhoneLink placement="faq">{PHONE_DISPLAY}</PhoneLink> or{" "}
+          <TextLink placement="faq">text the same number</TextLink>. Email{" "}
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a> if that
           is easier. The <Link href="/get-a-quote">estimate form</Link> is
           built so we can text you back to schedule.
         </p>

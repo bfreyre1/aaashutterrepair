@@ -297,6 +297,31 @@ function safeDecode(value: string): string {
   }
 }
 
+/**
+ * localStorage TTL for aaa_attr. Prefers a stored expires_ts (written as
+ * now + 90 days on each save, matching the cookie Max-Age). Older entries
+ * without expires_ts fall back to first_seen_ts + 90 days. Cookie expiry
+ * stays with Max-Age and is not cleared here.
+ */
+export function isStoredAttributionFresh(
+  value: unknown,
+  now = Date.now(),
+): boolean {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+  const record = value as Record<string, unknown>;
+  const expires = cleanIso(record.expires_ts);
+  if (expires) {
+    return Date.parse(expires) > now;
+  }
+  const firstSeen = cleanIso(record.first_seen_ts);
+  if (firstSeen) {
+    return now - Date.parse(firstSeen) < ATTR_MAX_AGE_SECONDS * 1000;
+  }
+  return false;
+}
+
 /** Read the cookie and localStorage copy. Safe to call in the browser only. */
 export function readStoredAttribution(): Attribution {
   if (typeof window === "undefined") {
@@ -306,7 +331,12 @@ export function readStoredAttribution(): Attribution {
   try {
     const raw = window.localStorage.getItem(ATTR_COOKIE);
     if (raw) {
-      merged = mergeAttribution(merged, attributionFromUnknown(JSON.parse(raw)));
+      const parsed: unknown = JSON.parse(raw);
+      if (isStoredAttributionFresh(parsed)) {
+        merged = mergeAttribution(merged, attributionFromUnknown(parsed));
+      } else {
+        window.localStorage.removeItem(ATTR_COOKIE);
+      }
     }
   } catch {
     // Private mode or a broken value should not break the form.

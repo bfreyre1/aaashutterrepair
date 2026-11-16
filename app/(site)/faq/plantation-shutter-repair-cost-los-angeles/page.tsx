@@ -5,11 +5,12 @@ import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
 import { JobFigure } from "@/components/JobFigure";
+import { PhoneLink } from "@/components/PhoneLink";
+import { TextLink } from "@/components/TextLink";
 import { plantationCostPageFaq } from "@/lib/faq";
 import {
   ADDRESS_DISPLAY,
   PHONE_DISPLAY,
-  PHONE_TEL,
   SHARE_IMAGE,
   absoluteUrl,
 } from "@/lib/site";
@@ -77,8 +78,9 @@ export default function PlantationShutterRepairCostPage() {
           full replacement, and most plantation shutter jobs finish in one visit at
           the house. About 90% of plantation wood shutter jobs never leave the
           opening. Call{" "}
-          <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> or text the same
-          number, or use the{" "}
+          <PhoneLink placement="faq-plantation-cost">{PHONE_DISPLAY}</PhoneLink>{" "}
+          or <TextLink placement="faq-plantation-cost">text the same number</TextLink>,
+          or use the{" "}
           <Link href="/get-a-quote?job=plantation">estimate form</Link>.
         </p>
       </section>

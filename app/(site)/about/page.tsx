@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaButtons } from "@/components/CtaButtons";
+import { PhoneLink } from "@/components/PhoneLink";
 import { HoursLine } from "@/components/HoursLine";
 import { JobFigure } from "@/components/JobFigure";
 import {
   ADDRESS_DISPLAY,
   EMAIL,
   PHONE_DISPLAY,
-  PHONE_TEL,
   SHARE_IMAGE,
   absoluteUrl,
 } from "@/lib/site";
@@ -93,7 +93,7 @@ export default function AboutPage() {
       <section>
         <h2>How to reach us</h2>
         <p>
-          Call <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> or email{" "}
+          Call <PhoneLink placement="about">{PHONE_DISPLAY}</PhoneLink> or email{" "}
           <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. The office is{" "}
           {ADDRESS_DISPLAY}. The <Link href="/get-a-quote">estimate form</Link>{" "}
           is built so we can text you back to schedule. Submissions create an
