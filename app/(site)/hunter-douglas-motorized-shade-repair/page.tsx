@@ -5,7 +5,7 @@ import { CityAreaGroups } from "@/components/CityAreaGroups";
 import { CtaButtons } from "@/components/CtaButtons";
 import { FaqList } from "@/components/FaqList";
 import { HoursLine } from "@/components/HoursLine";
-import { JobFigure } from "@/components/JobFigure";
+import { PhotoRow } from "@/components/PhotoRow";
 import { LANDING_TRUST_CHIPS, TrustChips } from "@/components/TrustChips";
 import { JsonLd } from "@/components/JsonLd";
 import { TextLink } from "@/components/TextLink";
@@ -121,10 +121,25 @@ export default function HunterDouglasMotorizedShadeRepairPage() {
         <HoursLine />
       </header>
 
-      <JobFigure
-        filename="motorized-black-roller-shade-repair.jpg"
-        sizes="(max-width: 800px) 100vw, 720px"
-        priority
+      <PhotoRow
+        label="Repair job photos of motorized and roller shades"
+        photos={[
+          {
+            filename: "sheer-black-roller-shade-repair-1.jpg",
+            alt: "Sheer black roller shades lowered across a wide sliding glass door, with palm trees visible through the fabric. Real AAA Shutter Repair job photo.",
+            caption: "Sheer black roller shades on a sliding door. Real AAA Shutter Repair job photo.",
+          },
+          {
+            filename: "sheer-black-roller-shade-repair-7.jpg",
+            alt: "Sheer black roller shades rolled up on the left and lowered on the right of a sliding glass door. Real AAA Shutter Repair job photo.",
+            caption: "Sheer black roller shades at mixed heights. Real AAA Shutter Repair job photo.",
+          },
+          {
+            filename: "motorized-black-roller-shade-repair.jpg",
+            alt: "Black motorized roller shade we repaired in a Los Angeles home. Real AAA Shutter Repair job photo.",
+            caption: "Black motorized roller shade. Real AAA Shutter Repair job photo.",
+          },
+        ]}
       />
 
       <section aria-labelledby="hd-at-the-window">
