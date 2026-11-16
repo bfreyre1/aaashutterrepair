@@ -253,6 +253,14 @@ export default async function GetAQuotePage(
               shade before anyone talks about replacing the fabric.
             </p>
           </Link>
+          <Link href="/hunter-douglas-motorized-shade-repair" className="card">
+            <h3>Hunter Douglas PowerView repair</h3>
+            <p>
+              PowerView programming and re-pairing, a battery wand or pack, a
+              remote that will not work, or shades that are out of sync. We
+              diagnose the shade at the window.
+            </p>
+          </Link>
         </div>
         <p>
           Somfy is the motor we are asked to look at most often. A short

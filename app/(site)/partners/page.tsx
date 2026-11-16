@@ -73,6 +73,13 @@ export default function PartnersPage() {
           that at the window, then say whether a repair will hold. The visit
           itself is written up on{" "}
           <Link href="/motorized-shade-repair">Motorized / Somfy repair</Link>.
+          Hunter Douglas PowerView programming, battery packs, remotes, and
+          motors are on{" "}
+          <Link href="/hunter-douglas-motorized-shade-repair">
+            Hunter Douglas PowerView shade repair
+          </Link>
+          . We are an independent repair business, not an authorized Hunter
+          Douglas service center.
         </p>
       </section>
 

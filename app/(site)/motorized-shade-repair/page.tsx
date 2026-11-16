@@ -139,8 +139,12 @@ export default function MotorizedShadeRepairPage() {
           blinds and roller shades with no motor are on{" "}
           <Link href="/blind-and-shade-repair">blind and shade repair</Link>.
           Wood shutter work is on{" "}
-          <Link href="/shutter-repair">shutter repair</Link>. Longer answers
-          about remotes and limits are on{" "}
+          <Link href="/shutter-repair">shutter repair</Link>. Hunter Douglas
+          PowerView programming, battery packs, remotes, and motors are on{" "}
+          <Link href="/hunter-douglas-motorized-shade-repair">
+            Hunter Douglas PowerView shade repair
+          </Link>
+          . Longer answers about remotes and limits are on{" "}
           <Link href="/faq/somfy-motorized-shade-repair">
             Somfy motorized shade repair
           </Link>

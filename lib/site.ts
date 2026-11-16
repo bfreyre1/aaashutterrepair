@@ -180,6 +180,10 @@ export const SERVICE_LINKS: NavLink[] = [
   { href: "/plantation-shutter-repair", label: "Plantation shutters" },
   { href: "/blind-and-shade-repair", label: "Blind and shade repair" },
   { href: "/motorized-shade-repair", label: "Motorized / Somfy repair" },
+  {
+    href: "/hunter-douglas-motorized-shade-repair",
+    label: "Hunter Douglas PowerView repair",
+  },
 ];
 
 export const CITY_LINKS: CityLink[] = [
