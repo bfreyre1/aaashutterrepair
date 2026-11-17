@@ -109,7 +109,7 @@ export default function BlindAndShadeRepairPage() {
       </header>
 
       <JobFigure
-        filename="wood-blind-valance-wand.jpg"
+        filename="motorized-black-roller-shade-repair.jpg"
         sizes="(max-width: 800px) 100vw, 760px"
         priority
       />

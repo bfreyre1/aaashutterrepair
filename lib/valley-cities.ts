@@ -366,7 +366,7 @@ export const valleyCities: CityContent[] = [
   {
     id: "burbank",
     slug: "/shutter-repair-burbank",
-    jobPhoto: "white-plantation-shutters-bedroom-lamp.jpg",
+    jobPhoto: "roman-shade-mount.jpg",
     name: "Burbank",
     title: "Shutter Repair in Burbank | Magnolia Park to the Hills",
     description:
@@ -667,7 +667,7 @@ export const valleyCities: CityContent[] = [
   {
     id: "panorama-city",
     slug: "/shutter-repair-panorama-city",
-    jobPhoto: "white-plantation-shutter-louver.jpg",
+    jobPhoto: "roller-shade-hem-bar.jpg",
     name: "Panorama City",
     title: "Shutter Repair in Panorama City | On-Site Wood & Blind Repair",
     description:

@@ -96,7 +96,7 @@ export default function ShutterRepairPage() {
       </header>
 
       <JobFigure
-        filename="white-plantation-shutter-louver.jpg"
+        filename="living-room-window-white-plantation-shutters.jpg"
         sizes="(max-width: 800px) 100vw, 640px"
         priority
       />

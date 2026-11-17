@@ -56,8 +56,9 @@ export default function SomfyMotorizedShadeRepairFaqPage() {
       </header>
 
       <JobFigure
-        filename="roman-shade-mount.jpg"
+        filename="sheer-black-roller-shade-repair-7.jpg"
         sizes="(max-width: 800px) 100vw, 720px"
+        priority
       />
 
       <section>
